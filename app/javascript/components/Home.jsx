@@ -1,10 +1,12 @@
 import React, {useEffect,useState} from "react";
 import $ from 'jquery';
-//import {  Box,  Grid,  Heading,  Paragraph,  Page,  PageContent,  Text,  Button,  Image,  ThemeContext,} from 'grommet';
+import {  Paragraph, Tab, Tabs,Box} from 'grommet';
+import {RulesList} from "./module/RulesList";
 
 
 export default () => {
-
+const [index, setIndex] = useState();
+const onActive = nextIndex => setIndex(nextIndex);
 const [loading, setLoading] = useState(false);
 const [details, setDetails] = useState([]);
 
@@ -13,7 +15,21 @@ return (
   <div className="card-list">
     <div className="card-list-head">
 
-    
+    <Tabs activeIndex={index} onActive={onActive} justify="start">
+      {/*<Tab title="Sources">
+      <Box pad="medium">1</Box>
+      </Tab>*/}
+      <Tab title="Rules">
+      <Box pad="medium">
+      <RulesList/>
+      </Box>
+      </Tab>
+      <Tab title="Reports">
+      <Box pad="medium">
+      <span> Reports </span>
+      </Box>
+      </Tab>
+    </Tabs>
     
 
     </div>          

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'user_current', to: 'users#user_current'
+    post 'search_user', to: 'users#search_user'
   end
   
 

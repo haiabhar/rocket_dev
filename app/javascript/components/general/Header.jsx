@@ -3,13 +3,21 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import {  Box,  Button,  Header,  Keyboard,  ResponsiveContext,  Text,  TextInput, Menu, DropButton, Heading,} from 'grommet';
 import {  Chat,  Hpe,  Notification,  Search as SearchIcon,  User, FormClose, } from 'grommet-icons';
-
-
+import UserManagement from "../module/UserManagement";
 
 
 const PassParam = (props) => {
 
   const user = props.user;
+  var roleids  = [];
+  if(user)
+  {
+    roles = user.roles
+    if(roles)
+    {
+    roleids = roles.map(function (rl) { return rl['id']});
+    }
+  }
   const [open, setOpen] = useState();
   const onOpen = () => {
     setOpen(true);
@@ -32,7 +40,9 @@ const DropContent = ({ onClose }) => (
     <Box direction="row" justify="between" align="center">
       <Text>{user.email}</Text>
     </Box>
-   <Box direction="row" justify="between" align="center"><a href="/users"><Text>User Management</Text></a></Box>
+    { (roleids.includes(1) || roleids.includes(3) ) && 
+      <UserManagement user={user} />
+    }
 
     {/*<Box  direction="row" justify="between" align="center">
     <a href="destroy_user">Sign Out</a>
@@ -79,9 +89,8 @@ return(
         <Hpe color="brand" />
         <Box direction="row" gap="small" wrap>
           <Text color="text-strong" weight="bold">
-            HPE
           </Text>
-          <Text color="text-strong">{props.app_name}</Text>
+          <img src="rocket-logo.png" style={{ width : "120px"}} alt={props.app_name} />
         </Box>
       </Box>
     </Button>

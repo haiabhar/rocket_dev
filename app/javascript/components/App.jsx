@@ -4,7 +4,6 @@ import { AppContainer } from './themes/AppContainer';
 import { ContentArea } from './themes/ContentArea';
 import Header from "./general/Header";
 import Footer from "./general/Footer";
-import SideBar from "./general/SideBar";
 import Home from "../components/Home";
 
 export const App = () => {
@@ -35,7 +34,6 @@ useEffect(() => {
       <Page>
 
         <PageContent className="card mb-4" style={{height: "860px"}} gap="large">
-        <SideBar />
           {/*<PageHeader title={`Dashboard @ '${size}' Breakpoint`}     />*/}
           <Home />
         </PageContent>
