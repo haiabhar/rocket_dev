@@ -2,18 +2,22 @@ import React, { useContext, useState,useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {  Button,  Box,  DataTable,   Header,  Heading,  Layer,  ResponsiveContext,Text, CheckBox,  Form,  FormField,  Select,  TextArea,  TextInput, Tabs, RadioButtonGroup,CheckBoxGroup } from 'grommet';
 import { Close, Edit, Trash,Search } from 'grommet-icons';
+import QueryBuilder from "./QueryBuilder";
 const LayerForm = (props ) => {
 const setData = props.setData;
 const [loading, setLoading] = useState(false);
 const [form_errors, setform_errors] = useState("");
 const [rule_data, setruleData] = useState(props.rule_detail);
+
+const [mongo_query, setmongo_query] = useState();
+const [build_query, setbuild_query] = useState();
 useEffect(() => {
     //fetchData();
   }, []);
 
 const onSubmit = ({ value, touched }) => 
   { 
-    if(value.name && value.query_string && value.exact_match)
+    if(value.name && value.query_string && value.mongo_query)
     {
       setform_errors('');
       let csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
@@ -28,6 +32,8 @@ const onSubmit = ({ value, touched }) =>
         .then((response) => response.json())
         .then((data) => {
           setData(data);
+          setmongo_query(data.mongo_query);
+          setbuild_query(data.build_query);
           props.setOpen(false);
           setLoading(false);
         })
@@ -45,10 +51,10 @@ const onSubmit = ({ value, touched }) =>
     {
       setform_errors('Please provide query string');
     }
-    else if(!value.exact_match)
-    {
-      setform_errors('Please provide exact match');
-    }
+    // else if(!value.mongo_query)
+    // {
+    //   setform_errors('Please provide exact match');
+    // }
     else
     { 
       setform_errors('Please provide some inputs');      
@@ -86,11 +92,9 @@ const updateText = e =>
               <TextInput id="query_string" name="query_string" value={rule_data.query_string} onChange={(e) => updateText(e)} />
             </FormField>
           </div>
-          <div className="col-md-12">
-            <FormField label="Exact Match" htmlFor="exact_match" >
-              <TextInput id="exact_match" name="exact_match" value={rule_data.exact_match} onChange={(e) => updateText(e)} />
-            </FormField>
-          </div>
+          <TextInput id="mongo_query" type="hidden" name="mongo_query" value={mongo_query}  /> 
+          <TextInput id="build_query" type="hidden" name="build_query" value={build_query}  /> 
+          <QueryBuilder setmongo_query={setmongo_query} setbuild_query={setbuild_query} build_query={rule_data.build_query} />
 
 
           

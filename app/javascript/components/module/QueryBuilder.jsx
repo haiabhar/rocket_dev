@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component,useState} from 'react';
 import { Utils as QbUtils, Query, Builder, BasicConfig } from '@react-awesome-query-builder/ui';
 import '@react-awesome-query-builder/ui/css/styles.css';
 //import '@react-awesome-query-builder/ui/css/compact_styles.css';
@@ -56,25 +56,10 @@ const config = {
 // You can load query value from your backend storage (for saving see `Query.onChange()`)
 const queryValue = {"id": QbUtils.uuid(), "type": "group"};
 
-
-class QueryBuilder extends Component {
-  state = {
-    tree: QbUtils.checkTree(QbUtils.loadTree(queryValue), config),
-    config: config
-  };
-  
-  render = () => (
-    <div>
-      <Query
-        {...config} 
-        value={this.state.tree}
-        onChange={this.onChange}
-        renderBuilder={this.renderBuilder}
-      />
-      {this.renderResult(this.state)}
-    </div>
-  )
-
+//class QueryBuilder extends Component {
+const QueryBuilder = (props) => {
+const newQueryValue = props.build_query ? JSON.parse(props.build_query) : queryValue;
+const [state, setState] = useState({tree: QbUtils.checkTree(QbUtils.loadTree(newQueryValue), config), config: config });
   renderBuilder = (props) => (
     <div className="col-md-12">
       <label>Rule Builder</label>
@@ -85,7 +70,7 @@ class QueryBuilder extends Component {
   renderResult = ({tree: immutableTree, config}) => (
     <div className="query-builder-result">
       <div>Query string: <pre>{JSON.stringify(QbUtils.queryString(immutableTree, config))}</pre></div>
-      <div>MongoDb query: <pre>{JSON.stringify(QbUtils.mongodbFormat(immutableTree, config))}</pre></div>
+      {/*<div>MongoDb query: <pre>{JSON.stringify(QbUtils.mongodbFormat(immutableTree, config))}</pre></div>*/}
       {/*<div>SQL where: <pre>{JSON.stringify(QbUtils.sqlFormat(immutableTree, config))}</pre></div>*/}
       {/*<div>JsonLogic: <pre>{JSON.stringify(QbUtils.jsonLogicFormat(immutableTree, config))}</pre></div>*/}
     </div>
@@ -93,11 +78,30 @@ class QueryBuilder extends Component {
   
   onChange = (immutableTree, config) => {
     // Tip: for better performance you can apply `throttle` - see `examples/demo`
-    this.setState({tree: immutableTree, config: config});
+    setState({tree: immutableTree, config: config});
 
     const jsonTree = QbUtils.getTree(immutableTree);
-    console.log(jsonTree);
+    //console.log(jsonTree);
+    props.setbuild_query(JSON.stringify(jsonTree));
+    const mongo_qry = JSON.stringify(QbUtils.mongodbFormat(immutableTree, config));
+    if(mongo_qry)
+    {
+    props.setmongo_query(mongo_qry);
+    }
     // `jsonTree` can be saved to backend, and later loaded to `queryValue`
   }
+  return (
+    <div>
+      <Query
+        {...config} 
+        value={state.tree}
+        onChange={onChange}
+        renderBuilder={renderBuilder}
+      />
+      {renderResult(state)}
+    </div>
+  )
+
+  
 }
 export default QueryBuilder;

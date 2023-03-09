@@ -1668,7 +1668,7 @@
             }
             return dispatcher.useContext(Context2);
           }
-          function useState48(initialState) {
+          function useState49(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -2470,7 +2470,7 @@
           exports.useMemo = useMemo24;
           exports.useReducer = useReducer3;
           exports.useRef = useRef26;
-          exports.useState = useState48;
+          exports.useState = useState49;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -30441,7 +30441,7 @@
         }, [data, itemsBeginIndex, itemsEndIndex]);
         var paginationProps = _extends88({
           numberItems: data && data.length,
-          onChange: function onChange(event) {
+          onChange: function onChange2(event) {
             return setActivePage(event.page);
           },
           page: activePage,
@@ -65499,7 +65499,7 @@
     }, [data, itemsBeginIndex, itemsEndIndex]);
     var paginationProps = _extends2({
       numberItems: data && data.length,
-      onChange: function onChange(event) {
+      onChange: function onChange2(event) {
         return setActivePage(event.page);
       },
       page: activePage,
@@ -71141,7 +71141,7 @@
   };
   var Pagination = /* @__PURE__ */ (0, import_react33.forwardRef)(function(_ref, ref) {
     var _ref2;
-    var a11yTitle = _ref.a11yTitle, ariaLabel = _ref["aria-label"], numberItems = _ref.numberItems, _ref$numberEdgePages = _ref.numberEdgePages, numberEdgePages = _ref$numberEdgePages === void 0 ? 1 : _ref$numberEdgePages, _ref$numberMiddlePage = _ref.numberMiddlePages, numberMiddlePagesProp = _ref$numberMiddlePage === void 0 ? 3 : _ref$numberMiddlePage, onChange = _ref.onChange, pageProp = _ref.page, size = _ref.size, stepProp = _ref.step, rest = _objectWithoutPropertiesLoose15(_ref, _excluded15);
+    var a11yTitle = _ref.a11yTitle, ariaLabel = _ref["aria-label"], numberItems = _ref.numberItems, _ref$numberEdgePages = _ref.numberEdgePages, numberEdgePages = _ref$numberEdgePages === void 0 ? 1 : _ref$numberEdgePages, _ref$numberMiddlePage = _ref.numberMiddlePages, numberMiddlePagesProp = _ref$numberMiddlePage === void 0 ? 3 : _ref$numberMiddlePage, onChange2 = _ref.onChange, pageProp = _ref.page, size = _ref.size, stepProp = _ref.step, rest = _objectWithoutPropertiesLoose15(_ref, _excluded15);
     var theme = (0, import_react33.useContext)(import_styled_components26.ThemeContext) || defaultProps2.theme;
     var _useContext = (0, import_react33.useContext)(DataContext), onView = _useContext.onView, filteredTotal = _useContext.filteredTotal, view = _useContext.view;
     var step = stepProp || (view == null ? void 0 : view.step) || 10;
@@ -71195,14 +71195,14 @@
         onView(_extends28({}, view, {
           page: nextPage
         }));
-      if (onChange) {
+      if (onChange2) {
         event.persist();
         var adjustedEvent = event;
         adjustedEvent.page = nextPage;
         var _getItemIndices = getItemIndices(nextPage), startIndex = _getItemIndices.startIndex, endIndex = _getItemIndices.endIndex;
         adjustedEvent.startIndex = startIndex;
         adjustedEvent.endIndex = endIndex;
-        onChange(adjustedEvent);
+        onChange2(adjustedEvent);
       }
     };
     var NextIcon = theme.pagination.icons.next;
@@ -71650,7 +71650,7 @@
         if (_onBlur)
           _onBlur(event);
       },
-      onChange: function onChange(event) {
+      onChange: function onChange2(event) {
         setChecked(event.target.checked);
         if (_onChange)
           _onChange(event);
@@ -71750,7 +71750,7 @@
     return target;
   }
   var CheckBoxGroup = /* @__PURE__ */ (0, import_react38.forwardRef)(function(_ref, ref) {
-    var children = _ref.children, defaultValue6 = _ref.defaultValue, valueProp = _ref.value, disabledProp = _ref.disabled, _ref$focusIndicator = _ref.focusIndicator, focusIndicator = _ref$focusIndicator === void 0 ? true : _ref$focusIndicator, gap = _ref.gap, labelKey = _ref.labelKey, valueKey = _ref.valueKey, onChange = _ref.onChange, optionsProp = _ref.options, name = _ref.name, rest = _objectWithoutPropertiesLoose17(_ref, _excluded17);
+    var children = _ref.children, defaultValue6 = _ref.defaultValue, valueProp = _ref.value, disabledProp = _ref.disabled, _ref$focusIndicator = _ref.focusIndicator, focusIndicator = _ref$focusIndicator === void 0 ? true : _ref$focusIndicator, gap = _ref.gap, labelKey = _ref.labelKey, valueKey = _ref.valueKey, onChange2 = _ref.onChange, optionsProp = _ref.options, name = _ref.name, rest = _objectWithoutPropertiesLoose17(_ref, _excluded17);
     var formContext = (0, import_react38.useContext)(FormContext);
     var theme = (0, import_react38.useContext)(import_styled_components31.ThemeContext) || defaultProps.theme;
     var options2 = optionsProp.map(function(option) {
@@ -71773,12 +71773,12 @@
       else
         nextValue.splice(optionIndex, 1);
       setValue3(nextValue);
-      if (onChange) {
+      if (onChange2) {
         event.persist();
         var adjustedEvent = event;
         adjustedEvent.value = nextValue;
         adjustedEvent.option = option;
-        onChange(adjustedEvent);
+        onChange2(adjustedEvent);
       }
     };
     return /* @__PURE__ */ import_react38.default.createElement(StyledCheckBoxGroup, _extends30({
@@ -71811,7 +71811,7 @@
         checked,
         focusIndicator,
         label,
-        onChange: function onChange2(event) {
+        onChange: function onChange3(event) {
           return onCheckBoxChange(event, valueOption, optionProps);
         }
       }), children ? function(state) {
@@ -71965,7 +71965,7 @@
     return target;
   }
   var RadioButton = /* @__PURE__ */ (0, import_react39.forwardRef)(function(_ref, ref) {
-    var a11yTitle = _ref.a11yTitle, checked = _ref.checked, children = _ref.children, disabled = _ref.disabled, focus = _ref.focus, focusIndicator = _ref.focusIndicator, id = _ref.id, label = _ref.label, name = _ref.name, onChange = _ref.onChange, rest = _objectWithoutPropertiesLoose18(_ref, _excluded18);
+    var a11yTitle = _ref.a11yTitle, checked = _ref.checked, children = _ref.children, disabled = _ref.disabled, focus = _ref.focus, focusIndicator = _ref.focusIndicator, id = _ref.id, label = _ref.label, name = _ref.name, onChange2 = _ref.onChange, rest = _objectWithoutPropertiesLoose18(_ref, _excluded18);
     var theme = (0, import_react39.useContext)(import_styled_components33.ThemeContext) || defaultProps2.theme;
     var _useState = (0, import_react39.useState)(), hover = _useState[0], setHover = _useState[1];
     var normalizedLabel = typeof label === "string" ? /* @__PURE__ */ import_react39.default.createElement(StyledRadioButtonLabel, null, label) : label;
@@ -72007,7 +72007,7 @@
       name,
       checked,
       disabled,
-      onChange
+      onChange: onChange2
     }))), children ? children({
       checked,
       focus: focus && focusIndicator,
@@ -72179,7 +72179,7 @@
         value: optionValue,
         onFocus,
         onBlur,
-        onChange: function onChange(event) {
+        onChange: function onChange2(event) {
           setValue3(optionValue);
           if (_onChange)
             _onChange(event);
@@ -72359,7 +72359,7 @@
   };
   var TextInput = /* @__PURE__ */ (0, import_react41.forwardRef)(function(_ref, ref) {
     var _inputRef$current;
-    var a11yTitle = _ref.a11yTitle, defaultSuggestion = _ref.defaultSuggestion, defaultValue6 = _ref.defaultValue, _ref$dropAlign = _ref.dropAlign, dropAlign = _ref$dropAlign === void 0 ? defaultDropAlign : _ref$dropAlign, dropHeight = _ref.dropHeight, dropTarget = _ref.dropTarget, dropProps2 = _ref.dropProps, _ref$focusIndicator = _ref.focusIndicator, focusIndicator = _ref$focusIndicator === void 0 ? true : _ref$focusIndicator, icon = _ref.icon, id = _ref.id, messages = _ref.messages, name = _ref.name, _onBlur = _ref.onBlur, onChange = _ref.onChange, _onFocus = _ref.onFocus, onKeyDown = _ref.onKeyDown, onSelect = _ref.onSelect, onSuggestionSelect = _ref.onSuggestionSelect, onSuggestionsClose = _ref.onSuggestionsClose, onSuggestionsOpen = _ref.onSuggestionsOpen, placeholder = _ref.placeholder, plain = _ref.plain, readOnly = _ref.readOnly, reverse = _ref.reverse, suggestions = _ref.suggestions, textAlign = _ref.textAlign, valueProp = _ref.value, rest = _objectWithoutPropertiesLoose20(_ref, _excluded20);
+    var a11yTitle = _ref.a11yTitle, defaultSuggestion = _ref.defaultSuggestion, defaultValue6 = _ref.defaultValue, _ref$dropAlign = _ref.dropAlign, dropAlign = _ref$dropAlign === void 0 ? defaultDropAlign : _ref$dropAlign, dropHeight = _ref.dropHeight, dropTarget = _ref.dropTarget, dropProps2 = _ref.dropProps, _ref$focusIndicator = _ref.focusIndicator, focusIndicator = _ref$focusIndicator === void 0 ? true : _ref$focusIndicator, icon = _ref.icon, id = _ref.id, messages = _ref.messages, name = _ref.name, _onBlur = _ref.onBlur, onChange2 = _ref.onChange, _onFocus = _ref.onFocus, onKeyDown = _ref.onKeyDown, onSelect = _ref.onSelect, onSuggestionSelect = _ref.onSuggestionSelect, onSuggestionsClose = _ref.onSuggestionsClose, onSuggestionsOpen = _ref.onSuggestionsOpen, placeholder = _ref.placeholder, plain = _ref.plain, readOnly = _ref.readOnly, reverse = _ref.reverse, suggestions = _ref.suggestions, textAlign = _ref.textAlign, valueProp = _ref.value, rest = _objectWithoutPropertiesLoose20(_ref, _excluded20);
     var theme = (0, import_react41.useContext)(import_styled_components36.ThemeContext) || defaultProps2.theme;
     var _useContext = (0, import_react41.useContext)(MessageContext), format4 = _useContext.format;
     var announce = (0, import_react41.useContext)(AnnounceContext);
@@ -72634,8 +72634,8 @@
         }
         setValue3(event.target.value);
         setActiveSuggestionIndex(resetSuggestionIndex);
-        if (onChange)
-          onChange(event);
+        if (onChange2)
+          onChange2(event);
       }
     }))), drop);
   });
@@ -72784,7 +72784,7 @@
       plain: true
     } : {
       value,
-      onChange: function onChange(event) {
+      onChange: function onChange2(event) {
         setValue3(event.value !== void 0 ? event.value : event.target.value);
         if (_onChange)
           _onChange(event);
@@ -72812,7 +72812,7 @@
     return setFunc3;
   };
   var FormField = /* @__PURE__ */ (0, import_react42.forwardRef)(function(_ref3, ref) {
-    var children = _ref3.children, className = _ref3.className, component = _ref3.component, contentProps = _ref3.contentProps, disabled = _ref3.disabled, errorProp = _ref3.error, help = _ref3.help, htmlFor = _ref3.htmlFor, infoProp = _ref3.info, label = _ref3.label, margin = _ref3.margin, name = _ref3.name, _onBlur = _ref3.onBlur, onChange = _ref3.onChange, _onFocus = _ref3.onFocus, pad = _ref3.pad, required = _ref3.required, style = _ref3.style, validate3 = _ref3.validate, rest = _objectWithoutPropertiesLoose21(_ref3, _excluded32);
+    var children = _ref3.children, className = _ref3.className, component = _ref3.component, contentProps = _ref3.contentProps, disabled = _ref3.disabled, errorProp = _ref3.error, help = _ref3.help, htmlFor = _ref3.htmlFor, infoProp = _ref3.info, label = _ref3.label, margin = _ref3.margin, name = _ref3.name, _onBlur = _ref3.onBlur, onChange2 = _ref3.onChange, _onFocus = _ref3.onFocus, pad = _ref3.pad, required = _ref3.required, style = _ref3.style, validate3 = _ref3.validate, rest = _objectWithoutPropertiesLoose21(_ref3, _excluded32);
     var theme = (0, import_react42.useContext)(import_styled_components37.ThemeContext) || defaultProps2.theme;
     var formContext = (0, import_react42.useContext)(FormContext);
     var _formContext$useFormF = formContext.useFormField({
@@ -72988,10 +72988,10 @@
         if (_onBlur)
           _onBlur(event);
       },
-      onChange: contextOnChange || onChange ? function(event) {
+      onChange: contextOnChange || onChange2 ? function(event) {
         event.persist();
-        if (onChange)
-          onChange(event);
+        if (onChange2)
+          onChange2(event);
         if (contextOnChange)
           debounce3(function() {
             return function() {
@@ -73201,7 +73201,7 @@
     componentId: "sc-siof5p-0"
   })(["user-select:none;"]);
   var RangeSelector = /* @__PURE__ */ (0, import_react44.forwardRef)(function(_ref, ref) {
-    var color = _ref.color, _ref$defaultValues = _ref.defaultValues, defaultValues = _ref$defaultValues === void 0 ? [] : _ref$defaultValues, _ref$direction = _ref.direction, direction = _ref$direction === void 0 ? "horizontal" : _ref$direction, invert = _ref.invert, label = _ref.label, _ref$max = _ref.max, max2 = _ref$max === void 0 ? 100 : _ref$max, messages = _ref.messages, _ref$min = _ref.min, min2 = _ref$min === void 0 ? 0 : _ref$min, name = _ref.name, onChange = _ref.onChange, _ref$opacity = _ref.opacity, opacity = _ref$opacity === void 0 ? "medium" : _ref$opacity, round2 = _ref.round, _ref$size = _ref.size, size = _ref$size === void 0 ? "medium" : _ref$size, _ref$step = _ref.step, step = _ref$step === void 0 ? 1 : _ref$step, valuesProp = _ref.values, rest = _objectWithoutPropertiesLoose23(_ref, _excluded27);
+    var color = _ref.color, _ref$defaultValues = _ref.defaultValues, defaultValues = _ref$defaultValues === void 0 ? [] : _ref$defaultValues, _ref$direction = _ref.direction, direction = _ref$direction === void 0 ? "horizontal" : _ref$direction, invert = _ref.invert, label = _ref.label, _ref$max = _ref.max, max2 = _ref$max === void 0 ? 100 : _ref$max, messages = _ref.messages, _ref$min = _ref.min, min2 = _ref$min === void 0 ? 0 : _ref$min, name = _ref.name, onChange2 = _ref.onChange, _ref$opacity = _ref.opacity, opacity = _ref$opacity === void 0 ? "medium" : _ref$opacity, round2 = _ref.round, _ref$size = _ref.size, size = _ref$size === void 0 ? "medium" : _ref$size, _ref$step = _ref.step, step = _ref$step === void 0 ? 1 : _ref$step, valuesProp = _ref.values, rest = _objectWithoutPropertiesLoose23(_ref, _excluded27);
     var theme = (0, import_react44.useContext)(import_styled_components39.ThemeContext) || defaultProps.theme;
     var _useContext = (0, import_react44.useContext)(MessageContext), format4 = _useContext.format;
     var formContext = (0, import_react44.useContext)(FormContext);
@@ -73222,9 +73222,9 @@
     }), values = _formContext$useFormI[0], setValues = _formContext$useFormI[1];
     var change = (0, import_react44.useCallback)(function(nextValues) {
       setValues(nextValues);
-      if (onChange)
-        onChange(nextValues);
-    }, [onChange, setValues]);
+      if (onChange2)
+        onChange2(nextValues);
+    }, [onChange2, setValues]);
     var valueForMouseCoord = (0, import_react44.useCallback)(function(event) {
       var rect = containerRef.current.getBoundingClientRect();
       var value;
@@ -73859,7 +73859,7 @@
   // node_modules/grommet/es6/components/SelectMultiple/SelectionSummary.js
   var import_react48 = __toESM(require_react());
   var SelectionSummary = function SelectionSummary2(_ref) {
-    var allOptions = _ref.allOptions, clearRef = _ref.clearRef, disabled = _ref.disabled, disabledKey = _ref.disabledKey, isSelected = _ref.isSelected, labelKey = _ref.labelKey, limit = _ref.limit, onChange = _ref.onChange, onMore = _ref.onMore, options2 = _ref.options, search = _ref.search, setActiveIndex = _ref.setActiveIndex, showSelectedInline = _ref.showSelectedInline, value = _ref.value, valueKey = _ref.valueKey;
+    var allOptions = _ref.allOptions, clearRef = _ref.clearRef, disabled = _ref.disabled, disabledKey = _ref.disabledKey, isSelected = _ref.isSelected, labelKey = _ref.labelKey, limit = _ref.limit, onChange2 = _ref.onChange, onMore = _ref.onMore, options2 = _ref.options, search = _ref.search, setActiveIndex = _ref.setActiveIndex, showSelectedInline = _ref.showSelectedInline, value = _ref.value, valueKey = _ref.valueKey;
     var isDisabled2 = useDisabled(disabled, disabledKey, options2, valueKey || labelKey);
     var selectedValuesDisabled = (0, import_react48.useCallback)(function() {
       var disabledSelected = 0;
@@ -73881,7 +73881,7 @@
     var showSelectAll = !!((value == null ? void 0 : value.length) === 0 || selectedValuesDisabled() || !value || selectedInSearch().length === 0);
     var summaryText = (value == null ? void 0 : value.length) === 0 || onMore || !value || search !== "" && search !== void 0 ? ((value == null ? void 0 : value.length) || 0) + " selected" : ((value == null ? void 0 : value.length) || 0) + " selected of " + options2.length;
     var summaryButtonClick = function summaryButtonClick2(event) {
-      if (onChange) {
+      if (onChange2) {
         var nextSelected = options2.filter(function(i, index) {
           return showSelectAll ? !isDisabled2(index) || isSelected(index) : isDisabled2(index) && isSelected(index);
         });
@@ -73899,7 +73899,7 @@
         var nextValue = nextSelected.map(function(i) {
           return valueKey && valueKey.reduce ? applyKey(i, valueKey) : i;
         });
-        onChange(event, {
+        onChange2(event, {
           option: options2,
           value: nextValue,
           selected: nextSelected
@@ -73984,7 +73984,7 @@
   }
   var SelectMultipleContainer = /* @__PURE__ */ (0, import_react50.forwardRef)(function(_ref, ref) {
     var _optionsRef$current;
-    var allOptions = _ref.allOptions, _ref$children = _ref.children, children = _ref$children === void 0 ? null : _ref$children, disabledProp = _ref.disabled, disabledKey = _ref.disabledKey, dropHeight = _ref.dropHeight, _ref$emptySearchMessa = _ref.emptySearchMessage, emptySearchMessage = _ref$emptySearchMessa === void 0 ? "No matches found" : _ref$emptySearchMessa, help = _ref.help, id = _ref.id, labelKey = _ref.labelKey, limit = _ref.limit, onChange = _ref.onChange, onClose = _ref.onClose, onKeyDown = _ref.onKeyDown, onMore = _ref.onMore, onSearch = _ref.onSearch, optionIndexesInValue = _ref.optionIndexesInValue, options2 = _ref.options, _ref$replace = _ref.replace, replace = _ref$replace === void 0 ? true : _ref$replace, searchPlaceholder = _ref.searchPlaceholder, search = _ref.search, setSearch = _ref.setSearch, usingKeyboard = _ref.usingKeyboard, _ref$value = _ref.value, value = _ref$value === void 0 ? [] : _ref$value, valueKey = _ref.valueKey, showSelectedInline = _ref.showSelectedInline;
+    var allOptions = _ref.allOptions, _ref$children = _ref.children, children = _ref$children === void 0 ? null : _ref$children, disabledProp = _ref.disabled, disabledKey = _ref.disabledKey, dropHeight = _ref.dropHeight, _ref$emptySearchMessa = _ref.emptySearchMessage, emptySearchMessage = _ref$emptySearchMessa === void 0 ? "No matches found" : _ref$emptySearchMessa, help = _ref.help, id = _ref.id, labelKey = _ref.labelKey, limit = _ref.limit, onChange2 = _ref.onChange, onClose = _ref.onClose, onKeyDown = _ref.onKeyDown, onMore = _ref.onMore, onSearch = _ref.onSearch, optionIndexesInValue = _ref.optionIndexesInValue, options2 = _ref.options, _ref$replace = _ref.replace, replace = _ref$replace === void 0 ? true : _ref$replace, searchPlaceholder = _ref.searchPlaceholder, search = _ref.search, setSearch = _ref.setSearch, usingKeyboard = _ref.usingKeyboard, _ref$value = _ref.value, value = _ref$value === void 0 ? [] : _ref$value, valueKey = _ref.valueKey, showSelectedInline = _ref.showSelectedInline;
     var theme = (0, import_react50.useContext)(import_styled_components41.ThemeContext) || defaultProps2.theme;
     var _useState = (0, import_react50.useState)(-1), activeIndex = _useState[0], setActiveIndex = _useState[1];
     var _useState2 = (0, import_react50.useState)(usingKeyboard), keyboardNavigation = _useState2[0], setKeyboardNavigation = _useState2[1];
@@ -74047,7 +74047,7 @@
     }, [value, valueKey, options2, labelKey]);
     var selectOption = (0, import_react50.useCallback)(function(index) {
       return function(event) {
-        if (onChange) {
+        if (onChange2) {
           var nextOptionIndexesInValue = optionIndexesInValue.slice(0);
           var allOptionsIndex = getOptionIndex(allOptions, options2[index], valueKey || labelKey);
           var valueIndex = optionIndexesInValue.indexOf(allOptionsIndex);
@@ -74060,14 +74060,14 @@
             return valueKey && valueKey.reduce ? applyKey(allOptions[i], valueKey) : allOptions[i];
           });
           var nextSelected = nextOptionIndexesInValue;
-          onChange(event, {
+          onChange2(event, {
             option: options2[index],
             value: nextValue,
             selected: nextSelected
           });
         }
       };
-    }, [labelKey, limit, onChange, optionIndexesInValue, options2, allOptions, valueKey, value]);
+    }, [labelKey, limit, onChange2, optionIndexesInValue, options2, allOptions, valueKey, value]);
     var onNextOption = (0, import_react50.useCallback)(function(event) {
       event.preventDefault();
       var nextActiveIndex = activeIndex + 1;
@@ -74175,7 +74175,7 @@
       isSelected,
       labelKey,
       limit,
-      onChange,
+      onChange: onChange2,
       onMore,
       options: options2,
       search,
@@ -74228,7 +74228,7 @@
       type: "search",
       value: search || "",
       placeholder: searchPlaceholder,
-      onChange: function onChange2(event) {
+      onChange: function onChange3(event) {
         var nextSearch = event.target.value;
         setSearch(nextSearch);
         setActiveIndex(-1);
@@ -74546,7 +74546,7 @@
   StyledSelectDropButton.defaultProps = {};
   Object.setPrototypeOf(StyledSelectDropButton.defaultProps, defaultProps2);
   var SelectMultiple = /* @__PURE__ */ (0, import_react52.forwardRef)(function(_ref, ref) {
-    var a11yTitle = _ref.a11yTitle, ariaLabel = _ref["aria-label"], alignSelf = _ref.alignSelf, children = _ref.children, defaultValue6 = _ref.defaultValue, disabled = _ref.disabled, disabledKey = _ref.disabledKey, dropAlign = _ref.dropAlign, dropHeight = _ref.dropHeight, dropProps2 = _ref.dropProps, dropTarget = _ref.dropTarget, emptySearchMessage = _ref.emptySearchMessage, focusIndicator = _ref.focusIndicator, gridArea = _ref.gridArea, help = _ref.help, id = _ref.id, icon = _ref.icon, labelKey = _ref.labelKey, limit = _ref.limit, margin = _ref.margin, messages = _ref.messages, name = _ref.name, onBlur = _ref.onBlur, onChange = _ref.onChange, onClick = _ref.onClick, onClose = _ref.onClose, onFocus = _ref.onFocus, onKeyDown = _ref.onKeyDown, onMore = _ref.onMore, onOpen = _ref.onOpen, onSearch = _ref.onSearch, openProp = _ref.open, optionsProp = _ref.options, placeholder = _ref.placeholder, plain = _ref.plain, replace = _ref.replace, searchPlaceholder = _ref.searchPlaceholder, size = _ref.size, _ref$sortSelectedOnCl = _ref.sortSelectedOnClose, sortSelectedOnClose = _ref$sortSelectedOnCl === void 0 ? true : _ref$sortSelectedOnCl, valueProp = _ref.value, valueKey = _ref.valueKey, valueLabel = _ref.valueLabel, _ref$showSelectedInli = _ref.showSelectedInline, showSelectedInline = _ref$showSelectedInli === void 0 ? false : _ref$showSelectedInli, width = _ref.width, rest = _objectWithoutPropertiesLoose26(_ref, _excluded30);
+    var a11yTitle = _ref.a11yTitle, ariaLabel = _ref["aria-label"], alignSelf = _ref.alignSelf, children = _ref.children, defaultValue6 = _ref.defaultValue, disabled = _ref.disabled, disabledKey = _ref.disabledKey, dropAlign = _ref.dropAlign, dropHeight = _ref.dropHeight, dropProps2 = _ref.dropProps, dropTarget = _ref.dropTarget, emptySearchMessage = _ref.emptySearchMessage, focusIndicator = _ref.focusIndicator, gridArea = _ref.gridArea, help = _ref.help, id = _ref.id, icon = _ref.icon, labelKey = _ref.labelKey, limit = _ref.limit, margin = _ref.margin, messages = _ref.messages, name = _ref.name, onBlur = _ref.onBlur, onChange2 = _ref.onChange, onClick = _ref.onClick, onClose = _ref.onClose, onFocus = _ref.onFocus, onKeyDown = _ref.onKeyDown, onMore = _ref.onMore, onOpen = _ref.onOpen, onSearch = _ref.onSearch, openProp = _ref.open, optionsProp = _ref.options, placeholder = _ref.placeholder, plain = _ref.plain, replace = _ref.replace, searchPlaceholder = _ref.searchPlaceholder, size = _ref.size, _ref$sortSelectedOnCl = _ref.sortSelectedOnClose, sortSelectedOnClose = _ref$sortSelectedOnCl === void 0 ? true : _ref$sortSelectedOnCl, valueProp = _ref.value, valueKey = _ref.valueKey, valueLabel = _ref.valueLabel, _ref$showSelectedInli = _ref.showSelectedInline, showSelectedInline = _ref$showSelectedInli === void 0 ? false : _ref$showSelectedInli, width = _ref.width, rest = _objectWithoutPropertiesLoose26(_ref, _excluded30);
     var theme = (0, import_react52.useContext)(import_styled_components42.ThemeContext) || defaultProps2.theme;
     var inputRef = (0, import_react52.useRef)();
     var formContext = (0, import_react52.useContext)(FormContext);
@@ -74622,7 +74622,7 @@
         triggerChangeEvent(nextValue);
       }
       setValue3(nextValue);
-      if (onChange) {
+      if (onChange2) {
         event.persist();
         var adjustedEvent;
         if (event instanceof Event) {
@@ -74644,9 +74644,9 @@
           adjustedEvent.value = nextValue;
           adjustedEvent.option = option;
         }
-        onChange(adjustedEvent);
+        onChange2(adjustedEvent);
       }
-    }, [onChange, setValue3, triggerChangeEvent]);
+    }, [onChange2, setValue3, triggerChangeEvent]);
     var SelectIcon = getSelectIcon(icon, theme, open);
     var selectValue = (0, import_react52.useMemo)(function() {
       var result;
@@ -75206,7 +75206,7 @@
     return [nextErrors, nextInfos];
   };
   var Form = /* @__PURE__ */ (0, import_react54.forwardRef)(function(_ref2, ref) {
-    var children = _ref2.children, _ref2$errors = _ref2.errors, errorsProp = _ref2$errors === void 0 ? defaultValidationResults.errors : _ref2$errors, _ref2$infos = _ref2.infos, infosProp = _ref2$infos === void 0 ? defaultValidationResults.infos : _ref2$infos, messages = _ref2.messages, kind = _ref2.kind, onChange = _ref2.onChange, _onReset = _ref2.onReset, _onSubmit = _ref2.onSubmit, onValidate = _ref2.onValidate, _ref2$validate = _ref2.validate, validateOn = _ref2$validate === void 0 ? "submit" : _ref2$validate, valueProp = _ref2.value, rest = _objectWithoutPropertiesLoose28(_ref2, _excluded33);
+    var children = _ref2.children, _ref2$errors = _ref2.errors, errorsProp = _ref2$errors === void 0 ? defaultValidationResults.errors : _ref2$errors, _ref2$infos = _ref2.infos, infosProp = _ref2$infos === void 0 ? defaultValidationResults.infos : _ref2$infos, messages = _ref2.messages, kind = _ref2.kind, onChange2 = _ref2.onChange, _onReset = _ref2.onReset, _onSubmit = _ref2.onSubmit, onValidate = _ref2.onValidate, _ref2$validate = _ref2.validate, validateOn = _ref2$validate === void 0 ? "submit" : _ref2$validate, valueProp = _ref2.value, rest = _objectWithoutPropertiesLoose28(_ref2, _excluded33);
     var formRef = useForwardedRef(ref);
     var _useContext = (0, import_react54.useContext)(MessageContext), format4 = _useContext.format;
     var _useState = (0, import_react54.useState)(valueProp || defaultValue2), valueState = _useState[0], setValueState = _useState[1];
@@ -75411,8 +75411,8 @@
               keyCreated.current = true;
             var nextValue = setFieldValue(name, nextComponentValue, value);
             setValueState(nextValue);
-            if (onChange)
-              onChange(nextValue, {
+            if (onChange2)
+              onChange2(nextValue, {
                 touched: nextTouched
               });
           }
@@ -75463,7 +75463,7 @@
         useFormInput: useFormInput3,
         kind
       };
-    }, [onChange, kind, pendingValidation, touched, validateOn, validationResults.errors, validationResults.infos, value, valueProp]);
+    }, [onChange2, kind, pendingValidation, touched, validateOn, validationResults.errors, validationResults.infos, value, valueProp]);
     return /* @__PURE__ */ import_react54.default.createElement("form", _extends46({
       ref: formRef
     }, rest, {
@@ -75478,8 +75478,8 @@
         setPendingValidation(void 0);
         if (!valueProp) {
           setValueState(defaultValue2);
-          if (onChange)
-            onChange(defaultValue2, {
+          if (onChange2)
+            onChange2(defaultValue2, {
               touched: defaultTouched
             });
         }
@@ -75706,7 +75706,7 @@
       if (onDone)
         onDone();
     }, [formValue, onDone, onTouched, onView, views]);
-    var onChange = (0, import_react55.useCallback)(function(value, _ref3) {
+    var onChange2 = (0, import_react55.useCallback)(function(value, _ref3) {
       var touched = _ref3.touched;
       var nextValue = normalizeValue(value, formValue, views);
       resetPage(nextValue, formValue);
@@ -75728,7 +75728,7 @@
     return /* @__PURE__ */ import_react55.default.createElement(Form, _extends47({}, rest, {
       value: formValue,
       onSubmit: updateOn === "submit" ? onSubmit : void 0,
-      onChange
+      onChange: onChange2
     }), /* @__PURE__ */ import_react55.default.createElement(Box, {
       flex: false,
       pad,
@@ -75811,7 +75811,7 @@
     }), /* @__PURE__ */ import_react56.default.createElement(Text, theme.select.clear.text, buttonLabel)));
   });
   var SelectContainer = /* @__PURE__ */ (0, import_react56.forwardRef)(function(_ref2, ref) {
-    var clear = _ref2.clear, _ref2$children = _ref2.children, children = _ref2$children === void 0 ? null : _ref2$children, disabled = _ref2.disabled, disabledKey = _ref2.disabledKey, dropHeight = _ref2.dropHeight, _ref2$emptySearchMess = _ref2.emptySearchMessage, emptySearchMessage = _ref2$emptySearchMess === void 0 ? "No matches found" : _ref2$emptySearchMess, id = _ref2.id, labelKey = _ref2.labelKey, multiple = _ref2.multiple, name = _ref2.name, onChange = _ref2.onChange, onKeyDown = _ref2.onKeyDown, onMore = _ref2.onMore, onSearch = _ref2.onSearch, optionIndexesInValue = _ref2.optionIndexesInValue, options2 = _ref2.options, allOptions = _ref2.allOptions, searchPlaceholder = _ref2.searchPlaceholder, search = _ref2.search, setSearch = _ref2.setSearch, selected = _ref2.selected, usingKeyboard = _ref2.usingKeyboard, _ref2$value = _ref2.value, value = _ref2$value === void 0 ? "" : _ref2$value, valueKey = _ref2.valueKey, _ref2$replace = _ref2.replace, replace = _ref2$replace === void 0 ? true : _ref2$replace;
+    var clear = _ref2.clear, _ref2$children = _ref2.children, children = _ref2$children === void 0 ? null : _ref2$children, disabled = _ref2.disabled, disabledKey = _ref2.disabledKey, dropHeight = _ref2.dropHeight, _ref2$emptySearchMess = _ref2.emptySearchMessage, emptySearchMessage = _ref2$emptySearchMess === void 0 ? "No matches found" : _ref2$emptySearchMess, id = _ref2.id, labelKey = _ref2.labelKey, multiple = _ref2.multiple, name = _ref2.name, onChange2 = _ref2.onChange, onKeyDown = _ref2.onKeyDown, onMore = _ref2.onMore, onSearch = _ref2.onSearch, optionIndexesInValue = _ref2.optionIndexesInValue, options2 = _ref2.options, allOptions = _ref2.allOptions, searchPlaceholder = _ref2.searchPlaceholder, search = _ref2.search, setSearch = _ref2.setSearch, selected = _ref2.selected, usingKeyboard = _ref2.usingKeyboard, _ref2$value = _ref2.value, value = _ref2$value === void 0 ? "" : _ref2$value, valueKey = _ref2.valueKey, _ref2$replace = _ref2.replace, replace = _ref2$replace === void 0 ? true : _ref2$replace;
     var theme = (0, import_react56.useContext)(import_styled_components44.ThemeContext) || defaultProps2.theme;
     var shouldShowClearButton = (0, import_react56.useCallback)(function(position) {
       var hasValue = Boolean(multiple && value ? value.length : value);
@@ -75879,7 +75879,7 @@
     }, [selected, value, valueKey, options2]);
     var selectOption = (0, import_react56.useCallback)(function(index) {
       return function(event) {
-        if (onChange) {
+        if (onChange2) {
           var nextValue;
           var nextSelected;
           if (multiple) {
@@ -75899,21 +75899,21 @@
             nextValue = valueKey && valueKey.reduce ? applyKey(options2[index], valueKey) : options2[index];
             nextSelected = index;
           }
-          onChange(event, {
+          onChange2(event, {
             option: options2[index],
             value: nextValue,
             selected: nextSelected
           });
         }
       };
-    }, [multiple, onChange, optionIndexesInValue, options2, allOptions, valueKey]);
+    }, [multiple, onChange2, optionIndexesInValue, options2, allOptions, valueKey]);
     var onClear = (0, import_react56.useCallback)(function(event) {
-      onChange(event, {
+      onChange2(event, {
         option: void 0,
         value: "",
         selected: ""
       });
-    }, [onChange]);
+    }, [onChange2]);
     var onNextOption = (0, import_react56.useCallback)(function(event) {
       event.preventDefault();
       var nextActiveIndex = activeIndex + 1;
@@ -75976,7 +75976,7 @@
     }, [keyboardNavigation]);
     var onSelectOption = (0, import_react56.useCallback)(function(event) {
       if ((shouldShowClearButton("bottom") || shouldShowClearButton("top")) && containsFocus(clearRef.current)) {
-        onChange(event, {
+        onChange2(event, {
           option: void 0,
           value: "",
           selected: ""
@@ -75985,7 +75985,7 @@
         event.preventDefault();
         selectOption(activeIndex)(event);
       }
-    }, [activeIndex, selectOption, options2, onChange, shouldShowClearButton]);
+    }, [activeIndex, selectOption, options2, onChange2, shouldShowClearButton]);
     var customSearchInput = theme.select.searchInput;
     var SelectTextInput2 = customSearchInput || TextInput;
     var selectOptionsStyle = theme.select.options ? _extends48({}, theme.select.options.box, theme.select.options.container) : {};
@@ -76010,7 +76010,7 @@
       type: "search",
       value: search || "",
       placeholder: searchPlaceholder,
-      onChange: function onChange2(event) {
+      onChange: function onChange3(event) {
         var nextSearch = event.target.value;
         setSearch(nextSearch);
         setActiveIndex(-1);
@@ -76149,7 +76149,7 @@
     left: "left"
   };
   var Select = /* @__PURE__ */ (0, import_react57.forwardRef)(function(_ref, ref) {
-    var a11yTitle = _ref.a11yTitle, ariaLabel = _ref["aria-label"], alignSelf = _ref.alignSelf, children = _ref.children, _ref$clear = _ref.clear, clear = _ref$clear === void 0 ? false : _ref$clear, _ref$closeOnChange = _ref.closeOnChange, closeOnChange = _ref$closeOnChange === void 0 ? true : _ref$closeOnChange, defaultValue6 = _ref.defaultValue, disabled = _ref.disabled, disabledKey = _ref.disabledKey, _ref$dropAlign = _ref.dropAlign, dropAlign = _ref$dropAlign === void 0 ? defaultDropAlign3 : _ref$dropAlign, dropHeight = _ref.dropHeight, dropProps2 = _ref.dropProps, dropTarget = _ref.dropTarget, emptySearchMessage = _ref.emptySearchMessage, focusIndicator = _ref.focusIndicator, gridArea = _ref.gridArea, id = _ref.id, icon = _ref.icon, labelKeyProp = _ref.labelKey, margin = _ref.margin, messages = _ref.messages, multiple = _ref.multiple, name = _ref.name, onBlur = _ref.onBlur, onChange = _ref.onChange, onClick = _ref.onClick, onClose = _ref.onClose, onFocus = _ref.onFocus, onKeyDown = _ref.onKeyDown, onMore = _ref.onMore, onOpen = _ref.onOpen, onSearch = _ref.onSearch, propOpen = _ref.open, optionsProp = _ref.options, placeholder = _ref.placeholder, plain = _ref.plain, replace = _ref.replace, searchPlaceholder = _ref.searchPlaceholder, selected = _ref.selected, size = _ref.size, valueProp = _ref.value, valueKeyProp = _ref.valueKey, valueLabel = _ref.valueLabel, rest = _objectWithoutPropertiesLoose31(_ref, _excluded36);
+    var a11yTitle = _ref.a11yTitle, ariaLabel = _ref["aria-label"], alignSelf = _ref.alignSelf, children = _ref.children, _ref$clear = _ref.clear, clear = _ref$clear === void 0 ? false : _ref$clear, _ref$closeOnChange = _ref.closeOnChange, closeOnChange = _ref$closeOnChange === void 0 ? true : _ref$closeOnChange, defaultValue6 = _ref.defaultValue, disabled = _ref.disabled, disabledKey = _ref.disabledKey, _ref$dropAlign = _ref.dropAlign, dropAlign = _ref$dropAlign === void 0 ? defaultDropAlign3 : _ref$dropAlign, dropHeight = _ref.dropHeight, dropProps2 = _ref.dropProps, dropTarget = _ref.dropTarget, emptySearchMessage = _ref.emptySearchMessage, focusIndicator = _ref.focusIndicator, gridArea = _ref.gridArea, id = _ref.id, icon = _ref.icon, labelKeyProp = _ref.labelKey, margin = _ref.margin, messages = _ref.messages, multiple = _ref.multiple, name = _ref.name, onBlur = _ref.onBlur, onChange2 = _ref.onChange, onClick = _ref.onClick, onClose = _ref.onClose, onFocus = _ref.onFocus, onKeyDown = _ref.onKeyDown, onMore = _ref.onMore, onOpen = _ref.onOpen, onSearch = _ref.onSearch, propOpen = _ref.open, optionsProp = _ref.options, placeholder = _ref.placeholder, plain = _ref.plain, replace = _ref.replace, searchPlaceholder = _ref.searchPlaceholder, selected = _ref.selected, size = _ref.size, valueProp = _ref.value, valueKeyProp = _ref.valueKey, valueLabel = _ref.valueLabel, rest = _objectWithoutPropertiesLoose31(_ref, _excluded36);
     var theme = (0, import_react57.useContext)(import_styled_components45.ThemeContext) || defaultProps2.theme;
     var inputRef = (0, import_react57.useRef)();
     var formContext = (0, import_react57.useContext)(FormContext);
@@ -76221,7 +76221,7 @@
         triggerChangeEvent(nextValue);
       }
       setValue3(nextValue);
-      if (onChange) {
+      if (onChange2) {
         event.persist();
         var adjustedEvent;
         if (event instanceof Event) {
@@ -76247,9 +76247,9 @@
           adjustedEvent.option = option;
           adjustedEvent.selected = nextSelected;
         }
-        onChange(adjustedEvent);
+        onChange2(adjustedEvent);
       }
-    }, [closeOnChange, multiple, onChange, onRequestClose, setValue3, triggerChangeEvent]);
+    }, [closeOnChange, multiple, onChange2, onRequestClose, setValue3, triggerChangeEvent]);
     var SelectIcon = getSelectIcon(icon, theme, open);
     var selectValue = (0, import_react57.useMemo)(function() {
       if (valueLabel instanceof Function) {
@@ -77459,7 +77459,7 @@
       a11yTitle: "Search by " + property,
       ref: inputRef,
       value: filters[property],
-      onChange: function onChange(event) {
+      onChange: function onChange2(event) {
         return onFilter(property, event.target.value);
       },
       onBlur: function onBlur() {
@@ -78612,7 +78612,7 @@
             a11yTitle: (isSelected ? "unselect" : "select") + " " + primaryValue,
             checked: isSelected,
             disabled: isDisabled2 || !onSelect,
-            onChange: function onChange() {
+            onChange: function onChange2() {
               if (isSelected) {
                 onSelect(selected.filter(function(s) {
                   return s !== primaryValue;
@@ -78825,7 +78825,7 @@
             isDisabled: isGroupDisabled,
             isSelected: isGroupSelected,
             indeterminate,
-            onChange: function onChange() {
+            onChange: function onChange2() {
               var nextSelected = isGroupSelected || indeterminate ? selected.filter(function(s) {
                 return !groupSelected.includes(s);
               }) : [].concat(selected, primaryKeys);
@@ -78849,7 +78849,7 @@
               context: memberCount > 1 && index === memberCount - 1 ? "groupEnd" : "body",
               isDisabled: isDisabled2,
               isSelected,
-              onChange: function onChange() {
+              onChange: function onChange2() {
                 var nextSelected = isSelected ? selected.filter(function(s) {
                   return s !== primaryValue;
                 }) : [].concat(selected, [primaryValue]);
@@ -78873,7 +78873,7 @@
       },
       step
     }, function(row, index, rowRef) {
-      var context = row.context, datum = row.datum, expanded = row.expanded, indeterminate = row.indeterminate, isDisabled2 = row.isDisabled, isSelected = row.isSelected, key = row.key, onChange = row.onChange, primaryValue = row.primaryValue;
+      var context = row.context, datum = row.datum, expanded = row.expanded, indeterminate = row.indeterminate, isDisabled2 = row.isDisabled, isSelected = row.isSelected, key = row.key, onChange2 = row.onChange, primaryValue = row.primaryValue;
       var cellProps = normalizeRowCellProps(rowProps, cellPropsProp, primaryValue, index);
       return /* @__PURE__ */ import_react79.default.createElement(StyledDataTableRow, {
         ref: rowRef,
@@ -78898,7 +78898,7 @@
         checked: isSelected,
         indeterminate,
         disabled: isDisabled2 || !onSelect,
-        onChange,
+        onChange: onChange2,
         pad: cellProps.pad
       })), columns.map(function(column) {
         var scope;
@@ -83595,72 +83595,11 @@
   var import_react165 = __toESM(require_react());
 
   // app/javascript/components/module/EditRule.jsx
-  var import_react104 = __toESM(require_react());
-  var import_prop_types44 = __toESM(require_prop_types());
-  var LayerForm2 = (props) => {
-    const setData = props.setData;
-    const [loading, setLoading] = (0, import_react104.useState)(false);
-    const [form_errors, setform_errors] = (0, import_react104.useState)("");
-    const [rule_data, setruleData] = (0, import_react104.useState)(props.rule_detail);
-    (0, import_react104.useEffect)(() => {
-    }, []);
-    const onSubmit = ({ value, touched }) => {
-      if (value.name && value.query_string && value.exact_match) {
-        setform_errors("");
-        let csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
-        const post_set = {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "X-CSRF-Token": csrf },
-          body: JSON.stringify(value)
-        };
-        updateData = () => {
-          setLoading(true);
-          fetch("api/update_rule", post_set).then((response) => response.json()).then((data) => {
-            setData(data);
-            props.setOpen(false);
-            setLoading(false);
-          }).catch((error2) => {
-            setLoading(false);
-          });
-        };
-        updateData();
-      } else if (!value.name) {
-        setform_errors("Please provide rule name");
-      } else if (!value.query_string) {
-        setform_errors("Please provide query string");
-      } else if (!value.exact_match) {
-        setform_errors("Please provide exact match");
-      } else {
-        setform_errors("Please provide some inputs");
-      }
-    };
-    const updateText = (e) => {
-      const { value, name } = e.target;
-      setruleData((prevState) => ({ ...prevState, [name]: value }));
-    };
-    return /* @__PURE__ */ import_react104.default.createElement(Box, { gap: "medium" }, /* @__PURE__ */ import_react104.default.createElement(Button2, { alignSelf: "end", icon: /* @__PURE__ */ import_react104.default.createElement(Close, null), onClick: () => props.setOpen(false) }), /* @__PURE__ */ import_react104.default.createElement(Header, { alignSelf: "center", pad: { horizontal: "xxsmall" } }, /* @__PURE__ */ import_react104.default.createElement(Box, null, /* @__PURE__ */ import_react104.default.createElement(Heading, { level: 4, margin: "none", id: "layer-title" }, "New Rule"))), /* @__PURE__ */ import_react104.default.createElement("div", { direction: "row" }, /* @__PURE__ */ import_react104.default.createElement(Form, { validate: "blur", method: "post", onSubmit: ({ value, touched }) => onSubmit({ value, touched }) }, /* @__PURE__ */ import_react104.default.createElement(TextInput, { id: "rule_id", type: "hidden", name: "rule_id", value: rule_data.id }), /* @__PURE__ */ import_react104.default.createElement("div", { direction: "row", style: { marginTop: "10px" } }, /* @__PURE__ */ import_react104.default.createElement("div", { className: "col-md-12" }, /* @__PURE__ */ import_react104.default.createElement(FormField, { label: "Rule Name", htmlFor: "rule_name" }, /* @__PURE__ */ import_react104.default.createElement(TextInput, { id: "name", name: "name", value: rule_data.name, onChange: (e) => updateText(e) }))), /* @__PURE__ */ import_react104.default.createElement("div", { className: "col-md-12" }, /* @__PURE__ */ import_react104.default.createElement(FormField, { label: "Query String", htmlFor: "query_string" }, /* @__PURE__ */ import_react104.default.createElement(TextInput, { id: "query_string", name: "query_string", value: rule_data.query_string, onChange: (e) => updateText(e) }))), /* @__PURE__ */ import_react104.default.createElement("div", { className: "col-md-12" }, /* @__PURE__ */ import_react104.default.createElement(FormField, { label: "Exact Match", htmlFor: "exact_match" }, /* @__PURE__ */ import_react104.default.createElement(TextInput, { id: "exact_match", name: "exact_match", value: rule_data.exact_match, onChange: (e) => updateText(e) }))), /* @__PURE__ */ import_react104.default.createElement("div", { className: "col-md-12" }, /* @__PURE__ */ import_react104.default.createElement(Box, { direction: "row", gap: "small", margin: "medium", className: "" }, /* @__PURE__ */ import_react104.default.createElement(Button2, { label: "Update", secondary: true, type: "submit" }))), form_errors && /* @__PURE__ */ import_react104.default.createElement("div", { className: "col-md-12" }, /* @__PURE__ */ import_react104.default.createElement(Box, { direction: "row", align: "center", gap: "medium", margin: "medium", className: "mt-3 pt-3" }, /* @__PURE__ */ import_react104.default.createElement("span", { style: { margin: "auto", color: "#F00" } }, form_errors)))))));
-  };
-  LayerForm2.propTypes = {
-    setOpen: import_prop_types44.default.func.isRequired
-  };
-  var EditRule = (props) => {
-    const [open, setOpen] = (0, import_react104.useState)(false);
-    const size = (0, import_react104.useContext)(ResponsiveContext);
-    const onOpen = () => setOpen(true);
-    const onClose = () => setOpen(void 0);
-    const user = props.user;
-    const rule_detail = props.rule_detail;
-    const setData = props.setData;
-    return /* @__PURE__ */ import_react104.default.createElement(import_react104.default.Fragment, null, /* @__PURE__ */ import_react104.default.createElement(Button2, { alignSelf: "center", icon: /* @__PURE__ */ import_react104.default.createElement(Edit, null), onClick: onOpen, secondary: true }), open && /* @__PURE__ */ import_react104.default.createElement(Layer, { position: "right", full: !["xsmall", "small"].includes(size) ? "vertical" : true, onEsc: onClose }, /* @__PURE__ */ import_react104.default.createElement(Box, { fill: "vertical", overflow: "auto", width: !["xsmall", "small"].includes(size) ? "large" : void 0, pad: "medium" }, /* @__PURE__ */ import_react104.default.createElement(LayerForm2, { rule_detail, setData, user, setOpen: (value) => setOpen(value) }))));
-  };
-  var EditRule_default = EditRule;
-
-  // app/javascript/components/module/NewRule.jsx
-  var import_react164 = __toESM(require_react());
-  var import_prop_types67 = __toESM(require_prop_types());
+  var import_react163 = __toESM(require_react());
+  var import_prop_types66 = __toESM(require_prop_types());
 
   // app/javascript/components/module/QueryBuilder.jsx
-  var import_react163 = __toESM(require_react());
+  var import_react162 = __toESM(require_react());
 
   // node_modules/@babel/runtime/helpers/esm/classCallCheck.js
   function _classCallCheck(instance, Constructor) {
@@ -83776,7 +83715,7 @@
   }
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/QueryContainer.js
-  var import_react115 = __toESM(require_react());
+  var import_react114 = __toESM(require_react());
 
   // node_modules/@react-awesome-query-builder/core/modules/export/index.js
   var export_exports2 = {};
@@ -91441,14 +91380,14 @@
   var Utils = { ...utils_exports, ...export_exports2, ...import_exports };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/QueryContainer.js
-  var import_prop_types47 = __toESM(require_prop_types());
+  var import_prop_types46 = __toESM(require_prop_types());
 
   // node_modules/@react-awesome-query-builder/ui/esm/stores/tree.js
   var tree_default2 = tree_default;
 
   // node_modules/@react-awesome-query-builder/ui/esm/stores/context.js
-  var import_react105 = __toESM(require_react());
-  var context_default = /* @__PURE__ */ import_react105.default.createContext();
+  var import_react104 = __toESM(require_react());
+  var context_default = /* @__PURE__ */ import_react104.default.createContext();
 
   // node_modules/@babel/runtime/helpers/esm/defineProperty.js
   function _defineProperty(obj, key, value) {
@@ -91673,12 +91612,12 @@
   }
 
   // node_modules/react-redux/es/components/Provider.js
-  var import_react108 = __toESM(require_react());
-  var import_prop_types45 = __toESM(require_prop_types());
+  var import_react107 = __toESM(require_react());
+  var import_prop_types44 = __toESM(require_prop_types());
 
   // node_modules/react-redux/es/components/Context.js
-  var import_react106 = __toESM(require_react());
-  var ReactReduxContext = /* @__PURE__ */ import_react106.default.createContext(null);
+  var import_react105 = __toESM(require_react());
+  var ReactReduxContext = /* @__PURE__ */ import_react105.default.createContext(null);
   if (true) {
     ReactReduxContext.displayName = "ReactRedux";
   }
@@ -91807,20 +91746,20 @@
   }
 
   // node_modules/react-redux/es/utils/useIsomorphicLayoutEffect.js
-  var import_react107 = __toESM(require_react());
-  var useIsomorphicLayoutEffect = typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined" ? import_react107.useLayoutEffect : import_react107.useEffect;
+  var import_react106 = __toESM(require_react());
+  var useIsomorphicLayoutEffect = typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined" ? import_react106.useLayoutEffect : import_react106.useEffect;
 
   // node_modules/react-redux/es/components/Provider.js
   function Provider(_ref) {
     var store = _ref.store, context = _ref.context, children = _ref.children;
-    var contextValue = (0, import_react108.useMemo)(function() {
+    var contextValue = (0, import_react107.useMemo)(function() {
       var subscription = createSubscription(store);
       return {
         store,
         subscription
       };
     }, [store]);
-    var previousState = (0, import_react108.useMemo)(function() {
+    var previousState = (0, import_react107.useMemo)(function() {
       return store.getState();
     }, [store]);
     useIsomorphicLayoutEffect(function() {
@@ -91836,19 +91775,19 @@
       };
     }, [contextValue, previousState]);
     var Context2 = context || ReactReduxContext;
-    return /* @__PURE__ */ import_react108.default.createElement(Context2.Provider, {
+    return /* @__PURE__ */ import_react107.default.createElement(Context2.Provider, {
       value: contextValue
     }, children);
   }
   if (true) {
     Provider.propTypes = {
-      store: import_prop_types45.default.shape({
-        subscribe: import_prop_types45.default.func.isRequired,
-        dispatch: import_prop_types45.default.func.isRequired,
-        getState: import_prop_types45.default.func.isRequired
+      store: import_prop_types44.default.shape({
+        subscribe: import_prop_types44.default.func.isRequired,
+        dispatch: import_prop_types44.default.func.isRequired,
+        getState: import_prop_types44.default.func.isRequired
       }),
-      context: import_prop_types45.default.object,
-      children: import_prop_types45.default.any
+      context: import_prop_types44.default.object,
+      children: import_prop_types44.default.any
     };
   }
   var Provider_default = Provider;
@@ -91887,7 +91826,7 @@
 
   // node_modules/react-redux/es/components/connectAdvanced.js
   var import_hoist_non_react_statics = __toESM(require_hoist_non_react_statics_cjs());
-  var import_react109 = __toESM(require_react());
+  var import_react108 = __toESM(require_react());
   var import_react_is = __toESM(require_react_is2());
   var _excluded57 = ["getDisplayName", "methodName", "renderCountProp", "shouldHandleStateChanges", "storeKey", "withRef", "forwardRef", "context"];
   var _excluded212 = ["reactReduxForwardedRef"];
@@ -92010,35 +91949,35 @@
       function createChildSelector(store) {
         return selectorFactory(store.dispatch, selectorFactoryOptions);
       }
-      var usePureOnlyMemo = pure ? import_react109.useMemo : function(callback) {
+      var usePureOnlyMemo = pure ? import_react108.useMemo : function(callback) {
         return callback();
       };
       function ConnectFunction(props) {
-        var _useMemo = (0, import_react109.useMemo)(function() {
+        var _useMemo = (0, import_react108.useMemo)(function() {
           var reactReduxForwardedRef2 = props.reactReduxForwardedRef, wrapperProps2 = _objectWithoutPropertiesLoose52(props, _excluded212);
           return [props.context, reactReduxForwardedRef2, wrapperProps2];
         }, [props]), propsContext = _useMemo[0], reactReduxForwardedRef = _useMemo[1], wrapperProps = _useMemo[2];
-        var ContextToUse = (0, import_react109.useMemo)(function() {
-          return propsContext && propsContext.Consumer && (0, import_react_is.isContextConsumer)(/* @__PURE__ */ import_react109.default.createElement(propsContext.Consumer, null)) ? propsContext : Context2;
+        var ContextToUse = (0, import_react108.useMemo)(function() {
+          return propsContext && propsContext.Consumer && (0, import_react_is.isContextConsumer)(/* @__PURE__ */ import_react108.default.createElement(propsContext.Consumer, null)) ? propsContext : Context2;
         }, [propsContext, Context2]);
-        var contextValue = (0, import_react109.useContext)(ContextToUse);
+        var contextValue = (0, import_react108.useContext)(ContextToUse);
         var didStoreComeFromProps = Boolean(props.store) && Boolean(props.store.getState) && Boolean(props.store.dispatch);
         var didStoreComeFromContext = Boolean(contextValue) && Boolean(contextValue.store);
         if (!didStoreComeFromProps && !didStoreComeFromContext) {
           throw new Error('Could not find "store" in the context of ' + ('"' + displayName + '". Either wrap the root component in a <Provider>, ') + "or pass a custom React context provider to <Provider> and the corresponding " + ("React context consumer to " + displayName + " in connect options."));
         }
         var store = didStoreComeFromProps ? props.store : contextValue.store;
-        var childPropsSelector = (0, import_react109.useMemo)(function() {
+        var childPropsSelector = (0, import_react108.useMemo)(function() {
           return createChildSelector(store);
         }, [store]);
-        var _useMemo2 = (0, import_react109.useMemo)(function() {
+        var _useMemo2 = (0, import_react108.useMemo)(function() {
           if (!shouldHandleStateChanges)
             return NO_SUBSCRIPTION_ARRAY;
           var subscription2 = createSubscription(store, didStoreComeFromProps ? null : contextValue.subscription);
           var notifyNestedSubs2 = subscription2.notifyNestedSubs.bind(subscription2);
           return [subscription2, notifyNestedSubs2];
         }, [store, didStoreComeFromProps, contextValue]), subscription = _useMemo2[0], notifyNestedSubs = _useMemo2[1];
-        var overriddenContextValue = (0, import_react109.useMemo)(function() {
+        var overriddenContextValue = (0, import_react108.useMemo)(function() {
           if (didStoreComeFromProps) {
             return contextValue;
           }
@@ -92046,14 +91985,14 @@
             subscription
           });
         }, [didStoreComeFromProps, contextValue, subscription]);
-        var _useReducer = (0, import_react109.useReducer)(storeStateUpdatesReducer, EMPTY_ARRAY, initStateUpdates), _useReducer$ = _useReducer[0], previousStateUpdateResult = _useReducer$[0], forceComponentUpdateDispatch = _useReducer[1];
+        var _useReducer = (0, import_react108.useReducer)(storeStateUpdatesReducer, EMPTY_ARRAY, initStateUpdates), _useReducer$ = _useReducer[0], previousStateUpdateResult = _useReducer$[0], forceComponentUpdateDispatch = _useReducer[1];
         if (previousStateUpdateResult && previousStateUpdateResult.error) {
           throw previousStateUpdateResult.error;
         }
-        var lastChildProps = (0, import_react109.useRef)();
-        var lastWrapperProps = (0, import_react109.useRef)(wrapperProps);
-        var childPropsFromStoreUpdate = (0, import_react109.useRef)();
-        var renderIsScheduled = (0, import_react109.useRef)(false);
+        var lastChildProps = (0, import_react108.useRef)();
+        var lastWrapperProps = (0, import_react108.useRef)(wrapperProps);
+        var childPropsFromStoreUpdate = (0, import_react108.useRef)();
+        var renderIsScheduled = (0, import_react108.useRef)(false);
         var actualChildProps = usePureOnlyMemo(function() {
           if (childPropsFromStoreUpdate.current && wrapperProps === lastWrapperProps.current) {
             return childPropsFromStoreUpdate.current;
@@ -92062,14 +92001,14 @@
         }, [store, previousStateUpdateResult, wrapperProps]);
         useIsomorphicLayoutEffectWithArgs(captureWrapperProps, [lastWrapperProps, lastChildProps, renderIsScheduled, wrapperProps, actualChildProps, childPropsFromStoreUpdate, notifyNestedSubs]);
         useIsomorphicLayoutEffectWithArgs(subscribeUpdates, [shouldHandleStateChanges, store, subscription, childPropsSelector, lastWrapperProps, lastChildProps, renderIsScheduled, childPropsFromStoreUpdate, notifyNestedSubs, forceComponentUpdateDispatch], [store, subscription, childPropsSelector]);
-        var renderedWrappedComponent = (0, import_react109.useMemo)(function() {
-          return /* @__PURE__ */ import_react109.default.createElement(WrappedComponent, _extends87({}, actualChildProps, {
+        var renderedWrappedComponent = (0, import_react108.useMemo)(function() {
+          return /* @__PURE__ */ import_react108.default.createElement(WrappedComponent, _extends87({}, actualChildProps, {
             ref: reactReduxForwardedRef
           }));
         }, [reactReduxForwardedRef, WrappedComponent, actualChildProps]);
-        var renderedChild = (0, import_react109.useMemo)(function() {
+        var renderedChild = (0, import_react108.useMemo)(function() {
           if (shouldHandleStateChanges) {
-            return /* @__PURE__ */ import_react109.default.createElement(ContextToUse.Provider, {
+            return /* @__PURE__ */ import_react108.default.createElement(ContextToUse.Provider, {
               value: overriddenContextValue
             }, renderedWrappedComponent);
           }
@@ -92077,12 +92016,12 @@
         }, [ContextToUse, renderedWrappedComponent, overriddenContextValue]);
         return renderedChild;
       }
-      var Connect = pure ? import_react109.default.memo(ConnectFunction) : ConnectFunction;
+      var Connect = pure ? import_react108.default.memo(ConnectFunction) : ConnectFunction;
       Connect.WrappedComponent = WrappedComponent;
       Connect.displayName = ConnectFunction.displayName = displayName;
       if (forwardRef51) {
-        var forwarded = import_react109.default.forwardRef(function forwardConnectRef(props, ref) {
-          return /* @__PURE__ */ import_react109.default.createElement(Connect, _extends87({}, props, {
+        var forwarded = import_react108.default.forwardRef(function forwardConnectRef(props, ref) {
+          return /* @__PURE__ */ import_react108.default.createElement(Connect, _extends87({}, props, {
             reactReduxForwardedRef: ref
           }));
         });
@@ -92411,13 +92350,13 @@
   var connect_default = /* @__PURE__ */ createConnect();
 
   // node_modules/react-redux/es/hooks/useStore.js
-  var import_react111 = __toESM(require_react());
-
-  // node_modules/react-redux/es/hooks/useReduxContext.js
   var import_react110 = __toESM(require_react());
 
+  // node_modules/react-redux/es/hooks/useReduxContext.js
+  var import_react109 = __toESM(require_react());
+
   // node_modules/react-redux/es/hooks/useSelector.js
-  var import_react112 = __toESM(require_react());
+  var import_react111 = __toESM(require_react());
 
   // node_modules/react-redux/es/utils/reactBatchedUpdates.js
   var import_react_dom3 = __toESM(require_react_dom());
@@ -92725,7 +92664,7 @@
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/utils/reactUtils.js
-  var import_react113 = __toESM(require_react());
+  var import_react112 = __toESM(require_react());
   var import_mapValues2 = __toESM(require_mapValues());
   var getReactContainerType = function getReactContainerType2(el) {
     if (el._reactRootContainer) {
@@ -92788,7 +92727,7 @@
     };
   };
   var canUseUnsafe = function canUseUnsafe2() {
-    var v = import_react113.default.version.split(".").map(parseInt.bind(null, 10));
+    var v = import_react112.default.version.split(".").map(parseInt.bind(null, 10));
     return v[0] == 16 && v[1] >= 3 || v[0] > 16;
   };
   var useOnPropsChanged = function useOnPropsChanged2(obj) {
@@ -92814,8 +92753,8 @@
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/Query.js
-  var import_react114 = __toESM(require_react());
-  var import_prop_types46 = __toESM(require_prop_types());
+  var import_react113 = __toESM(require_react());
+  var import_prop_types45 = __toESM(require_prop_types());
   function ownKeys(object, enumerableOnly) {
     var keys5 = Object.keys(object);
     if (Object.getOwnPropertySymbols) {
@@ -92895,7 +92834,7 @@
     }, {
       key: "onPropsChanged",
       value: function onPropsChanged(nextProps) {
-        var onChange = nextProps.onChange;
+        var onChange2 = nextProps.onChange;
         var oldConfig = this.props.config;
         var newTree = nextProps.tree;
         var oldTree = this.props.tree;
@@ -92908,13 +92847,13 @@
         }
         var validatedTreeChanged = !immutableEqual(this.validatedTree, this.oldValidatedTree);
         if (validatedTreeChanged) {
-          onChange && onChange(this.validatedTree, newConfig, nextProps.__lastAction);
+          onChange2 && onChange2(this.validatedTree, newConfig, nextProps.__lastAction);
         }
       }
     }, {
       key: "render",
       value: function render() {
-        var _this$props = this.props, config2 = _this$props.config, renderBuilder = _this$props.renderBuilder, dispatch2 = _this$props.dispatch, __isInternalValueChange = _this$props.__isInternalValueChange;
+        var _this$props = this.props, config2 = _this$props.config, renderBuilder2 = _this$props.renderBuilder, dispatch2 = _this$props.dispatch, __isInternalValueChange = _this$props.__isInternalValueChange;
         var builderProps = {
           tree: this.validatedTree,
           actions: this.actions,
@@ -92922,16 +92861,16 @@
           dispatch: dispatch2,
           __isInternalValueChange
         };
-        return renderBuilder(builderProps);
+        return renderBuilder2(builderProps);
       }
     }]);
     return Query2;
-  }(import_react114.Component);
+  }(import_react113.Component);
   Query.propTypes = {
-    config: import_prop_types46.default.object.isRequired,
-    onChange: import_prop_types46.default.func,
-    renderBuilder: import_prop_types46.default.func,
-    tree: import_prop_types46.default.any
+    config: import_prop_types45.default.object.isRequired,
+    onChange: import_prop_types45.default.func,
+    renderBuilder: import_prop_types45.default.func,
+    tree: import_prop_types45.default.any
     //instanceOf(Immutable.Map)
     //dispatch: PropTypes.func.isRequired,
     //__isInternalValueChange
@@ -93031,41 +92970,41 @@
     }, {
       key: "render",
       value: function render() {
-        var _this$props = this.props, renderBuilder = _this$props.renderBuilder, get_children = _this$props.get_children, onChange = _this$props.onChange, settings4 = _this$props.settings;
+        var _this$props = this.props, renderBuilder2 = _this$props.renderBuilder, get_children = _this$props.get_children, onChange2 = _this$props.onChange, settings4 = _this$props.settings;
         var _this$state = this.state, config2 = _this$state.config, store = _this$state.store;
         var QueryWrapper = settings4.renderProvider;
-        return /* @__PURE__ */ import_react115.default.createElement(QueryWrapper, {
+        return /* @__PURE__ */ import_react114.default.createElement(QueryWrapper, {
           config: config2
-        }, /* @__PURE__ */ import_react115.default.createElement(Provider_default, {
+        }, /* @__PURE__ */ import_react114.default.createElement(Provider_default, {
           store,
           context: context_default
-        }, /* @__PURE__ */ import_react115.default.createElement(Query_default, {
+        }, /* @__PURE__ */ import_react114.default.createElement(Query_default, {
           config: config2,
           getMemoizedTree: this.getMemoizedTree,
-          onChange,
-          renderBuilder: renderBuilder || get_children
+          onChange: onChange2,
+          renderBuilder: renderBuilder2 || get_children
         })));
       }
     }]);
     return QueryContainer2;
-  }(import_react115.Component);
+  }(import_react114.Component);
   QueryContainer.propTypes = {
     //config
-    conjunctions: import_prop_types47.default.object.isRequired,
-    fields: import_prop_types47.default.object.isRequired,
-    types: import_prop_types47.default.object.isRequired,
-    operators: import_prop_types47.default.object.isRequired,
-    widgets: import_prop_types47.default.object.isRequired,
-    settings: import_prop_types47.default.object.isRequired,
-    onChange: import_prop_types47.default.func,
-    renderBuilder: import_prop_types47.default.func,
-    value: import_prop_types47.default.any
+    conjunctions: import_prop_types46.default.object.isRequired,
+    fields: import_prop_types46.default.object.isRequired,
+    types: import_prop_types46.default.object.isRequired,
+    operators: import_prop_types46.default.object.isRequired,
+    widgets: import_prop_types46.default.object.isRequired,
+    settings: import_prop_types46.default.object.isRequired,
+    onChange: import_prop_types46.default.func,
+    renderBuilder: import_prop_types46.default.func,
+    value: import_prop_types46.default.any
     //instanceOf(Immutable.Map)
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/Builder.js
-  var import_react139 = __toESM(require_react());
-  var import_prop_types62 = __toESM(require_prop_types());
+  var import_react138 = __toESM(require_react());
+  var import_prop_types61 = __toESM(require_prop_types());
 
   // node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js
   function _objectWithoutProperties(source, excluded) {
@@ -93088,16 +93027,16 @@
   }
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/item/Item.js
-  var import_react138 = __toESM(require_react());
-  var import_prop_types61 = __toESM(require_prop_types());
+  var import_react137 = __toESM(require_react());
+  var import_prop_types60 = __toESM(require_prop_types());
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/item/Rule.js
-  var import_react127 = __toESM(require_react());
-  var import_prop_types55 = __toESM(require_prop_types());
+  var import_react126 = __toESM(require_react());
+  var import_prop_types54 = __toESM(require_prop_types());
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/containers/RuleContainer.js
-  var import_react116 = __toESM(require_react());
-  var import_prop_types48 = __toESM(require_prop_types());
+  var import_react115 = __toESM(require_react());
+  var import_prop_types47 = __toESM(require_prop_types());
   var import_classnames = __toESM(require_classnames());
   function _createSuper3(Derived) {
     var hasNativeReflectConstruct = _isNativeReflectConstruct3();
@@ -93203,10 +93142,10 @@
             return !!e;
           }).shift() || null;
           var hasError = oneValueError != null && showErrorMessage;
-          return /* @__PURE__ */ import_react116.default.createElement("div", {
+          return /* @__PURE__ */ import_react115.default.createElement("div", {
             className: (0, import_classnames.default)("group-or-rule-container", "rule-container", hasError ? "rule-with-error" : null),
             "data-id": this.props.id
-          }, [isDraggingMe ? /* @__PURE__ */ import_react116.default.createElement(Rule2, {
+          }, [isDraggingMe ? /* @__PURE__ */ import_react115.default.createElement(Rule2, {
             key: "dragging",
             id: this.props.id,
             groupId: this.props.groupId,
@@ -93234,7 +93173,7 @@
             isLocked: this.props.isLocked,
             isTrueLocked: this.props.isTrueLocked,
             parentReordableNodesCnt: this.props.parentReordableNodesCnt
-          }) : null, /* @__PURE__ */ import_react116.default.createElement(Rule2, {
+          }) : null, /* @__PURE__ */ import_react115.default.createElement(Rule2, {
             key: this.props.id,
             id: this.props.id,
             groupId: this.props.groupId,
@@ -93266,32 +93205,32 @@
         }
       }]);
       return RuleContainer;
-    }(import_react116.Component), _class.propTypes = {
-      id: import_prop_types48.default.string.isRequired,
-      groupId: import_prop_types48.default.string,
-      config: import_prop_types48.default.object.isRequired,
-      path: import_prop_types48.default.any.isRequired,
+    }(import_react115.Component), _class.propTypes = {
+      id: import_prop_types47.default.string.isRequired,
+      groupId: import_prop_types47.default.string,
+      config: import_prop_types47.default.object.isRequired,
+      path: import_prop_types47.default.any.isRequired,
       //instanceOf(Immutable.List)
-      operator: import_prop_types48.default.string,
-      field: import_prop_types48.default.string,
-      actions: import_prop_types48.default.object.isRequired,
+      operator: import_prop_types47.default.string,
+      field: import_prop_types47.default.string,
+      actions: import_prop_types47.default.object.isRequired,
       //{removeRule: Funciton, setField, setOperator, setOperatorOption, setValue, setValueSrc, ...}
-      onDragStart: import_prop_types48.default.func,
-      value: import_prop_types48.default.any,
+      onDragStart: import_prop_types47.default.func,
+      value: import_prop_types47.default.any,
       //depends on widget
-      valueSrc: import_prop_types48.default.any,
-      asyncListValues: import_prop_types48.default.array,
-      valueError: import_prop_types48.default.any,
-      operatorOptions: import_prop_types48.default.object,
-      reordableNodesCnt: import_prop_types48.default.number,
-      parentField: import_prop_types48.default.string,
+      valueSrc: import_prop_types47.default.any,
+      asyncListValues: import_prop_types47.default.array,
+      valueError: import_prop_types47.default.any,
+      operatorOptions: import_prop_types47.default.object,
+      reordableNodesCnt: import_prop_types47.default.number,
+      parentField: import_prop_types47.default.string,
       //from RuleGroup
-      isLocked: import_prop_types48.default.bool,
-      isTrueLocked: import_prop_types48.default.bool,
+      isLocked: import_prop_types47.default.bool,
+      isTrueLocked: import_prop_types47.default.bool,
       //connected:
-      dragging: import_prop_types48.default.object,
+      dragging: import_prop_types47.default.object,
       //{id, x, y, w, h}
-      isDraggingTempo: import_prop_types48.default.bool
+      isDraggingTempo: import_prop_types47.default.bool
     }, _class;
   };
   var RuleContainer_default = function(Rule2) {
@@ -93307,8 +93246,8 @@
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/containers/Draggable.js
-  var import_react118 = __toESM(require_react());
-  var import_prop_types50 = __toESM(require_prop_types());
+  var import_react117 = __toESM(require_react());
+  var import_prop_types49 = __toESM(require_prop_types());
 
   // node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js
   function _arrayLikeToArray2(arr, len) {
@@ -93357,8 +93296,8 @@
   }
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/containers/SortableContainer.js
-  var import_react117 = __toESM(require_react());
-  var import_prop_types49 = __toESM(require_prop_types());
+  var import_react116 = __toESM(require_react());
+  var import_prop_types48 = __toESM(require_prop_types());
   function _createSuper4(Derived) {
     var hasNativeReflectConstruct = _isNativeReflectConstruct4();
     return function _createSuperInternal() {
@@ -93940,16 +93879,16 @@
       }, {
         key: "render",
         value: function render() {
-          return /* @__PURE__ */ import_react117.default.createElement(Builder2, _extends87({}, this.props, {
+          return /* @__PURE__ */ import_react116.default.createElement(Builder2, _extends87({}, this.props, {
             onDragStart: this.onDragStart
           }));
         }
       }]);
       return SortableContainer;
-    }(import_react117.Component), _class.propTypes = {
-      tree: import_prop_types49.default.any.isRequired,
+    }(import_react116.Component), _class.propTypes = {
+      tree: import_prop_types48.default.any.isRequired,
       //instanceOf(Immutable.Map)
-      actions: import_prop_types49.default.object.isRequired
+      actions: import_prop_types48.default.object.isRequired
       // {moveItem: Function, ..}
       //... see Builder
     }, _class;
@@ -94021,7 +93960,7 @@
               _this.props.onDragStart(nodeId, dom, e);
             }
           };
-          _this.wrapper = /* @__PURE__ */ import_react118.default.createRef();
+          _this.wrapper = /* @__PURE__ */ import_react117.default.createRef();
           return _this;
         }
         _createClass(Draggable, [{
@@ -94041,12 +93980,12 @@
               }
             }
             var cn = (0, import_classnames2.default)(className, "group-or-rule", isDraggingMe && isDraggingTempo ? "qb-draggable" : null, isDraggingMe && !isDraggingTempo ? "qb-placeholder" : null, isTrueLocked ? "locked" : null);
-            return /* @__PURE__ */ import_react118.default.createElement("div", {
+            return /* @__PURE__ */ import_react117.default.createElement("div", {
               className: cn,
               style: styles,
               ref: this.wrapper,
               "data-id": this.props.id
-            }, /* @__PURE__ */ import_react118.default.createElement(GroupOrRule, _extends87({
+            }, /* @__PURE__ */ import_react117.default.createElement(GroupOrRule, _extends87({
               handleDraggerMouseDown: this.handleDraggerMouseDown,
               isDraggingMe,
               isDraggingTempo
@@ -94054,24 +93993,24 @@
           }
         }]);
         return Draggable;
-      }(import_react118.PureComponent), _class.propTypes = {
-        isDraggingTempo: import_prop_types50.default.bool,
-        isDraggingMe: import_prop_types50.default.bool,
-        onDragStart: import_prop_types50.default.func,
-        dragging: import_prop_types50.default.object,
+      }(import_react117.PureComponent), _class.propTypes = {
+        isDraggingTempo: import_prop_types49.default.bool,
+        isDraggingMe: import_prop_types49.default.bool,
+        onDragStart: import_prop_types49.default.func,
+        dragging: import_prop_types49.default.object,
         //{id, x, y, w, h}
-        isLocked: import_prop_types50.default.bool,
-        isTrueLocked: import_prop_types50.default.bool
+        isLocked: import_prop_types49.default.bool,
+        isTrueLocked: import_prop_types49.default.bool
       }, _class;
     };
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/rule/OperatorWrapper.js
-  var import_react121 = __toESM(require_react());
+  var import_react120 = __toESM(require_react());
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/rule/Operator.js
-  var import_react119 = __toESM(require_react());
-  var import_prop_types51 = __toESM(require_prop_types());
+  var import_react118 = __toESM(require_react());
+  var import_prop_types50 = __toESM(require_prop_types());
   var import_keys = __toESM(require_keys());
   var import_pickBy = __toESM(require_pickBy());
   var import_mapValues3 = __toESM(require_mapValues());
@@ -94219,38 +94158,38 @@
       }
     }]);
     return Operator2;
-  }(import_react119.PureComponent);
+  }(import_react118.PureComponent);
   Operator.propTypes = {
-    id: import_prop_types51.default.string,
-    groupId: import_prop_types51.default.string,
-    config: import_prop_types51.default.object.isRequired,
-    selectedField: import_prop_types51.default.string,
-    selectedOperator: import_prop_types51.default.string,
-    readonly: import_prop_types51.default.bool,
+    id: import_prop_types50.default.string,
+    groupId: import_prop_types50.default.string,
+    config: import_prop_types50.default.object.isRequired,
+    selectedField: import_prop_types50.default.string,
+    selectedOperator: import_prop_types50.default.string,
+    readonly: import_prop_types50.default.bool,
     //actions
-    setOperator: import_prop_types51.default.func.isRequired
+    setOperator: import_prop_types50.default.func.isRequired
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/utils.js
-  var import_react120 = __toESM(require_react());
+  var import_react119 = __toESM(require_react());
   var _excluded61 = ["children"];
   var Col = function Col2(_ref) {
     var children = _ref.children, props = _objectWithoutProperties(_ref, _excluded61);
-    return /* @__PURE__ */ import_react120.default.createElement("div", props, children);
+    return /* @__PURE__ */ import_react119.default.createElement("div", props, children);
   };
   var dummyFn = function dummyFn2() {
   };
   var DragIcon = function DragIcon2() {
-    return /* @__PURE__ */ import_react120.default.createElement("svg", {
+    return /* @__PURE__ */ import_react119.default.createElement("svg", {
       xmlns: "http://www.w3.org/2000/svg",
       viewBox: "0 0 24 24",
       fill: "gray",
       width: "18px",
       height: "18px"
-    }, /* @__PURE__ */ import_react120.default.createElement("path", {
+    }, /* @__PURE__ */ import_react119.default.createElement("path", {
       d: "M0 0h24v24H0V0z",
       fill: "none"
-    }), /* @__PURE__ */ import_react120.default.createElement("path", {
+    }), /* @__PURE__ */ import_react119.default.createElement("path", {
       d: "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
     }));
   };
@@ -94258,7 +94197,7 @@
     return function(props) {
       var useConfirm = props.config.settings.useConfirm;
       var confirmFn = useConfirm ? useConfirm() : null;
-      return /* @__PURE__ */ import_react120.default.createElement(Cmp, _extends87({}, props, {
+      return /* @__PURE__ */ import_react119.default.createElement(Cmp, _extends87({}, props, {
         confirmFn
       }));
     };
@@ -94304,12 +94243,12 @@
       key: "render",
       value: function render() {
         var _this$props = this.props, config2 = _this$props.config, selectedField = _this$props.selectedField, selectedOperator = _this$props.selectedOperator, setOperator3 = _this$props.setOperator, selectedFieldPartsLabels = _this$props.selectedFieldPartsLabels, showOperator = _this$props.showOperator, showOperatorLabel = _this$props.showOperatorLabel, selectedFieldWidgetConfig = _this$props.selectedFieldWidgetConfig, readonly = _this$props.readonly, id = _this$props.id, groupId = _this$props.groupId;
-        var operator = showOperator && /* @__PURE__ */ import_react121.default.createElement(Col, {
+        var operator = showOperator && /* @__PURE__ */ import_react120.default.createElement(Col, {
           key: "operators-for-" + (selectedFieldPartsLabels || []).join("_"),
           className: "rule--operator"
-        }, config2.settings.showLabels && /* @__PURE__ */ import_react121.default.createElement("label", {
+        }, config2.settings.showLabels && /* @__PURE__ */ import_react120.default.createElement("label", {
           className: "rule--label"
-        }, config2.settings.operatorLabel), /* @__PURE__ */ import_react121.default.createElement(Operator, {
+        }, config2.settings.operatorLabel), /* @__PURE__ */ import_react120.default.createElement(Operator, {
           key: "operator",
           config: config2,
           selectedField,
@@ -94319,30 +94258,30 @@
           id,
           groupId
         }));
-        var hiddenOperator = showOperatorLabel && /* @__PURE__ */ import_react121.default.createElement(Col, {
+        var hiddenOperator = showOperatorLabel && /* @__PURE__ */ import_react120.default.createElement(Col, {
           key: "operators-for-" + (selectedFieldPartsLabels || []).join("_"),
           className: "rule--operator"
-        }, /* @__PURE__ */ import_react121.default.createElement("div", {
+        }, /* @__PURE__ */ import_react120.default.createElement("div", {
           className: "rule--operator-wrapper"
-        }, config2.settings.showLabels ? /* @__PURE__ */ import_react121.default.createElement("label", {
+        }, config2.settings.showLabels ? /* @__PURE__ */ import_react120.default.createElement("label", {
           className: "rule--label"
-        }, "\xA0") : null, /* @__PURE__ */ import_react121.default.createElement("div", {
+        }, "\xA0") : null, /* @__PURE__ */ import_react120.default.createElement("div", {
           className: "rule--operator-text-wrapper"
-        }, /* @__PURE__ */ import_react121.default.createElement("span", {
+        }, /* @__PURE__ */ import_react120.default.createElement("span", {
           className: "rule--operator-text"
         }, selectedFieldWidgetConfig.operatorInlineLabel))));
         return [operator, hiddenOperator];
       }
     }]);
     return OperatorWrapper2;
-  }(import_react121.PureComponent);
+  }(import_react120.PureComponent);
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/rule/FieldWrapper.js
-  var import_react123 = __toESM(require_react());
+  var import_react122 = __toESM(require_react());
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/rule/Field.js
-  var import_react122 = __toESM(require_react());
-  var import_prop_types52 = __toESM(require_prop_types());
+  var import_react121 = __toESM(require_react());
+  var import_prop_types51 = __toESM(require_prop_types());
   var import_last2 = __toESM(require_last());
   var import_keys2 = __toESM(require_keys());
   function ownKeys3(object, enumerableOnly) {
@@ -94537,17 +94476,17 @@
       }
     }]);
     return Field2;
-  }(import_react122.PureComponent);
+  }(import_react121.PureComponent);
   Field.propTypes = {
-    id: import_prop_types52.default.string,
-    groupId: import_prop_types52.default.string,
-    config: import_prop_types52.default.object.isRequired,
-    selectedField: import_prop_types52.default.string,
-    parentField: import_prop_types52.default.string,
-    customProps: import_prop_types52.default.object,
-    readonly: import_prop_types52.default.bool,
+    id: import_prop_types51.default.string,
+    groupId: import_prop_types51.default.string,
+    config: import_prop_types51.default.object.isRequired,
+    selectedField: import_prop_types51.default.string,
+    parentField: import_prop_types51.default.string,
+    customProps: import_prop_types51.default.object,
+    readonly: import_prop_types51.default.bool,
     //actions
-    setField: import_prop_types52.default.func.isRequired
+    setField: import_prop_types51.default.func.isRequired
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/rule/FieldWrapper.js
@@ -94590,11 +94529,11 @@
       key: "render",
       value: function render() {
         var _this$props = this.props, config2 = _this$props.config, selectedField = _this$props.selectedField, setField3 = _this$props.setField, parentField = _this$props.parentField, classname = _this$props.classname, readonly = _this$props.readonly, id = _this$props.id, groupId = _this$props.groupId;
-        return /* @__PURE__ */ import_react123.default.createElement(Col, {
+        return /* @__PURE__ */ import_react122.default.createElement(Col, {
           className: classname
-        }, config2.settings.showLabels && /* @__PURE__ */ import_react123.default.createElement("label", {
+        }, config2.settings.showLabels && /* @__PURE__ */ import_react122.default.createElement("label", {
           className: "rule--label"
-        }, config2.settings.fieldLabel), /* @__PURE__ */ import_react123.default.createElement(Field, {
+        }, config2.settings.fieldLabel), /* @__PURE__ */ import_react122.default.createElement(Field, {
           config: config2,
           selectedField,
           parentField,
@@ -94607,16 +94546,16 @@
       }
     }]);
     return FieldWrapper2;
-  }(import_react123.PureComponent);
+  }(import_react122.PureComponent);
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/rule/Widget.js
-  var import_react125 = __toESM(require_react());
-  var import_prop_types53 = __toESM(require_prop_types());
+  var import_react124 = __toESM(require_react());
+  var import_prop_types52 = __toESM(require_prop_types());
   var import_range = __toESM(require_range());
   var import_pick7 = __toESM(require_pick());
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/rule/WidgetFactory.js
-  var import_react124 = __toESM(require_react());
+  var import_react123 = __toESM(require_react());
   var _excluded62 = ["factory"];
   var getTitleInListValues2 = Utils.ListUtils.getTitleInListValues;
   var WidgetFactory_default = function(_ref) {
@@ -94742,13 +94681,13 @@
         var value = isFuncArg ? iValues : values;
         var field = isFuncArg ? leftField : aField;
         var _widgets$delta = widgets3[delta], valueSrc = _widgets$delta.valueSrc, valueLabel = _widgets$delta.valueLabel;
-        var widgetLabel = settings4.showLabels ? /* @__PURE__ */ import_react125.default.createElement("label", {
+        var widgetLabel = settings4.showLabels ? /* @__PURE__ */ import_react124.default.createElement("label", {
           className: "rule--label"
         }, valueLabel.label) : null;
-        return /* @__PURE__ */ import_react125.default.createElement("div", {
+        return /* @__PURE__ */ import_react124.default.createElement("div", {
           key: "widget-" + field + "-" + delta,
           className: "widget--widget"
-        }, valueSrc == "func" ? null : widgetLabel, /* @__PURE__ */ import_react125.default.createElement(WidgetFactory_default, _extends87({
+        }, valueSrc == "func" ? null : widgetLabel, /* @__PURE__ */ import_react124.default.createElement(WidgetFactory_default, _extends87({
           id,
           groupId,
           valueSrc,
@@ -94777,13 +94716,13 @@
             label: valueSourcesInfo[srcKey].label
           }];
         });
-        var sourceLabel = settings4.showLabels ? /* @__PURE__ */ import_react125.default.createElement("label", {
+        var sourceLabel = settings4.showLabels ? /* @__PURE__ */ import_react124.default.createElement("label", {
           className: "rule--label"
         }, "\xA0") : null;
-        return valueSources.length > 1 && !readonly && /* @__PURE__ */ import_react125.default.createElement("div", {
+        return valueSources.length > 1 && !readonly && /* @__PURE__ */ import_react124.default.createElement("div", {
           key: "valuesrc-" + field + "-" + delta,
           className: "widget--valuesrc"
-        }, sourceLabel, /* @__PURE__ */ import_react125.default.createElement(ValueSources, {
+        }, sourceLabel, /* @__PURE__ */ import_react124.default.createElement(ValueSources, {
           key: "valuesrc-" + delta,
           delta,
           valueSources: valueSourcesOptions,
@@ -94801,13 +94740,13 @@
         var widgets3 = meta.widgets;
         var settings4 = config2.settings;
         var sepText = widgets3[delta].sepText;
-        var sepLabel = settings4.showLabels ? /* @__PURE__ */ import_react125.default.createElement("label", {
+        var sepLabel = settings4.showLabels ? /* @__PURE__ */ import_react124.default.createElement("label", {
           className: "rule--label"
         }, "\xA0") : null;
-        return sepText && /* @__PURE__ */ import_react125.default.createElement("div", {
+        return sepText && /* @__PURE__ */ import_react124.default.createElement("div", {
           key: "widget-separators-" + delta,
           className: "widget--sep"
-        }, sepLabel, /* @__PURE__ */ import_react125.default.createElement("span", null, sepText));
+        }, sepLabel, /* @__PURE__ */ import_react124.default.createElement("span", null, sepText));
       };
       _this.renderWidgetDelta = function(delta) {
         var sep = _this.renderSep(delta, _this.meta, _this.props);
@@ -94925,47 +94864,47 @@
         if (!defaultWidget)
           return null;
         var name = defaultWidget;
-        return /* @__PURE__ */ import_react125.default.createElement(Col, {
+        return /* @__PURE__ */ import_react124.default.createElement(Col, {
           className: "rule--widget rule--widget--".concat(name.toUpperCase()),
           key: "widget-col-" + name
         }, (0, import_range.default)(0, cardinality).map(this.renderWidgetDelta));
       }
     }]);
     return Widget2;
-  }(import_react125.PureComponent);
+  }(import_react124.PureComponent);
   Widget.propTypes = {
-    config: import_prop_types53.default.object.isRequired,
-    value: import_prop_types53.default.any,
+    config: import_prop_types52.default.object.isRequired,
+    value: import_prop_types52.default.any,
     //instanceOf(Immutable.List)
-    valueSrc: import_prop_types53.default.any,
+    valueSrc: import_prop_types52.default.any,
     //instanceOf(Immutable.List)
-    valueError: import_prop_types53.default.any,
-    field: import_prop_types53.default.string,
-    operator: import_prop_types53.default.string,
-    readonly: import_prop_types53.default.bool,
-    asyncListValues: import_prop_types53.default.array,
-    id: import_prop_types53.default.string,
-    groupId: import_prop_types53.default.string,
+    valueError: import_prop_types52.default.any,
+    field: import_prop_types52.default.string,
+    operator: import_prop_types52.default.string,
+    readonly: import_prop_types52.default.bool,
+    asyncListValues: import_prop_types52.default.array,
+    id: import_prop_types52.default.string,
+    groupId: import_prop_types52.default.string,
     //actions
-    setValue: import_prop_types53.default.func,
-    setValueSrc: import_prop_types53.default.func,
+    setValue: import_prop_types52.default.func,
+    setValueSrc: import_prop_types52.default.func,
     // for isFuncArg
-    isFuncArg: import_prop_types53.default.bool,
-    fieldFunc: import_prop_types53.default.string,
-    fieldArg: import_prop_types53.default.string,
-    leftField: import_prop_types53.default.string,
+    isFuncArg: import_prop_types52.default.bool,
+    fieldFunc: import_prop_types52.default.string,
+    fieldArg: import_prop_types52.default.string,
+    leftField: import_prop_types52.default.string,
     // for RuleGroupExt
-    isForRuleGruop: import_prop_types53.default.bool,
-    parentField: import_prop_types53.default.string,
+    isForRuleGruop: import_prop_types52.default.bool,
+    parentField: import_prop_types52.default.string,
     // for func in func
-    parentFuncs: import_prop_types53.default.array,
+    parentFuncs: import_prop_types52.default.array,
     // for case_value
-    isCaseValue: import_prop_types53.default.bool
+    isCaseValue: import_prop_types52.default.bool
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/rule/OperatorOptions.js
-  var import_react126 = __toESM(require_react());
-  var import_prop_types54 = __toESM(require_prop_types());
+  var import_react125 = __toESM(require_react());
+  var import_prop_types53 = __toESM(require_prop_types());
   var _excluded63 = ["factory"];
   function _createSuper11(Derived) {
     var hasNativeReflectConstruct = _isNativeReflectConstruct11();
@@ -95023,22 +94962,22 @@
         });
         var optionsCmp = optionsFactory(optionsProps);
         var name = this.props.selectedOperator;
-        return /* @__PURE__ */ import_react126.default.createElement("div", {
+        return /* @__PURE__ */ import_react125.default.createElement("div", {
           className: "rule--operator rule--operator--".concat(name.toUpperCase())
         }, optionsCmp);
       }
     }]);
     return OperatorOptions2;
-  }(import_react126.PureComponent);
+  }(import_react125.PureComponent);
   OperatorOptions.propTypes = {
-    config: import_prop_types54.default.object.isRequired,
-    operatorOptions: import_prop_types54.default.any.isRequired,
+    config: import_prop_types53.default.object.isRequired,
+    operatorOptions: import_prop_types53.default.any.isRequired,
     //instanceOf(Immutable.Map)
-    selectedField: import_prop_types54.default.string.isRequired,
-    selectedOperator: import_prop_types54.default.string.isRequired,
-    readonly: import_prop_types54.default.bool,
+    selectedField: import_prop_types53.default.string.isRequired,
+    selectedOperator: import_prop_types53.default.string.isRequired,
+    readonly: import_prop_types53.default.bool,
     //actions
-    setOperatorOption: import_prop_types54.default.func.isRequired
+    setOperatorOption: import_prop_types53.default.func.isRequired
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/item/Rule.js
@@ -95187,7 +95126,7 @@
       value: function renderField2() {
         var _this$props = this.props, config2 = _this$props.config, isLocked = _this$props.isLocked;
         var immutableFieldsMode = config2.settings.immutableFieldsMode;
-        return /* @__PURE__ */ import_react127.default.createElement(FieldWrapper, {
+        return /* @__PURE__ */ import_react126.default.createElement(FieldWrapper, {
           key: "field",
           classname: "rule--field",
           config: config2,
@@ -95205,7 +95144,7 @@
         var _this$props2 = this.props, config2 = _this$props2.config, isLocked = _this$props2.isLocked;
         var _this$meta = this.meta, selectedFieldPartsLabels = _this$meta.selectedFieldPartsLabels, selectedFieldWidgetConfig = _this$meta.selectedFieldWidgetConfig, showOperator = _this$meta.showOperator, showOperatorLabel = _this$meta.showOperatorLabel;
         var immutableOpsMode = config2.settings.immutableOpsMode;
-        return /* @__PURE__ */ import_react127.default.createElement(OperatorWrapper, {
+        return /* @__PURE__ */ import_react126.default.createElement(OperatorWrapper, {
           key: "operator",
           config: config2,
           selectedField: this.props.selectedField,
@@ -95228,7 +95167,7 @@
         var immutableValuesMode = config2.settings.immutableValuesMode;
         if (!showWidget)
           return null;
-        var widget = /* @__PURE__ */ import_react127.default.createElement(Widget, {
+        var widget = /* @__PURE__ */ import_react126.default.createElement(Widget, {
           key: "values",
           field: this.props.selectedField,
           parentField: this.props.parentField,
@@ -95244,7 +95183,7 @@
           id: this.props.id,
           groupId: this.props.groupId
         });
-        return /* @__PURE__ */ import_react127.default.createElement(Col, {
+        return /* @__PURE__ */ import_react126.default.createElement(Col, {
           key: "widget-for-" + this.props.selectedOperator,
           className: "rule--value"
         }, widget);
@@ -95257,7 +95196,7 @@
         var _config$settings = config2.settings, immutableOpsMode = _config$settings.immutableOpsMode, immutableValuesMode = _config$settings.immutableValuesMode;
         if (!showOperatorOptions)
           return null;
-        var opOpts = /* @__PURE__ */ import_react127.default.createElement(OperatorOptions, {
+        var opOpts = /* @__PURE__ */ import_react126.default.createElement(OperatorOptions, {
           key: "operatorOptions",
           selectedField: this.props.selectedField,
           selectedOperator: this.props.selectedOperator,
@@ -95266,7 +95205,7 @@
           config: config2,
           readonly: immutableValuesMode
         });
-        return /* @__PURE__ */ import_react127.default.createElement(Col, {
+        return /* @__PURE__ */ import_react126.default.createElement(Col, {
           key: "op-options-for-" + this.props.selectedOperator,
           className: "rule--operator-options"
         }, opOpts);
@@ -95276,7 +95215,7 @@
       value: function renderBeforeWidget() {
         var config2 = this.props.config;
         var renderBeforeWidget2 = config2.settings.renderBeforeWidget;
-        return renderBeforeWidget2 && /* @__PURE__ */ import_react127.default.createElement(Col, {
+        return renderBeforeWidget2 && /* @__PURE__ */ import_react126.default.createElement(Col, {
           key: "before-widget-for-" + this.props.selectedOperator,
           className: "rule--before-widget"
         }, typeof renderBeforeWidget2 === "function" ? renderBeforeWidget2(this.props) : renderBeforeWidget2);
@@ -95286,7 +95225,7 @@
       value: function renderAfterWidget() {
         var config2 = this.props.config;
         var renderAfterWidget2 = config2.settings.renderAfterWidget;
-        return renderAfterWidget2 && /* @__PURE__ */ import_react127.default.createElement(Col, {
+        return renderAfterWidget2 && /* @__PURE__ */ import_react126.default.createElement(Col, {
           key: "after-widget-for-" + this.props.selectedOperator,
           className: "rule--after-widget"
         }, typeof renderAfterWidget2 === "function" ? renderAfterWidget2(this.props) : renderAfterWidget2);
@@ -95299,7 +95238,7 @@
         var oneValueError = valueError && valueError.toArray().filter(function(e) {
           return !!e;
         }).shift() || null;
-        return showErrorMessage && oneValueError && /* @__PURE__ */ import_react127.default.createElement("div", {
+        return showErrorMessage && oneValueError && /* @__PURE__ */ import_react126.default.createElement("div", {
           className: "rule--error"
         }, renderRuleError ? renderRuleError({
           error: oneValueError
@@ -95309,18 +95248,18 @@
       key: "renderDrag",
       value: function renderDrag() {
         var showDragIcon = this.meta.showDragIcon;
-        return showDragIcon && /* @__PURE__ */ import_react127.default.createElement("span", {
+        return showDragIcon && /* @__PURE__ */ import_react126.default.createElement("span", {
           key: "rule-drag-icon",
           className: "qb-drag-handler rule--drag-handler",
           onMouseDown: this.props.handleDraggerMouseDown
-        }, /* @__PURE__ */ import_react127.default.createElement(DragIcon, null), " ");
+        }, /* @__PURE__ */ import_react126.default.createElement(DragIcon, null), " ");
       }
     }, {
       key: "renderDel",
       value: function renderDel() {
         var _this$props5 = this.props, config2 = _this$props5.config, isLocked = _this$props5.isLocked;
         var _config$settings3 = config2.settings, deleteLabel = _config$settings3.deleteLabel, immutableGroupsMode = _config$settings3.immutableGroupsMode, Btn = _config$settings3.renderButton, canDeleteLocked = _config$settings3.canDeleteLocked;
-        return !immutableGroupsMode && (!isLocked || isLocked && canDeleteLocked) && /* @__PURE__ */ import_react127.default.createElement(Btn, {
+        return !immutableGroupsMode && (!isLocked || isLocked && canDeleteLocked) && /* @__PURE__ */ import_react126.default.createElement(Btn, {
           type: "delRule",
           onClick: this.removeSelf,
           label: deleteLabel,
@@ -95332,7 +95271,7 @@
       value: function renderLock() {
         var _this$props6 = this.props, config2 = _this$props6.config, isLocked = _this$props6.isLocked, isTrueLocked = _this$props6.isTrueLocked, id = _this$props6.id;
         var _config$settings4 = config2.settings, lockLabel = _config$settings4.lockLabel, lockedLabel = _config$settings4.lockedLabel, showLock = _config$settings4.showLock, Switch = _config$settings4.renderSwitch;
-        return showLock && !(isLocked && !isTrueLocked) && /* @__PURE__ */ import_react127.default.createElement(Switch, {
+        return showLock && !(isLocked && !isTrueLocked) && /* @__PURE__ */ import_react126.default.createElement(Switch, {
           type: "lock",
           id,
           value: isLocked,
@@ -95351,7 +95290,7 @@
         var canShrinkValue = valueSrc.first() == "value" && !showOperatorOptions && value.size == 1 && selectedFieldWidgetConfig.fullWidth;
         var BtnGrp = config2.settings.renderButtonGroup;
         var parts2 = [this.renderField(), this.renderOperator(), this.renderBeforeWidget(), this.renderWidget(), this.renderAfterWidget(), this.renderOperatorOptions()];
-        var body = /* @__PURE__ */ import_react127.default.createElement("div", {
+        var body = /* @__PURE__ */ import_react126.default.createElement("div", {
           key: "rule-body",
           className: (0, import_classnames3.default)("rule--body", canShrinkValue && "can--shrink--value")
         }, parts2);
@@ -95359,57 +95298,57 @@
         var drag = this.renderDrag();
         var lock = this.renderLock();
         var del2 = this.renderDel();
-        return /* @__PURE__ */ import_react127.default.createElement(import_react127.default.Fragment, null, drag, /* @__PURE__ */ import_react127.default.createElement("div", {
+        return /* @__PURE__ */ import_react126.default.createElement(import_react126.default.Fragment, null, drag, /* @__PURE__ */ import_react126.default.createElement("div", {
           className: "rule--body--wrapper"
-        }, body, error2), /* @__PURE__ */ import_react127.default.createElement("div", {
+        }, body, error2), /* @__PURE__ */ import_react126.default.createElement("div", {
           className: "rule--header"
-        }, /* @__PURE__ */ import_react127.default.createElement(BtnGrp, {
+        }, /* @__PURE__ */ import_react126.default.createElement(BtnGrp, {
           config: config2
         }, lock, del2)));
       }
     }]);
     return Rule2;
-  }(import_react127.PureComponent);
+  }(import_react126.PureComponent);
   Rule.propTypes = {
-    id: import_prop_types55.default.string.isRequired,
-    groupId: import_prop_types55.default.string,
-    selectedField: import_prop_types55.default.string,
-    selectedOperator: import_prop_types55.default.string,
-    operatorOptions: import_prop_types55.default.object,
-    config: import_prop_types55.default.object.isRequired,
-    value: import_prop_types55.default.any,
+    id: import_prop_types54.default.string.isRequired,
+    groupId: import_prop_types54.default.string,
+    selectedField: import_prop_types54.default.string,
+    selectedOperator: import_prop_types54.default.string,
+    operatorOptions: import_prop_types54.default.object,
+    config: import_prop_types54.default.object.isRequired,
+    value: import_prop_types54.default.any,
     //depends on widget
-    valueSrc: import_prop_types55.default.any,
-    asyncListValues: import_prop_types55.default.array,
-    isDraggingMe: import_prop_types55.default.bool,
-    isDraggingTempo: import_prop_types55.default.bool,
-    parentField: import_prop_types55.default.string,
+    valueSrc: import_prop_types54.default.any,
+    asyncListValues: import_prop_types54.default.array,
+    isDraggingMe: import_prop_types54.default.bool,
+    isDraggingTempo: import_prop_types54.default.bool,
+    parentField: import_prop_types54.default.string,
     //from RuleGroup
-    valueError: import_prop_types55.default.any,
-    isLocked: import_prop_types55.default.bool,
-    isTrueLocked: import_prop_types55.default.bool,
+    valueError: import_prop_types54.default.any,
+    isLocked: import_prop_types54.default.bool,
+    isTrueLocked: import_prop_types54.default.bool,
     //path: PropTypes.instanceOf(Immutable.List),
     //actions
-    handleDraggerMouseDown: import_prop_types55.default.func,
-    setField: import_prop_types55.default.func,
-    setOperator: import_prop_types55.default.func,
-    setOperatorOption: import_prop_types55.default.func,
-    setLock: import_prop_types55.default.func,
-    removeSelf: import_prop_types55.default.func,
-    setValue: import_prop_types55.default.func,
-    setValueSrc: import_prop_types55.default.func,
-    reordableNodesCnt: import_prop_types55.default.number
+    handleDraggerMouseDown: import_prop_types54.default.func,
+    setField: import_prop_types54.default.func,
+    setOperator: import_prop_types54.default.func,
+    setOperatorOption: import_prop_types54.default.func,
+    setLock: import_prop_types54.default.func,
+    removeSelf: import_prop_types54.default.func,
+    setValue: import_prop_types54.default.func,
+    setValueSrc: import_prop_types54.default.func,
+    reordableNodesCnt: import_prop_types54.default.number
   };
   var Rule_default = RuleContainer_default(Draggable_default("rule")(ConfirmFn(Rule)));
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/item/Group.js
-  var import_react130 = __toESM(require_react());
-  var import_prop_types57 = __toESM(require_prop_types());
+  var import_react129 = __toESM(require_react());
+  var import_prop_types56 = __toESM(require_prop_types());
   var import_startsWith = __toESM(require_startsWith());
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/containers/GroupContainer.js
-  var import_react128 = __toESM(require_react());
-  var import_prop_types56 = __toESM(require_prop_types());
+  var import_react127 = __toESM(require_react());
+  var import_prop_types55 = __toESM(require_prop_types());
   var import_mapValues4 = __toESM(require_mapValues());
   function _createSuper13(Derived) {
     var hasNativeReflectConstruct = _isNativeReflectConstruct13();
@@ -95557,10 +95496,10 @@
           var isInDraggingTempo = !isDraggingMe && this.props.isDraggingTempo;
           var allowFurtherNesting = typeof maxNesting === "undefined" || currentNesting < maxNesting;
           var isRoot = currentNesting == 1;
-          return /* @__PURE__ */ import_react128.default.createElement("div", {
+          return /* @__PURE__ */ import_react127.default.createElement("div", {
             className: "group-or-rule-container group-container",
             "data-id": this.props.id
-          }, [isDraggingMe ? /* @__PURE__ */ import_react128.default.createElement(Group, {
+          }, [isDraggingMe ? /* @__PURE__ */ import_react127.default.createElement(Group, {
             key: "dragging",
             id: this.props.id,
             groupId: this.props.groupId,
@@ -95595,7 +95534,7 @@
             isLocked: this.props.isLocked,
             isTrueLocked: this.props.isTrueLocked,
             parentReordableNodesCnt: this.props.parentReordableNodesCnt
-          }) : null, /* @__PURE__ */ import_react128.default.createElement(Group, {
+          }) : null, /* @__PURE__ */ import_react127.default.createElement(Group, {
             key: this.props.id,
             id: this.props.id,
             groupId: this.props.groupId,
@@ -95634,31 +95573,31 @@
         }
       }]);
       return GroupContainer;
-    }(import_react128.Component), _class.propTypes = {
+    }(import_react127.Component), _class.propTypes = {
       //tree: PropTypes.instanceOf(Immutable.Map).isRequired,
-      config: import_prop_types56.default.object.isRequired,
-      actions: import_prop_types56.default.object.isRequired,
+      config: import_prop_types55.default.object.isRequired,
+      actions: import_prop_types55.default.object.isRequired,
       //{setConjunction: Funciton, removeGroup, addGroup, addRule, ...}
-      path: import_prop_types56.default.any.isRequired,
+      path: import_prop_types55.default.any.isRequired,
       //instanceOf(Immutable.List)
-      id: import_prop_types56.default.string.isRequired,
-      groupId: import_prop_types56.default.string,
-      not: import_prop_types56.default.bool,
-      conjunction: import_prop_types56.default.string,
-      children1: import_prop_types56.default.any,
+      id: import_prop_types55.default.string.isRequired,
+      groupId: import_prop_types55.default.string,
+      not: import_prop_types55.default.bool,
+      conjunction: import_prop_types55.default.string,
+      children1: import_prop_types55.default.any,
       //instanceOf(Immutable.OrderedMap)
-      onDragStart: import_prop_types56.default.func,
-      reordableNodesCnt: import_prop_types56.default.number,
-      field: import_prop_types56.default.string,
+      onDragStart: import_prop_types55.default.func,
+      reordableNodesCnt: import_prop_types55.default.number,
+      field: import_prop_types55.default.string,
       // for RuleGroup
-      parentField: import_prop_types56.default.string,
+      parentField: import_prop_types55.default.string,
       //from RuleGroup
-      isLocked: import_prop_types56.default.bool,
-      isTrueLocked: import_prop_types56.default.bool,
+      isLocked: import_prop_types55.default.bool,
+      isTrueLocked: import_prop_types55.default.bool,
       //connected:
-      dragging: import_prop_types56.default.object,
+      dragging: import_prop_types55.default.object,
       //{id, x, y, w, h}
-      isDraggingTempo: import_prop_types56.default.bool
+      isDraggingTempo: import_prop_types55.default.bool
     }, _class;
   };
   var GroupContainer_default = function(Group) {
@@ -95677,7 +95616,7 @@
   var import_classnames4 = __toESM(require_classnames());
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/item/GroupActions.js
-  var import_react129 = __toESM(require_react());
+  var import_react128 = __toESM(require_react());
   function _createSuper14(Derived) {
     var hasNativeReflectConstruct = _isNativeReflectConstruct14();
     return function _createSuperInternal() {
@@ -95728,7 +95667,7 @@
         var _this$props = this.props, config2 = _this$props.config, addRule2 = _this$props.addRule, addGroup2 = _this$props.addGroup, removeSelf = _this$props.removeSelf, setLock3 = _this$props.setLock, isLocked = _this$props.isLocked, isTrueLocked = _this$props.isTrueLocked, id = _this$props.id, canAddGroup = _this$props.canAddGroup, canAddRule = _this$props.canAddRule, canDeleteGroup = _this$props.canDeleteGroup;
         var _config$settings = config2.settings, immutableGroupsMode = _config$settings.immutableGroupsMode, addRuleLabel = _config$settings.addRuleLabel, addGroupLabel = _config$settings.addGroupLabel, delGroupLabel = _config$settings.delGroupLabel, groupActionsPosition = _config$settings.groupActionsPosition, Btn = _config$settings.renderButton, Switch = _config$settings.renderSwitch, BtnGrp = _config$settings.renderButtonGroup, lockLabel = _config$settings.lockLabel, lockedLabel = _config$settings.lockedLabel, showLock = _config$settings.showLock, canDeleteLocked = _config$settings.canDeleteLocked;
         var position = groupActionsPositionList[groupActionsPosition || defaultPosition];
-        var setLockSwitch = showLock && !(isLocked && !isTrueLocked) && /* @__PURE__ */ import_react129.default.createElement(Switch, {
+        var setLockSwitch = showLock && !(isLocked && !isTrueLocked) && /* @__PURE__ */ import_react128.default.createElement(Switch, {
           type: "lock",
           id,
           value: isLocked,
@@ -95737,35 +95676,35 @@
           checkedLabel: lockedLabel,
           config: config2
         });
-        var addRuleBtn = !immutableGroupsMode && canAddRule && !isLocked && /* @__PURE__ */ import_react129.default.createElement(Btn, {
+        var addRuleBtn = !immutableGroupsMode && canAddRule && !isLocked && /* @__PURE__ */ import_react128.default.createElement(Btn, {
           type: "addRule",
           onClick: addRule2,
           label: addRuleLabel,
           readonly: isLocked,
           config: config2
         });
-        var addGroupBtn = !immutableGroupsMode && canAddGroup && !isLocked && /* @__PURE__ */ import_react129.default.createElement(Btn, {
+        var addGroupBtn = !immutableGroupsMode && canAddGroup && !isLocked && /* @__PURE__ */ import_react128.default.createElement(Btn, {
           type: "addGroup",
           onClick: addGroup2,
           label: addGroupLabel,
           readonly: isLocked,
           config: config2
         });
-        var delGroupBtn = !immutableGroupsMode && canDeleteGroup && (!isLocked || isLocked && canDeleteLocked) && /* @__PURE__ */ import_react129.default.createElement(Btn, {
+        var delGroupBtn = !immutableGroupsMode && canDeleteGroup && (!isLocked || isLocked && canDeleteLocked) && /* @__PURE__ */ import_react128.default.createElement(Btn, {
           type: "delGroup",
           onClick: removeSelf,
           label: delGroupLabel,
           config: config2
         });
-        return /* @__PURE__ */ import_react129.default.createElement("div", {
+        return /* @__PURE__ */ import_react128.default.createElement("div", {
           className: "group--actions ".concat(position)
-        }, /* @__PURE__ */ import_react129.default.createElement(BtnGrp, {
+        }, /* @__PURE__ */ import_react128.default.createElement(BtnGrp, {
           config: config2
         }, setLockSwitch, addRuleBtn, addGroupBtn, delGroupBtn));
       }
     }]);
     return GroupActions2;
-  }(import_react129.PureComponent);
+  }(import_react128.PureComponent);
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/item/Group.js
   function ownKeys5(object, enumerableOnly) {
@@ -95832,13 +95771,13 @@
         var BeforeActions = _this.props.config.settings.renderBeforeActions;
         if (BeforeActions == void 0)
           return null;
-        return typeof BeforeActions === "function" ? /* @__PURE__ */ import_react130.default.createElement(BeforeActions, _this.props) : BeforeActions;
+        return typeof BeforeActions === "function" ? /* @__PURE__ */ import_react129.default.createElement(BeforeActions, _this.props) : BeforeActions;
       };
       _this.renderAfterActions = function() {
         var AfterActions = _this.props.config.settings.renderAfterActions;
         if (AfterActions == void 0)
           return null;
-        return typeof AfterActions === "function" ? /* @__PURE__ */ import_react130.default.createElement(AfterActions, _this.props) : AfterActions;
+        return typeof AfterActions === "function" ? /* @__PURE__ */ import_react129.default.createElement(AfterActions, _this.props) : AfterActions;
       };
       _this.removeSelf = _this.removeSelf.bind(_assertThisInitialized(_this));
       _this.setLock = _this.setLock.bind(_assertThisInitialized(_this));
@@ -95903,7 +95842,7 @@
     }, {
       key: "render",
       value: function render() {
-        return /* @__PURE__ */ import_react130.default.createElement(import_react130.default.Fragment, null, this.renderHeaderWrapper(), this.renderChildrenWrapper(), this.renderFooterWrapper());
+        return /* @__PURE__ */ import_react129.default.createElement(import_react129.default.Fragment, null, this.renderHeaderWrapper(), this.renderChildrenWrapper(), this.renderFooterWrapper());
       }
     }, {
       key: "showNot",
@@ -95935,7 +95874,7 @@
       key: "renderChildrenWrapper",
       value: function renderChildrenWrapper() {
         var children1 = this.props.children1;
-        return children1 && /* @__PURE__ */ import_react130.default.createElement("div", {
+        return children1 && /* @__PURE__ */ import_react129.default.createElement("div", {
           key: "group-children",
           className: (0, import_classnames4.default)("group--children", !this.showConjs() ? "hide--conjs" : "", this.isOneChild() ? "hide--line" : "", this.isOneChild() ? "one--child" : "", this.childrenClassName())
         }, this.renderChildren());
@@ -95944,7 +95883,7 @@
       key: "renderHeaderWrapper",
       value: function renderHeaderWrapper() {
         var isGroupTopPosition = this.isGroupTopPosition();
-        return /* @__PURE__ */ import_react130.default.createElement("div", {
+        return /* @__PURE__ */ import_react129.default.createElement("div", {
           key: "group-header",
           className: (0, import_classnames4.default)("group--header", this.isOneChild() ? "one--child" : "", !this.showConjs() ? "hide--conjs" : "", this.isOneChild() ? "hide--line" : "", this.isNoChildren() ? "no--children" : "")
         }, this.renderHeader(), isGroupTopPosition && this.renderBeforeActions(), isGroupTopPosition && this.renderActions(), isGroupTopPosition && this.renderAfterActions());
@@ -95953,7 +95892,7 @@
       key: "renderFooterWrapper",
       value: function renderFooterWrapper() {
         var isGroupTopPosition = this.isGroupTopPosition();
-        return !isGroupTopPosition && /* @__PURE__ */ import_react130.default.createElement("div", {
+        return !isGroupTopPosition && /* @__PURE__ */ import_react129.default.createElement("div", {
           key: "group-footer",
           className: "group--footer"
         }, this.renderBeforeActions(), this.renderActions(), this.renderAfterActions());
@@ -95962,7 +95901,7 @@
       key: "renderActions",
       value: function renderActions() {
         var _this$props2 = this.props, config2 = _this$props2.config, addRule2 = _this$props2.addRule, addGroup2 = _this$props2.addGroup, isLocked = _this$props2.isLocked, isTrueLocked = _this$props2.isTrueLocked, id = _this$props2.id;
-        return /* @__PURE__ */ import_react130.default.createElement(GroupActions, {
+        return /* @__PURE__ */ import_react129.default.createElement(GroupActions, {
           config: config2,
           addRule: addRule2,
           addGroup: addGroup2,
@@ -96009,7 +95948,7 @@
         var config2 = props.config, actions = props.actions, onDragStart = props.onDragStart, isLocked = props.isLocked;
         var isRuleGroup = item.get("type") == "group" && item.getIn(["properties", "field"]) != null;
         var type = isRuleGroup ? "rule_group" : item.get("type");
-        return /* @__PURE__ */ import_react130.default.createElement(Item, _extends87({}, this.extraPropsForItem(item), {
+        return /* @__PURE__ */ import_react129.default.createElement(Item, _extends87({}, this.extraPropsForItem(item), {
           key: item.get("id"),
           id: item.get("id"),
           groupId: props.id,
@@ -96062,11 +96001,11 @@
       key: "renderDrag",
       value: function renderDrag() {
         var handleDraggerMouseDown = this.props.handleDraggerMouseDown;
-        var drag = this.showDragIcon() && /* @__PURE__ */ import_react130.default.createElement("span", {
+        var drag = this.showDragIcon() && /* @__PURE__ */ import_react129.default.createElement("span", {
           key: "group-drag-icon",
           className: "qb-drag-handler group--drag-handler",
           onMouseDown: handleDraggerMouseDown
-        }, /* @__PURE__ */ import_react130.default.createElement(DragIcon, null), " ");
+        }, /* @__PURE__ */ import_react129.default.createElement(DragIcon, null), " ");
         return drag;
       }
     }, {
@@ -96099,47 +96038,47 @@
           showNot: this.showNot(),
           isLocked
         };
-        return /* @__PURE__ */ import_react130.default.createElement(Conjs, renderProps);
+        return /* @__PURE__ */ import_react129.default.createElement(Conjs, renderProps);
       }
     }, {
       key: "renderHeader",
       value: function renderHeader() {
-        return /* @__PURE__ */ import_react130.default.createElement("div", {
+        return /* @__PURE__ */ import_react129.default.createElement("div", {
           className: "group--conjunctions"
         }, this.renderConjs(), this.renderDrag());
       }
     }]);
     return BasicGroup2;
-  }(import_react130.PureComponent);
+  }(import_react129.PureComponent);
   BasicGroup.propTypes = {
     //tree: PropTypes.instanceOf(Immutable.Map).isRequired,
-    reordableNodesCnt: import_prop_types57.default.number,
-    conjunctionOptions: import_prop_types57.default.object.isRequired,
-    allowFurtherNesting: import_prop_types57.default.bool.isRequired,
-    isRoot: import_prop_types57.default.bool.isRequired,
-    not: import_prop_types57.default.bool,
-    selectedConjunction: import_prop_types57.default.string,
-    config: import_prop_types57.default.object.isRequired,
-    id: import_prop_types57.default.string.isRequired,
-    groupId: import_prop_types57.default.string,
-    path: import_prop_types57.default.any,
+    reordableNodesCnt: import_prop_types56.default.number,
+    conjunctionOptions: import_prop_types56.default.object.isRequired,
+    allowFurtherNesting: import_prop_types56.default.bool.isRequired,
+    isRoot: import_prop_types56.default.bool.isRequired,
+    not: import_prop_types56.default.bool,
+    selectedConjunction: import_prop_types56.default.string,
+    config: import_prop_types56.default.object.isRequired,
+    id: import_prop_types56.default.string.isRequired,
+    groupId: import_prop_types56.default.string,
+    path: import_prop_types56.default.any,
     //instanceOf(Immutable.List)
-    children1: import_prop_types57.default.any,
+    children1: import_prop_types56.default.any,
     //instanceOf(Immutable.OrderedMap)
-    isDraggingMe: import_prop_types57.default.bool,
-    isDraggingTempo: import_prop_types57.default.bool,
-    isLocked: import_prop_types57.default.bool,
-    isTrueLocked: import_prop_types57.default.bool,
+    isDraggingMe: import_prop_types56.default.bool,
+    isDraggingTempo: import_prop_types56.default.bool,
+    isLocked: import_prop_types56.default.bool,
+    isTrueLocked: import_prop_types56.default.bool,
     //actions
-    handleDraggerMouseDown: import_prop_types57.default.func,
-    onDragStart: import_prop_types57.default.func,
-    addRule: import_prop_types57.default.func.isRequired,
-    addGroup: import_prop_types57.default.func.isRequired,
-    removeSelf: import_prop_types57.default.func.isRequired,
-    setConjunction: import_prop_types57.default.func.isRequired,
-    setNot: import_prop_types57.default.func.isRequired,
-    setLock: import_prop_types57.default.func.isRequired,
-    actions: import_prop_types57.default.object.isRequired
+    handleDraggerMouseDown: import_prop_types56.default.func,
+    onDragStart: import_prop_types56.default.func,
+    addRule: import_prop_types56.default.func.isRequired,
+    addGroup: import_prop_types56.default.func.isRequired,
+    removeSelf: import_prop_types56.default.func.isRequired,
+    setConjunction: import_prop_types56.default.func.isRequired,
+    setNot: import_prop_types56.default.func.isRequired,
+    setLock: import_prop_types56.default.func.isRequired,
+    actions: import_prop_types56.default.object.isRequired
   };
   var Group_default = GroupContainer_default(Draggable_default("group")(ConfirmFn(BasicGroup)));
 
@@ -96173,11 +96112,11 @@
   }
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/item/RuleGroup.js
-  var import_react132 = __toESM(require_react());
-  var import_prop_types58 = __toESM(require_prop_types());
+  var import_react131 = __toESM(require_react());
+  var import_prop_types57 = __toESM(require_prop_types());
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/item/RuleGroupActions.js
-  var import_react131 = __toESM(require_react());
+  var import_react130 = __toESM(require_react());
   function _createSuper16(Derived) {
     var hasNativeReflectConstruct = _isNativeReflectConstruct16();
     return function _createSuperInternal() {
@@ -96218,7 +96157,7 @@
       value: function render() {
         var _this$props = this.props, config2 = _this$props.config, addRule2 = _this$props.addRule, canAddRule = _this$props.canAddRule, canDeleteGroup = _this$props.canDeleteGroup, removeSelf = _this$props.removeSelf, setLock3 = _this$props.setLock, isLocked = _this$props.isLocked, isTrueLocked = _this$props.isTrueLocked, id = _this$props.id;
         var _config$settings = config2.settings, immutableGroupsMode = _config$settings.immutableGroupsMode, addRuleLabel = _config$settings.addRuleLabel, delGroupLabel = _config$settings.delGroupLabel, Btn = _config$settings.renderButton, Switch = _config$settings.renderSwitch, BtnGrp = _config$settings.renderButtonGroup, lockLabel = _config$settings.lockLabel, lockedLabel = _config$settings.lockedLabel, showLock = _config$settings.showLock, canDeleteLocked = _config$settings.canDeleteLocked;
-        var setLockSwitch = showLock && !(isLocked && !isTrueLocked) && /* @__PURE__ */ import_react131.default.createElement(Switch, {
+        var setLockSwitch = showLock && !(isLocked && !isTrueLocked) && /* @__PURE__ */ import_react130.default.createElement(Switch, {
           type: "lock",
           id,
           value: isLocked,
@@ -96228,28 +96167,28 @@
           hideLabel: true,
           config: config2
         });
-        var addRuleBtn = !immutableGroupsMode && canAddRule && !isLocked && /* @__PURE__ */ import_react131.default.createElement(Btn, {
+        var addRuleBtn = !immutableGroupsMode && canAddRule && !isLocked && /* @__PURE__ */ import_react130.default.createElement(Btn, {
           type: "addRuleGroup",
           onClick: addRule2,
           label: addRuleLabel,
           readonly: isLocked,
           config: config2
         });
-        var delGroupBtn = !immutableGroupsMode && canDeleteGroup && (!isLocked || isLocked && canDeleteLocked) && /* @__PURE__ */ import_react131.default.createElement(Btn, {
+        var delGroupBtn = !immutableGroupsMode && canDeleteGroup && (!isLocked || isLocked && canDeleteLocked) && /* @__PURE__ */ import_react130.default.createElement(Btn, {
           type: "delRuleGroup",
           onClick: removeSelf,
           label: delGroupLabel,
           config: config2
         });
-        return /* @__PURE__ */ import_react131.default.createElement("div", {
+        return /* @__PURE__ */ import_react130.default.createElement("div", {
           className: "group--actions"
-        }, /* @__PURE__ */ import_react131.default.createElement(BtnGrp, {
+        }, /* @__PURE__ */ import_react130.default.createElement(BtnGrp, {
           config: config2
         }, setLockSwitch, addRuleBtn, delGroupBtn));
       }
     }]);
     return RuleGroupActions2;
-  }(import_react131.PureComponent);
+  }(import_react130.PureComponent);
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/item/RuleGroup.js
   function ownKeys6(object, enumerableOnly) {
@@ -96348,14 +96287,14 @@
     }, {
       key: "renderChildrenWrapper",
       value: function renderChildrenWrapper() {
-        return /* @__PURE__ */ import_react132.default.createElement(import_react132.default.Fragment, null, this.renderDrag(), this.renderField(), this.renderActions(), _get(_getPrototypeOf(RuleGroup2.prototype), "renderChildrenWrapper", this).call(this));
+        return /* @__PURE__ */ import_react131.default.createElement(import_react131.default.Fragment, null, this.renderDrag(), this.renderField(), this.renderActions(), _get(_getPrototypeOf(RuleGroup2.prototype), "renderChildrenWrapper", this).call(this));
       }
     }, {
       key: "renderField",
       value: function renderField2() {
         var _this$props = this.props, config2 = _this$props.config, selectedField = _this$props.selectedField, setField3 = _this$props.setField, parentField = _this$props.parentField, id = _this$props.id, groupId = _this$props.groupId, isLocked = _this$props.isLocked;
         var immutableFieldsMode = config2.settings.immutableFieldsMode;
-        return /* @__PURE__ */ import_react132.default.createElement(FieldWrapper, {
+        return /* @__PURE__ */ import_react131.default.createElement(FieldWrapper, {
           key: "field",
           classname: "group--field",
           config: config2,
@@ -96371,7 +96310,7 @@
       key: "renderActions",
       value: function renderActions() {
         var _this$props2 = this.props, config2 = _this$props2.config, addRule2 = _this$props2.addRule, isLocked = _this$props2.isLocked, isTrueLocked = _this$props2.isTrueLocked, id = _this$props2.id;
-        return /* @__PURE__ */ import_react132.default.createElement(RuleGroupActions, {
+        return /* @__PURE__ */ import_react131.default.createElement(RuleGroupActions, {
           config: config2,
           addRule: addRule2,
           canAddRule: this.canAddRule(),
@@ -96394,18 +96333,18 @@
     return RuleGroup2;
   }(BasicGroup);
   RuleGroup.propTypes = _objectSpread7(_objectSpread7({}, BasicGroup.propTypes), {}, {
-    selectedField: import_prop_types58.default.string,
-    parentField: import_prop_types58.default.string,
-    setField: import_prop_types58.default.func
+    selectedField: import_prop_types57.default.string,
+    parentField: import_prop_types57.default.string,
+    setField: import_prop_types57.default.func
   });
   var RuleGroup_default = GroupContainer_default(Draggable_default("group rule_group")(ConfirmFn(RuleGroup)));
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/item/RuleGroupExt.js
-  var import_react134 = __toESM(require_react());
-  var import_prop_types59 = __toESM(require_prop_types());
+  var import_react133 = __toESM(require_react());
+  var import_prop_types58 = __toESM(require_prop_types());
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/item/RuleGroupExtActions.js
-  var import_react133 = __toESM(require_react());
+  var import_react132 = __toESM(require_react());
   function _createSuper18(Derived) {
     var hasNativeReflectConstruct = _isNativeReflectConstruct18();
     return function _createSuperInternal() {
@@ -96446,7 +96385,7 @@
       value: function render() {
         var _this$props = this.props, config2 = _this$props.config, addRule2 = _this$props.addRule, canAddRule = _this$props.canAddRule, canDeleteGroup = _this$props.canDeleteGroup, removeSelf = _this$props.removeSelf, setLock3 = _this$props.setLock, isLocked = _this$props.isLocked, isTrueLocked = _this$props.isTrueLocked, id = _this$props.id;
         var _config$settings = config2.settings, immutableGroupsMode = _config$settings.immutableGroupsMode, addSubRuleLabel = _config$settings.addSubRuleLabel, delGroupLabel = _config$settings.delGroupLabel, Btn = _config$settings.renderButton, Switch = _config$settings.renderSwitch, BtnGrp = _config$settings.renderButtonGroup, lockLabel = _config$settings.lockLabel, lockedLabel = _config$settings.lockedLabel, showLock = _config$settings.showLock, canDeleteLocked = _config$settings.canDeleteLocked;
-        var setLockSwitch = showLock && !(isLocked && !isTrueLocked) && /* @__PURE__ */ import_react133.default.createElement(Switch, {
+        var setLockSwitch = showLock && !(isLocked && !isTrueLocked) && /* @__PURE__ */ import_react132.default.createElement(Switch, {
           type: "lock",
           id,
           value: isLocked,
@@ -96455,28 +96394,28 @@
           checkedLabel: lockedLabel,
           config: config2
         });
-        var addRuleBtn = !immutableGroupsMode && canAddRule && !isLocked && /* @__PURE__ */ import_react133.default.createElement(Btn, {
+        var addRuleBtn = !immutableGroupsMode && canAddRule && !isLocked && /* @__PURE__ */ import_react132.default.createElement(Btn, {
           type: "addRuleGroupExt",
           onClick: addRule2,
           label: addSubRuleLabel,
           readonly: isLocked,
           config: config2
         });
-        var delGroupBtn = !immutableGroupsMode && canDeleteGroup && (!isLocked || isLocked && canDeleteLocked) && /* @__PURE__ */ import_react133.default.createElement(Btn, {
+        var delGroupBtn = !immutableGroupsMode && canDeleteGroup && (!isLocked || isLocked && canDeleteLocked) && /* @__PURE__ */ import_react132.default.createElement(Btn, {
           type: "delRuleGroup",
           onClick: removeSelf,
           label: delGroupLabel,
           config: config2
         });
-        return /* @__PURE__ */ import_react133.default.createElement("div", {
+        return /* @__PURE__ */ import_react132.default.createElement("div", {
           className: "group--actions group--actions--tr"
-        }, /* @__PURE__ */ import_react133.default.createElement(BtnGrp, {
+        }, /* @__PURE__ */ import_react132.default.createElement(BtnGrp, {
           config: config2
         }, setLockSwitch, addRuleBtn, delGroupBtn));
       }
     }]);
     return RuleGroupExtActions2;
-  }(import_react133.PureComponent);
+  }(import_react132.PureComponent);
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/item/RuleGroupExt.js
   var import_classnames5 = __toESM(require_classnames());
@@ -96624,7 +96563,7 @@
     }, {
       key: "renderHeaderWrapper",
       value: function renderHeaderWrapper() {
-        return /* @__PURE__ */ import_react134.default.createElement("div", {
+        return /* @__PURE__ */ import_react133.default.createElement("div", {
           key: "group-header",
           className: (0, import_classnames5.default)("group--header", this.isOneChild() ? "one--child" : "", this.isOneChild() ? "hide--line" : "", this.isNoChildren() ? "no--children" : "", this.showDragIcon() ? "with--drag" : "hide--drag", this.showConjs() && (!this.isOneChild() || this.showNot()) ? "with--conjs" : "hide--conjs")
         }, this.renderHeader(), this.renderGroupField(), this.renderActions());
@@ -96632,14 +96571,14 @@
     }, {
       key: "renderHeader",
       value: function renderHeader() {
-        return /* @__PURE__ */ import_react134.default.createElement("div", {
+        return /* @__PURE__ */ import_react133.default.createElement("div", {
           className: "group--conjunctions"
         }, this.renderConjs(), this.renderDrag());
       }
     }, {
       key: "renderGroupField",
       value: function renderGroupField() {
-        return /* @__PURE__ */ import_react134.default.createElement("div", {
+        return /* @__PURE__ */ import_react133.default.createElement("div", {
           className: "group--field--count--rule"
         }, this.renderField(), this.renderOperator(), this.renderWidget());
       }
@@ -96678,7 +96617,7 @@
       value: function renderField2() {
         var _this$props3 = this.props, config2 = _this$props3.config, selectedField = _this$props3.selectedField, setField3 = _this$props3.setField, parentField = _this$props3.parentField, id = _this$props3.id, groupId = _this$props3.groupId, isLocked = _this$props3.isLocked;
         var immutableFieldsMode = config2.settings.immutableFieldsMode;
-        return /* @__PURE__ */ import_react134.default.createElement(FieldWrapper, {
+        return /* @__PURE__ */ import_react133.default.createElement(FieldWrapper, {
           key: "field",
           classname: "rule--field",
           config: config2,
@@ -96699,7 +96638,7 @@
         var hideOperator = selectedFieldWidgetConfig.hideOperator;
         var showOperatorLabel = selectedField && hideOperator && selectedFieldWidgetConfig.operatorInlineLabel;
         var showOperator = selectedField && !hideOperator;
-        return /* @__PURE__ */ import_react134.default.createElement(OperatorWrapper, {
+        return /* @__PURE__ */ import_react133.default.createElement(OperatorWrapper, {
           key: "operator",
           classname: "group--operator",
           config: config2,
@@ -96725,7 +96664,7 @@
         var showWidget = isFieldAndOpSelected;
         if (!showWidget)
           return null;
-        var widget = /* @__PURE__ */ import_react134.default.createElement(Widget, {
+        var widget = /* @__PURE__ */ import_react133.default.createElement(Widget, {
           key: "values",
           isForRuleGruop: true,
           field: this.props.selectedField,
@@ -96740,7 +96679,7 @@
           id: this.props.id,
           groupId: this.props.groupId
         });
-        return /* @__PURE__ */ import_react134.default.createElement(Col, {
+        return /* @__PURE__ */ import_react133.default.createElement(Col, {
           key: "widget-for-" + this.props.selectedOperator,
           className: "rule--value"
         }, widget);
@@ -96749,7 +96688,7 @@
       key: "renderActions",
       value: function renderActions() {
         var _this$props6 = this.props, config2 = _this$props6.config, addRule2 = _this$props6.addRule, isLocked = _this$props6.isLocked, isTrueLocked = _this$props6.isTrueLocked, id = _this$props6.id;
-        return /* @__PURE__ */ import_react134.default.createElement(RuleGroupExtActions, {
+        return /* @__PURE__ */ import_react133.default.createElement(RuleGroupExtActions, {
           config: config2,
           addRule: addRule2,
           canAddRule: this.canAddRule(),
@@ -96780,21 +96719,21 @@
     return RuleGroupExt2;
   }(BasicGroup);
   RuleGroupExt.propTypes = _objectSpread8(_objectSpread8({}, BasicGroup.propTypes), {}, {
-    selectedField: import_prop_types59.default.string,
-    selectedOperator: import_prop_types59.default.string,
-    value: import_prop_types59.default.any,
-    parentField: import_prop_types59.default.string,
-    setField: import_prop_types59.default.func,
-    setOperator: import_prop_types59.default.func,
-    setValue: import_prop_types59.default.func
+    selectedField: import_prop_types58.default.string,
+    selectedOperator: import_prop_types58.default.string,
+    value: import_prop_types58.default.any,
+    parentField: import_prop_types58.default.string,
+    setField: import_prop_types58.default.func,
+    setOperator: import_prop_types58.default.func,
+    setValue: import_prop_types58.default.func
   });
   var RuleGroupExt_default = GroupContainer_default(Draggable_default("group rule_group_ext")(ConfirmFn(RuleGroupExt)));
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/item/SwitchGroup.js
-  var import_react136 = __toESM(require_react());
+  var import_react135 = __toESM(require_react());
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/item/SwitchGroupActions.js
-  var import_react135 = __toESM(require_react());
+  var import_react134 = __toESM(require_react());
   function _createSuper20(Derived) {
     var hasNativeReflectConstruct = _isNativeReflectConstruct20();
     return function _createSuperInternal() {
@@ -96845,7 +96784,7 @@
         var _this$props = this.props, config2 = _this$props.config, addCaseGroup2 = _this$props.addCaseGroup, addDefaultCaseGroup2 = _this$props.addDefaultCaseGroup, setLock3 = _this$props.setLock, isLocked = _this$props.isLocked, isTrueLocked = _this$props.isTrueLocked, id = _this$props.id, canAddGroup = _this$props.canAddGroup, canAddDefault = _this$props.canAddDefault;
         var _config$settings = config2.settings, immutableGroupsMode = _config$settings.immutableGroupsMode, addCaseLabel = _config$settings.addCaseLabel, addDefaultCaseLabel = _config$settings.addDefaultCaseLabel, groupActionsPosition = _config$settings.groupActionsPosition, Btn = _config$settings.renderButton, Switch = _config$settings.renderSwitch, BtnGrp = _config$settings.renderButtonGroup, lockLabel = _config$settings.lockLabel, lockedLabel = _config$settings.lockedLabel, showLock = _config$settings.showLock;
         var position = groupActionsPositionList2[groupActionsPosition || defaultPosition3];
-        var setLockSwitch = showLock && !(isLocked && !isTrueLocked) && /* @__PURE__ */ import_react135.default.createElement(Switch, {
+        var setLockSwitch = showLock && !(isLocked && !isTrueLocked) && /* @__PURE__ */ import_react134.default.createElement(Switch, {
           type: "lock",
           id,
           value: isLocked,
@@ -96854,29 +96793,29 @@
           checkedLabel: lockedLabel,
           config: config2
         });
-        var addCaseGroupBtn = !immutableGroupsMode && canAddGroup && !isLocked && /* @__PURE__ */ import_react135.default.createElement(Btn, {
+        var addCaseGroupBtn = !immutableGroupsMode && canAddGroup && !isLocked && /* @__PURE__ */ import_react134.default.createElement(Btn, {
           type: "addCaseGroup",
           onClick: addCaseGroup2,
           label: addCaseLabel,
           readonly: isLocked,
           config: config2
         });
-        var addDefaultCaseGroupBtn = !immutableGroupsMode && canAddDefault && !isLocked && /* @__PURE__ */ import_react135.default.createElement(Btn, {
+        var addDefaultCaseGroupBtn = !immutableGroupsMode && canAddDefault && !isLocked && /* @__PURE__ */ import_react134.default.createElement(Btn, {
           type: "addDefaultCaseGroup",
           onClick: addDefaultCaseGroup2,
           label: addDefaultCaseLabel,
           readonly: isLocked,
           config: config2
         });
-        return /* @__PURE__ */ import_react135.default.createElement("div", {
+        return /* @__PURE__ */ import_react134.default.createElement("div", {
           className: "group--actions ".concat(position)
-        }, /* @__PURE__ */ import_react135.default.createElement(BtnGrp, {
+        }, /* @__PURE__ */ import_react134.default.createElement(BtnGrp, {
           config: config2
         }, setLockSwitch, addCaseGroupBtn, addDefaultCaseGroupBtn));
       }
     }]);
     return SwitchGroupActions2;
-  }(import_react135.PureComponent);
+  }(import_react134.PureComponent);
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/item/SwitchGroup.js
   var import_classnames6 = __toESM(require_classnames());
@@ -97012,7 +96951,7 @@
     }, {
       key: "renderHeaderWrapper",
       value: function renderHeaderWrapper() {
-        return /* @__PURE__ */ import_react136.default.createElement("div", {
+        return /* @__PURE__ */ import_react135.default.createElement("div", {
           key: "group-header",
           className: (0, import_classnames6.default)(
             "group--header",
@@ -97027,7 +96966,7 @@
     }, {
       key: "renderHeader",
       value: function renderHeader() {
-        return /* @__PURE__ */ import_react136.default.createElement("div", {
+        return /* @__PURE__ */ import_react135.default.createElement("div", {
           className: "group--conjunctions"
         }, this.renderConjs(), this.renderDrag());
       }
@@ -97046,7 +96985,7 @@
       key: "renderActions",
       value: function renderActions() {
         var _this$props = this.props, config2 = _this$props.config, addCaseGroup2 = _this$props.addCaseGroup, addDefaultCaseGroup2 = _this$props.addDefaultCaseGroup, isLocked = _this$props.isLocked, isTrueLocked = _this$props.isTrueLocked, id = _this$props.id;
-        return /* @__PURE__ */ import_react136.default.createElement(SwitchGroupActions, {
+        return /* @__PURE__ */ import_react135.default.createElement(SwitchGroupActions, {
           config: config2,
           addCaseGroup: addCaseGroup2,
           addDefaultCaseGroup: addDefaultCaseGroup2,
@@ -97065,8 +97004,8 @@
   var SwitchGroup_default = GroupContainer_default(Draggable_default("group switch_group")(ConfirmFn(SwitchGroup)));
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/item/CaseGroup.js
-  var import_react137 = __toESM(require_react());
-  var import_prop_types60 = __toESM(require_prop_types());
+  var import_react136 = __toESM(require_react());
+  var import_prop_types59 = __toESM(require_prop_types());
   var import_classnames7 = __toESM(require_classnames());
   function ownKeys9(object, enumerableOnly) {
     var keys5 = Object.keys(object);
@@ -97170,7 +97109,7 @@
     }, {
       key: "renderHeaderWrapper",
       value: function renderHeaderWrapper() {
-        return /* @__PURE__ */ import_react137.default.createElement("div", {
+        return /* @__PURE__ */ import_react136.default.createElement("div", {
           key: "group-header",
           className: (0, import_classnames7.default)("group--header", this.isOneChild() ? "one--child" : "", this.isOneChild() ? "hide--line" : "", this.isNoChildren() ? "no--children" : "", this.showDragIcon() ? "with--drag" : "hide--drag", this.showConjs() && (!this.isOneChild() || this.showNot()) ? "with--conjs" : "hide--conjs")
         }, this.renderHeaderLeft(), this.renderHeaderCenter(), this.renderActions());
@@ -97180,7 +97119,7 @@
       value: function renderChildrenWrapper() {
         if (this.isDefaultCase())
           return null;
-        return /* @__PURE__ */ import_react137.default.createElement("div", {
+        return /* @__PURE__ */ import_react136.default.createElement("div", {
           className: "case_group--body"
         }, this.renderCondition(), this.renderValue());
       }
@@ -97191,7 +97130,7 @@
           var defaultCaseLabel = this.props.config.settings.defaultCaseLabel;
           return defaultCaseLabel || "";
         }
-        return /* @__PURE__ */ import_react137.default.createElement("div", {
+        return /* @__PURE__ */ import_react136.default.createElement("div", {
           className: "group--conjunctions"
         }, this.renderConjs(), this.renderDrag());
       }
@@ -97229,7 +97168,7 @@
       value: function renderValue() {
         var _this$props = this.props, config2 = _this$props.config, isLocked = _this$props.isLocked, value = _this$props.value, setValue3 = _this$props.setValue, id = _this$props.id;
         var immutableValuesMode = config2.settings.immutableValuesMode;
-        var widget = /* @__PURE__ */ import_react137.default.createElement(Widget, {
+        var widget = /* @__PURE__ */ import_react136.default.createElement(Widget, {
           key: "values",
           isCaseValue: true,
           field: "!case_value",
@@ -97244,7 +97183,7 @@
           id,
           groupId: null
         });
-        return /* @__PURE__ */ import_react137.default.createElement(Col, {
+        return /* @__PURE__ */ import_react136.default.createElement(Col, {
           className: "case_group--value"
         }, widget);
       }
@@ -97252,7 +97191,7 @@
       key: "renderActions",
       value: function renderActions() {
         var _this$props2 = this.props, config2 = _this$props2.config, addGroup2 = _this$props2.addGroup, addRule2 = _this$props2.addRule, isLocked = _this$props2.isLocked, isTrueLocked = _this$props2.isTrueLocked, id = _this$props2.id;
-        return /* @__PURE__ */ import_react137.default.createElement(GroupActions, {
+        return /* @__PURE__ */ import_react136.default.createElement(GroupActions, {
           config: config2,
           addGroup: addGroup2,
           addRule: addRule2,
@@ -97278,9 +97217,9 @@
     return CaseGroup2;
   }(BasicGroup);
   CaseGroup.propTypes = _objectSpread10(_objectSpread10({}, BasicGroup.propTypes), {}, {
-    parentReordableNodesCnt: import_prop_types60.default.number,
-    value: import_prop_types60.default.any,
-    setValue: import_prop_types60.default.func
+    parentReordableNodesCnt: import_prop_types59.default.number,
+    value: import_prop_types59.default.any,
+    setValue: import_prop_types59.default.func
   });
   var CaseGroup_default = GroupContainer_default(Draggable_default("group case_group")(ConfirmFn(CaseGroup)));
 
@@ -97350,7 +97289,7 @@
   };
   var typeMap = {
     rule: function rule2(props) {
-      return /* @__PURE__ */ import_react138.default.createElement(Rule_default, _extends87({}, getProperties(props), {
+      return /* @__PURE__ */ import_react137.default.createElement(Rule_default, _extends87({}, getProperties(props), {
         id: props.id,
         groupId: props.groupId,
         path: props.path,
@@ -97365,7 +97304,7 @@
       }));
     },
     group: function group2(props) {
-      return /* @__PURE__ */ import_react138.default.createElement(Group_default, _extends87({}, getProperties(props), {
+      return /* @__PURE__ */ import_react137.default.createElement(Group_default, _extends87({}, getProperties(props), {
         id: props.id,
         groupId: props.groupId,
         path: props.path,
@@ -97381,7 +97320,7 @@
       }));
     },
     rule_group: function rule_group(props) {
-      return /* @__PURE__ */ import_react138.default.createElement(RuleGroup_default, _extends87({}, getProperties(props), {
+      return /* @__PURE__ */ import_react137.default.createElement(RuleGroup_default, _extends87({}, getProperties(props), {
         id: props.id,
         groupId: props.groupId,
         path: props.path,
@@ -97397,7 +97336,7 @@
       }));
     },
     rule_group_ext: function rule_group_ext(props) {
-      return /* @__PURE__ */ import_react138.default.createElement(RuleGroupExt_default, _extends87({}, getProperties(props), {
+      return /* @__PURE__ */ import_react137.default.createElement(RuleGroupExt_default, _extends87({}, getProperties(props), {
         id: props.id,
         groupId: props.groupId,
         path: props.path,
@@ -97413,7 +97352,7 @@
       }));
     },
     switch_group: function switch_group(props) {
-      return /* @__PURE__ */ import_react138.default.createElement(SwitchGroup_default, _extends87({}, getProperties(props), {
+      return /* @__PURE__ */ import_react137.default.createElement(SwitchGroup_default, _extends87({}, getProperties(props), {
         id: props.id,
         groupId: props.groupId,
         path: props.path,
@@ -97429,7 +97368,7 @@
       }));
     },
     case_group: function case_group(props) {
-      return /* @__PURE__ */ import_react138.default.createElement(CaseGroup_default, _extends87({}, getProperties(props), {
+      return /* @__PURE__ */ import_react137.default.createElement(CaseGroup_default, _extends87({}, getProperties(props), {
         id: props.id,
         groupId: props.groupId,
         path: props.path,
@@ -97473,26 +97412,26 @@
       }
     }]);
     return Item2;
-  }(import_react138.PureComponent);
+  }(import_react137.PureComponent);
   Item.propTypes = {
     //tree: PropTypes.instanceOf(Immutable.Map).isRequired,
-    config: import_prop_types61.default.object.isRequired,
-    id: import_prop_types61.default.string.isRequired,
-    groupId: import_prop_types61.default.string,
-    type: import_prop_types61.default.oneOf(types2).isRequired,
-    path: import_prop_types61.default.any.isRequired,
+    config: import_prop_types60.default.object.isRequired,
+    id: import_prop_types60.default.string.isRequired,
+    groupId: import_prop_types60.default.string,
+    type: import_prop_types60.default.oneOf(types2).isRequired,
+    path: import_prop_types60.default.any.isRequired,
     //instanceOf(Immutable.List)
-    properties: import_prop_types61.default.any.isRequired,
+    properties: import_prop_types60.default.any.isRequired,
     //instanceOf(Immutable.Map)
-    children1: import_prop_types61.default.any,
+    children1: import_prop_types60.default.any,
     //instanceOf(Immutable.OrderedMap)
-    actions: import_prop_types61.default.object.isRequired,
-    reordableNodesCnt: import_prop_types61.default.number,
-    onDragStart: import_prop_types61.default.func,
-    parentField: import_prop_types61.default.string,
+    actions: import_prop_types60.default.object.isRequired,
+    reordableNodesCnt: import_prop_types60.default.number,
+    onDragStart: import_prop_types60.default.func,
+    parentField: import_prop_types60.default.string,
     //from RuleGroup
-    isDraggingTempo: import_prop_types61.default.bool,
-    isParentLocked: import_prop_types61.default.bool
+    isDraggingTempo: import_prop_types60.default.bool,
+    isParentLocked: import_prop_types60.default.bool
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/Builder.js
@@ -97575,7 +97514,7 @@
         var reordableNodesCnt = isTernary ? null : getTotalReordableNodesCountInTree3(tree2);
         var totalRulesCnt = isTernary ? null : getTotalRulesCountInTree3(tree2);
         var id = tree2.get("id");
-        return /* @__PURE__ */ import_react139.default.createElement(Item, {
+        return /* @__PURE__ */ import_react138.default.createElement(Item, {
           key: id,
           id,
           path: this.path,
@@ -97592,22 +97531,22 @@
       }
     }]);
     return Builder2;
-  }(import_react139.Component);
+  }(import_react138.Component);
   Builder.propTypes = {
-    tree: import_prop_types62.default.any.isRequired,
+    tree: import_prop_types61.default.any.isRequired,
     //instanceOf(Immutable.Map)
-    config: import_prop_types62.default.object.isRequired,
-    actions: import_prop_types62.default.object.isRequired,
-    onDragStart: import_prop_types62.default.func
+    config: import_prop_types61.default.object.isRequired,
+    actions: import_prop_types61.default.object.isRequired,
+    onDragStart: import_prop_types61.default.func
   };
   var Builder_default = SortableContainer_default(Builder);
 
   // node_modules/@react-awesome-query-builder/ui/esm/config/index.js
-  var import_react161 = __toESM(require_react());
+  var import_react160 = __toESM(require_react());
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/rule/ValueField.js
-  var import_react140 = __toESM(require_react());
-  var import_prop_types63 = __toESM(require_prop_types());
+  var import_react139 = __toESM(require_react());
+  var import_prop_types62 = __toESM(require_prop_types());
   var import_last3 = __toESM(require_last());
   var import_keys3 = __toESM(require_keys());
   function ownKeys11(object, enumerableOnly) {
@@ -97863,25 +97802,25 @@
       }
     }]);
     return ValueField2;
-  }(import_react140.PureComponent);
+  }(import_react139.PureComponent);
   ValueField.propTypes = {
-    id: import_prop_types63.default.string,
-    groupId: import_prop_types63.default.string,
-    setValue: import_prop_types63.default.func.isRequired,
-    config: import_prop_types63.default.object.isRequired,
-    field: import_prop_types63.default.string.isRequired,
-    value: import_prop_types63.default.string,
-    operator: import_prop_types63.default.string,
-    customProps: import_prop_types63.default.object,
-    readonly: import_prop_types63.default.bool,
-    parentField: import_prop_types63.default.string,
-    fieldDefinition: import_prop_types63.default.object,
-    isFuncArg: import_prop_types63.default.bool
+    id: import_prop_types62.default.string,
+    groupId: import_prop_types62.default.string,
+    setValue: import_prop_types62.default.func.isRequired,
+    config: import_prop_types62.default.object.isRequired,
+    field: import_prop_types62.default.string.isRequired,
+    value: import_prop_types62.default.string,
+    operator: import_prop_types62.default.string,
+    customProps: import_prop_types62.default.object,
+    readonly: import_prop_types62.default.bool,
+    parentField: import_prop_types62.default.string,
+    fieldDefinition: import_prop_types62.default.object,
+    isFuncArg: import_prop_types62.default.bool
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/rule/FuncWidget.js
-  var import_react142 = __toESM(require_react());
-  var import_prop_types65 = __toESM(require_prop_types());
+  var import_react141 = __toESM(require_react());
+  var import_prop_types64 = __toESM(require_prop_types());
 
   // node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js
   function _arrayWithHoles(arr) {
@@ -97928,8 +97867,8 @@
   }
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/rule/FuncSelect.js
-  var import_react141 = __toESM(require_react());
-  var import_prop_types64 = __toESM(require_prop_types());
+  var import_react140 = __toESM(require_react());
+  var import_prop_types63 = __toESM(require_prop_types());
   var import_last4 = __toESM(require_last());
   var import_keys4 = __toESM(require_keys());
   function ownKeys12(object, enumerableOnly) {
@@ -98180,20 +98119,20 @@
       }
     }]);
     return FuncSelect2;
-  }(import_react141.PureComponent);
+  }(import_react140.PureComponent);
   FuncSelect.propTypes = {
-    id: import_prop_types64.default.string,
-    groupId: import_prop_types64.default.string,
-    config: import_prop_types64.default.object.isRequired,
-    field: import_prop_types64.default.string.isRequired,
-    operator: import_prop_types64.default.string,
-    customProps: import_prop_types64.default.object,
-    value: import_prop_types64.default.string,
-    setValue: import_prop_types64.default.func.isRequired,
-    readonly: import_prop_types64.default.bool,
-    parentFuncs: import_prop_types64.default.array,
-    fieldDefinition: import_prop_types64.default.object,
-    isFuncArg: import_prop_types64.default.bool
+    id: import_prop_types63.default.string,
+    groupId: import_prop_types63.default.string,
+    config: import_prop_types63.default.object.isRequired,
+    field: import_prop_types63.default.string.isRequired,
+    operator: import_prop_types63.default.string,
+    customProps: import_prop_types63.default.object,
+    value: import_prop_types63.default.string,
+    setValue: import_prop_types63.default.func.isRequired,
+    readonly: import_prop_types63.default.bool,
+    parentFuncs: import_prop_types63.default.array,
+    fieldDefinition: import_prop_types63.default.object,
+    isFuncArg: import_prop_types63.default.bool
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/rule/FuncWidget.js
@@ -98272,13 +98211,13 @@
           groupId
         };
         var _config$settings = config2.settings, showLabels = _config$settings.showLabels, funcLabel = _config$settings.funcLabel;
-        var widgetLabel = showLabels ? /* @__PURE__ */ import_react142.default.createElement("label", {
+        var widgetLabel = showLabels ? /* @__PURE__ */ import_react141.default.createElement("label", {
           className: "rule--label"
         }, funcLabel) : null;
-        return /* @__PURE__ */ import_react142.default.createElement(Col, {
+        return /* @__PURE__ */ import_react141.default.createElement(Col, {
           key: "func",
           className: "rule--func"
-        }, widgetLabel, /* @__PURE__ */ import_react142.default.createElement(FuncSelect, selectProps));
+        }, widgetLabel, /* @__PURE__ */ import_react141.default.createElement(FuncSelect, selectProps));
       };
       _this.renderArgLabel = function(argKey, argDefinition) {
         var valueSources = argDefinition.valueSources, type = argDefinition.type, showPrefix = argDefinition.showPrefix, label = argDefinition.label;
@@ -98287,7 +98226,7 @@
         var forceShow = !config2.settings.showLabels && (type == "boolean" || isConst) && showPrefix;
         if (!forceShow)
           return null;
-        return /* @__PURE__ */ import_react142.default.createElement(Col, {
+        return /* @__PURE__ */ import_react141.default.createElement(Col, {
           className: "rule--func--arg-label"
         }, label || argKey);
       };
@@ -98298,7 +98237,7 @@
         var forceShow = !config2.settings.showLabels && (type == "boolean" || isConst) && showPrefix;
         if (!forceShow)
           return null;
-        return /* @__PURE__ */ import_react142.default.createElement(Col, {
+        return /* @__PURE__ */ import_react141.default.createElement(Col, {
           className: "rule--func--arg-label-sep"
         }, ":");
       };
@@ -98326,28 +98265,28 @@
           id,
           groupId
         };
-        return /* @__PURE__ */ import_react142.default.createElement(Col, {
+        return /* @__PURE__ */ import_react141.default.createElement(Col, {
           className: "rule--func--arg-value"
-        }, /* @__PURE__ */ import_react142.default.createElement(ArgWidget, widgetProps));
+        }, /* @__PURE__ */ import_react141.default.createElement(ArgWidget, widgetProps));
       };
       _this.renderArgSep = function(argKey, argDefinition, argIndex, _ref) {
         var renderSeps = _ref.renderSeps;
         if (!argIndex)
           return null;
-        return /* @__PURE__ */ import_react142.default.createElement(Col, {
+        return /* @__PURE__ */ import_react141.default.createElement(Col, {
           className: "rule--func--arg-sep"
         }, renderSeps ? renderSeps[argIndex - 1] : ", ");
       };
       _this.renderBracketBefore = function(_ref2) {
         var renderBrackets = _ref2.renderBrackets;
-        return /* @__PURE__ */ import_react142.default.createElement(Col, {
+        return /* @__PURE__ */ import_react141.default.createElement(Col, {
           key: "before_args",
           className: "rule--func--bracket-before"
         }, renderBrackets ? renderBrackets[0] : "(");
       };
       _this.renderBracketAfter = function(_ref3) {
         var renderBrackets = _ref3.renderBrackets;
-        return /* @__PURE__ */ import_react142.default.createElement(Col, {
+        return /* @__PURE__ */ import_react141.default.createElement(Col, {
           key: "after_args",
           className: "rule--func--bracket-after"
         }, renderBrackets ? renderBrackets[1] : ")");
@@ -98359,11 +98298,11 @@
         var args = funcDefinition.args;
         if (!args)
           return null;
-        return /* @__PURE__ */ import_react142.default.createElement(import_react142.default.Fragment, null, _this.renderBracketBefore(funcDefinition), /* @__PURE__ */ import_react142.default.createElement(Col, {
+        return /* @__PURE__ */ import_react141.default.createElement(import_react141.default.Fragment, null, _this.renderBracketBefore(funcDefinition), /* @__PURE__ */ import_react141.default.createElement(Col, {
           key: "args",
           className: "rule--func--args"
         }, Object.keys(args).map(function(argKey, argIndex) {
-          return /* @__PURE__ */ import_react142.default.createElement(Col, {
+          return /* @__PURE__ */ import_react141.default.createElement(Col, {
             key: "arg-".concat(argKey, "-").concat(argIndex),
             className: "rule--func--arg"
           }, _this.renderArgSep(argKey, args[argKey], argIndex, funcDefinition), _this.renderArgLabel(argKey, args[argKey]), _this.renderArgLabelSep(argKey, args[argKey]), _this.renderArgVal(funcKey, argKey, args[argKey]));
@@ -98401,27 +98340,27 @@
     }, {
       key: "render",
       value: function render() {
-        return /* @__PURE__ */ import_react142.default.createElement(Col, {
+        return /* @__PURE__ */ import_react141.default.createElement(Col, {
           className: "rule--func--wrapper"
         }, this.renderFuncSelect(), this.renderFuncArgs());
       }
     }]);
     return FuncWidget3;
-  }(import_react142.PureComponent);
+  }(import_react141.PureComponent);
   FuncWidget.propTypes = {
-    id: import_prop_types65.default.string,
-    groupId: import_prop_types65.default.string,
-    config: import_prop_types65.default.object.isRequired,
-    field: import_prop_types65.default.string.isRequired,
-    operator: import_prop_types65.default.string,
-    customProps: import_prop_types65.default.object,
-    value: import_prop_types65.default.object,
+    id: import_prop_types64.default.string,
+    groupId: import_prop_types64.default.string,
+    config: import_prop_types64.default.object.isRequired,
+    field: import_prop_types64.default.string.isRequired,
+    operator: import_prop_types64.default.string,
+    customProps: import_prop_types64.default.object,
+    value: import_prop_types64.default.object,
     //instanceOf(Immutable.Map) //with keys 'func' and `args`
-    setValue: import_prop_types65.default.func.isRequired,
-    readonly: import_prop_types65.default.bool,
-    parentFuncs: import_prop_types65.default.array,
-    fieldDefinition: import_prop_types65.default.object,
-    isFuncArg: import_prop_types65.default.bool
+    setValue: import_prop_types64.default.func.isRequired,
+    readonly: import_prop_types64.default.bool,
+    parentFuncs: import_prop_types64.default.array,
+    fieldDefinition: import_prop_types64.default.object,
+    isFuncArg: import_prop_types64.default.bool
   };
   var ArgWidget = /* @__PURE__ */ function(_PureComponent2) {
     _inherits(ArgWidget2, _PureComponent2);
@@ -98447,7 +98386,7 @@
       key: "render",
       value: function render() {
         var _this$props3 = this.props, funcKey = _this$props3.funcKey, argKey = _this$props3.argKey, parentFuncs = _this$props3.parentFuncs;
-        return /* @__PURE__ */ import_react142.default.createElement(Widget, _extends87({}, this.props, {
+        return /* @__PURE__ */ import_react141.default.createElement(Widget, _extends87({}, this.props, {
           setValue: this.setValue,
           setValueSrc: this.setValueSrc,
           isFuncArg: true,
@@ -98456,23 +98395,23 @@
       }
     }]);
     return ArgWidget2;
-  }(import_react142.PureComponent);
+  }(import_react141.PureComponent);
   ArgWidget.propTypes = {
-    funcKey: import_prop_types65.default.string.isRequired,
-    argKey: import_prop_types65.default.string.isRequired,
-    setValue: import_prop_types65.default.func.isRequired,
-    setValueSrc: import_prop_types65.default.func.isRequired,
-    readonly: import_prop_types65.default.bool,
-    parentFuncs: import_prop_types65.default.array,
-    id: import_prop_types65.default.string,
-    groupId: import_prop_types65.default.string
+    funcKey: import_prop_types64.default.string.isRequired,
+    argKey: import_prop_types64.default.string.isRequired,
+    setValue: import_prop_types64.default.func.isRequired,
+    setValueSrc: import_prop_types64.default.func.isRequired,
+    readonly: import_prop_types64.default.bool,
+    parentFuncs: import_prop_types64.default.array,
+    id: import_prop_types64.default.string,
+    groupId: import_prop_types64.default.string
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/widgets/vanilla/index.js
-  var import_react159 = __toESM(require_react());
+  var import_react158 = __toESM(require_react());
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/widgets/vanilla/value/VanillaBoolean.js
-  var import_react143 = __toESM(require_react());
+  var import_react142 = __toESM(require_react());
   var uuid2 = Utils.uuid;
   var VanillaBoolean_default = function(props) {
     var value = props.value, setValue3 = props.setValue, config2 = props.config, labelYes = props.labelYes, labelNo = props.labelNo, readonly = props.readonly, _props$customProps = props.customProps, customProps = _props$customProps === void 0 ? {} : _props$customProps;
@@ -98485,7 +98424,7 @@
       return setValue3(e.target.value == "true");
     };
     var id = uuid2(), id2 = uuid2();
-    return /* @__PURE__ */ import_react143.default.createElement(import_react143.default.Fragment, null, /* @__PURE__ */ import_react143.default.createElement("input", _extends87({
+    return /* @__PURE__ */ import_react142.default.createElement(import_react142.default.Fragment, null, /* @__PURE__ */ import_react142.default.createElement("input", _extends87({
       key: id,
       type: "radio",
       id,
@@ -98493,13 +98432,13 @@
       checked: !!value,
       disabled: readonly,
       onChange: onRadioChange
-    }, customRadioYesProps)), /* @__PURE__ */ import_react143.default.createElement("label", {
+    }, customRadioYesProps)), /* @__PURE__ */ import_react142.default.createElement("label", {
       style: {
         display: "inline"
       },
       key: id + "label",
       htmlFor: id
-    }, labelYes), /* @__PURE__ */ import_react143.default.createElement("input", _extends87({
+    }, labelYes), /* @__PURE__ */ import_react142.default.createElement("input", _extends87({
       key: id2,
       type: "radio",
       id: id2,
@@ -98507,7 +98446,7 @@
       checked: !value,
       disabled: readonly,
       onChange: onRadioChange
-    }, customRadioNoProps)), /* @__PURE__ */ import_react143.default.createElement("label", {
+    }, customRadioNoProps)), /* @__PURE__ */ import_react142.default.createElement("label", {
       style: {
         display: "inline"
       },
@@ -98517,42 +98456,42 @@
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/widgets/vanilla/value/VanillaText.js
-  var import_react144 = __toESM(require_react());
+  var import_react143 = __toESM(require_react());
   var VanillaText_default = function(props) {
     var value = props.value, setValue3 = props.setValue, config2 = props.config, readonly = props.readonly, placeholder = props.placeholder, maxLength = props.maxLength, customProps = props.customProps;
-    var onChange = function onChange2(e) {
+    var onChange2 = function onChange3(e) {
       var val = e.target.value;
       if (val === "")
         val = void 0;
       setValue3(val);
     };
     var textValue = value || "";
-    return /* @__PURE__ */ import_react144.default.createElement("input", _extends87({
+    return /* @__PURE__ */ import_react143.default.createElement("input", _extends87({
       type: "text",
       value: textValue,
       placeholder,
       disabled: readonly,
-      onChange,
+      onChange: onChange2,
       maxLength
     }, customProps));
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/widgets/vanilla/value/VanillaTextArea.js
-  var import_react145 = __toESM(require_react());
+  var import_react144 = __toESM(require_react());
   var VanillaTextArea_default = function(props) {
     var value = props.value, setValue3 = props.setValue, config2 = props.config, readonly = props.readonly, placeholder = props.placeholder, maxLength = props.maxLength, maxRows = props.maxRows, fullWidth = props.fullWidth, customProps = props.customProps;
-    var onChange = function onChange2(e) {
+    var onChange2 = function onChange3(e) {
       var val = e.target.value;
       if (val === "")
         val = void 0;
       setValue3(val);
     };
     var textValue = value || "";
-    return /* @__PURE__ */ import_react145.default.createElement("textarea", _extends87({
+    return /* @__PURE__ */ import_react144.default.createElement("textarea", _extends87({
       value: textValue,
       placeholder,
       disabled: readonly,
-      onChange,
+      onChange: onChange2,
       maxLength,
       style: {
         width: fullWidth ? "100%" : void 0
@@ -98561,48 +98500,48 @@
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/widgets/vanilla/value/VanillaDate.js
-  var import_react146 = __toESM(require_react());
+  var import_react145 = __toESM(require_react());
   var moment6 = Utils.moment;
   var VanillaDate_default = function(props) {
     var value = props.value, setValue3 = props.setValue, config2 = props.config, valueFormat = props.valueFormat, readonly = props.readonly, customProps = props.customProps;
-    var onChange = function onChange2(e) {
+    var onChange2 = function onChange3(e) {
+      var value2 = e.target.value;
+      if (value2 == "")
+        value2 = void 0;
+      setValue3(value2);
+    };
+    return /* @__PURE__ */ import_react145.default.createElement("input", _extends87({
+      type: "date",
+      value: value || "",
+      disabled: readonly,
+      onChange: onChange2
+    }, customProps));
+  };
+
+  // node_modules/@react-awesome-query-builder/ui/esm/components/widgets/vanilla/value/VanillaTime.js
+  var import_react146 = __toESM(require_react());
+  var VanillaTime_default = function(props) {
+    var value = props.value, setValue3 = props.setValue, config2 = props.config, valueFormat = props.valueFormat, use12Hours = props.use12Hours, readonly = props.readonly, customProps = props.customProps;
+    var onChange2 = function onChange3(e) {
       var value2 = e.target.value;
       if (value2 == "")
         value2 = void 0;
       setValue3(value2);
     };
     return /* @__PURE__ */ import_react146.default.createElement("input", _extends87({
-      type: "date",
-      value: value || "",
-      disabled: readonly,
-      onChange
-    }, customProps));
-  };
-
-  // node_modules/@react-awesome-query-builder/ui/esm/components/widgets/vanilla/value/VanillaTime.js
-  var import_react147 = __toESM(require_react());
-  var VanillaTime_default = function(props) {
-    var value = props.value, setValue3 = props.setValue, config2 = props.config, valueFormat = props.valueFormat, use12Hours = props.use12Hours, readonly = props.readonly, customProps = props.customProps;
-    var onChange = function onChange2(e) {
-      var value2 = e.target.value;
-      if (value2 == "")
-        value2 = void 0;
-      setValue3(value2);
-    };
-    return /* @__PURE__ */ import_react147.default.createElement("input", _extends87({
       type: "time",
       value: value || "",
       disabled: readonly,
-      onChange
+      onChange: onChange2
     }, customProps));
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/widgets/vanilla/value/VanillaDateTime.js
-  var import_react148 = __toESM(require_react());
+  var import_react147 = __toESM(require_react());
   var moment7 = Utils.moment;
   var VanillaDateTime_default = function(props) {
     var value = props.value, setValue3 = props.setValue, config2 = props.config, valueFormat = props.valueFormat, use12Hours = props.use12Hours, readonly = props.readonly, customProps = props.customProps;
-    var onChange = function onChange2(e) {
+    var onChange2 = function onChange3(e) {
       var value2 = e.target.value;
       if (value2 == "")
         value2 = void 0;
@@ -98615,16 +98554,16 @@
       dtValue = "";
     else
       dtValue = moment7(value).format("YYYY-MM-DDTHH:mm");
-    return /* @__PURE__ */ import_react148.default.createElement("input", _extends87({
+    return /* @__PURE__ */ import_react147.default.createElement("input", _extends87({
       type: "datetime-local",
       value: dtValue,
       disabled: readonly,
-      onChange
+      onChange: onChange2
     }, customProps));
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/widgets/vanilla/value/VanillaMultiSelect.js
-  var import_react149 = __toESM(require_react());
+  var import_react148 = __toESM(require_react());
   var import_omit8 = __toESM(require_omit());
   var mapListValues2 = Utils.ListUtils.mapListValues;
   var VanillaMultiSelect_default = function(_ref) {
@@ -98632,7 +98571,7 @@
     var renderOptions = function renderOptions2() {
       return mapListValues2(listValues, function(_ref2) {
         var title = _ref2.title, value2 = _ref2.value;
-        return /* @__PURE__ */ import_react149.default.createElement("option", {
+        return /* @__PURE__ */ import_react148.default.createElement("option", {
           key: value2,
           value: value2
         }, title);
@@ -98651,19 +98590,19 @@
         values = void 0;
       return values;
     };
-    var onChange = function onChange2(e) {
+    var onChange2 = function onChange3(e) {
       return setValue3(getMultiSelectValues(e.target));
     };
-    return /* @__PURE__ */ import_react149.default.createElement("select", _extends87({
+    return /* @__PURE__ */ import_react148.default.createElement("select", _extends87({
       multiple: true,
-      onChange,
+      onChange: onChange2,
       value,
       disabled: readonly
     }, (0, import_omit8.default)(customProps, ["showSearch", "input", "showCheckboxes"])), renderOptions());
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/widgets/vanilla/value/VanillaSelect.js
-  var import_react150 = __toESM(require_react());
+  var import_react149 = __toESM(require_react());
   var import_omit9 = __toESM(require_omit());
   var mapListValues3 = Utils.ListUtils.mapListValues;
   var VanillaSelect_default = function(_ref) {
@@ -98671,31 +98610,31 @@
     var renderOptions = function renderOptions2() {
       return mapListValues3(listValues, function(_ref2) {
         var title = _ref2.title, value2 = _ref2.value;
-        return /* @__PURE__ */ import_react150.default.createElement("option", {
+        return /* @__PURE__ */ import_react149.default.createElement("option", {
           key: value2,
           value: value2
         }, title);
       });
     };
-    var onChange = function onChange2(e) {
+    var onChange2 = function onChange3(e) {
       return setValue3(e.target.value);
     };
     var hasValue = value != null;
-    return /* @__PURE__ */ import_react150.default.createElement("select", _extends87({
-      onChange,
+    return /* @__PURE__ */ import_react149.default.createElement("select", _extends87({
+      onChange: onChange2,
       value: hasValue ? value : "",
       disabled: readonly
-    }, (0, import_omit9.default)(customProps, ["showSearch", "input"])), !hasValue && /* @__PURE__ */ import_react150.default.createElement("option", {
+    }, (0, import_omit9.default)(customProps, ["showSearch", "input"])), !hasValue && /* @__PURE__ */ import_react149.default.createElement("option", {
       disabled: true,
       value: ""
     }), renderOptions());
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/widgets/vanilla/value/VanillaNumber.js
-  var import_react151 = __toESM(require_react());
+  var import_react150 = __toESM(require_react());
   var VanillaNumber_default = function(props) {
     var value = props.value, setValue3 = props.setValue, config2 = props.config, readonly = props.readonly, min2 = props.min, max2 = props.max, step = props.step, placeholder = props.placeholder, customProps = props.customProps;
-    var onChange = function onChange2(e) {
+    var onChange2 = function onChange3(e) {
       var val = e.target.value;
       if (val === "" || val === null)
         val = void 0;
@@ -98704,7 +98643,7 @@
       setValue3(val);
     };
     var numberValue = value == void 0 ? "" : value;
-    return /* @__PURE__ */ import_react151.default.createElement("input", _extends87({
+    return /* @__PURE__ */ import_react150.default.createElement("input", _extends87({
       type: "number",
       value: numberValue,
       placeholder,
@@ -98712,17 +98651,17 @@
       min: min2,
       max: max2,
       step,
-      onChange
+      onChange: onChange2
     }, customProps));
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/widgets/vanilla/value/VanillaSlider.js
-  var import_react152 = __toESM(require_react());
+  var import_react151 = __toESM(require_react());
   var VanillaSlider_default = function(props) {
     var value = props.value, setValue3 = props.setValue, config2 = props.config, readonly = props.readonly, min2 = props.min, max2 = props.max, step = props.step, placeholder = props.placeholder, _props$customProps = props.customProps, customProps = _props$customProps === void 0 ? {} : _props$customProps;
     var customInputProps = customProps.input || {};
     var customSliderProps = customProps.slider || customProps;
-    var onChange = function onChange2(e) {
+    var onChange2 = function onChange3(e) {
       var val = e.target.value;
       if (val === "" || val === null)
         val = void 0;
@@ -98731,11 +98670,11 @@
       setValue3(val);
     };
     var numberValue = value == void 0 ? "" : value;
-    return /* @__PURE__ */ import_react152.default.createElement("div", {
+    return /* @__PURE__ */ import_react151.default.createElement("div", {
       style: {
         display: "inline-flex"
       }
-    }, /* @__PURE__ */ import_react152.default.createElement("input", _extends87({
+    }, /* @__PURE__ */ import_react151.default.createElement("input", _extends87({
       key: "number",
       type: "number",
       value: numberValue,
@@ -98744,8 +98683,8 @@
       min: min2,
       max: max2,
       step,
-      onChange
-    }, customInputProps)), /* @__PURE__ */ import_react152.default.createElement("input", _extends87({
+      onChange: onChange2
+    }, customInputProps)), /* @__PURE__ */ import_react151.default.createElement("input", _extends87({
       key: "range",
       type: "range",
       value: numberValue,
@@ -98753,25 +98692,25 @@
       min: min2,
       max: max2,
       step,
-      onChange
+      onChange: onChange2
     }, customSliderProps)));
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/widgets/vanilla/core/VanillaFieldSelect.js
-  var import_react153 = __toESM(require_react());
+  var import_react152 = __toESM(require_react());
   var VanillaFieldSelect_default = function(_ref) {
     var items = _ref.items, setField3 = _ref.setField, selectedKey = _ref.selectedKey, readonly = _ref.readonly;
     var renderOptions = function renderOptions2(fields) {
       return fields.map(function(field) {
         var items2 = field.items, path = field.path, label = field.label, disabled = field.disabled;
         if (items2) {
-          return /* @__PURE__ */ import_react153.default.createElement("optgroup", {
+          return /* @__PURE__ */ import_react152.default.createElement("optgroup", {
             disabled,
             key: path,
             label
           }, renderOptions2(items2));
         } else {
-          return /* @__PURE__ */ import_react153.default.createElement("option", {
+          return /* @__PURE__ */ import_react152.default.createElement("option", {
             disabled,
             key: path,
             value: path
@@ -98779,22 +98718,22 @@
         }
       });
     };
-    var onChange = function onChange2(e) {
+    var onChange2 = function onChange3(e) {
       return setField3(e.target.value);
     };
     var hasValue = selectedKey != null;
-    return /* @__PURE__ */ import_react153.default.createElement("select", {
-      onChange,
+    return /* @__PURE__ */ import_react152.default.createElement("select", {
+      onChange: onChange2,
       value: hasValue ? selectedKey : "",
       disabled: readonly
-    }, !hasValue && /* @__PURE__ */ import_react153.default.createElement("option", {
+    }, !hasValue && /* @__PURE__ */ import_react152.default.createElement("option", {
       disabled: true,
       value: ""
     }), renderOptions(items));
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/widgets/vanilla/core/VanillaConjs.js
-  var import_react154 = __toESM(require_react());
+  var import_react153 = __toESM(require_react());
   var VanillaConjs_default = function(_ref) {
     var id = _ref.id, not = _ref.not, setNot3 = _ref.setNot, conjunctionOptions = _ref.conjunctionOptions, setConjunction3 = _ref.setConjunction, disabled = _ref.disabled, readonly = _ref.readonly, config2 = _ref.config, showNot = _ref.showNot, notLabel = _ref.notLabel;
     var conjsCount = Object.keys(conjunctionOptions).length;
@@ -98807,7 +98746,7 @@
         var postfix = setConjunction3.isDummyFn ? "__dummy" : "";
         if ((readonly || disabled) && !checked)
           return null;
-        return [/* @__PURE__ */ import_react154.default.createElement("input", {
+        return [/* @__PURE__ */ import_react153.default.createElement("input", {
           key: id2 + postfix,
           type: "radio",
           id: id2 + postfix,
@@ -98815,8 +98754,8 @@
           checked,
           disabled: readonly || disabled,
           value: key,
-          onChange
-        }), /* @__PURE__ */ import_react154.default.createElement("label", {
+          onChange: onChange2
+        }), /* @__PURE__ */ import_react153.default.createElement("label", {
           key: id2 + postfix + "label",
           htmlFor: id2 + postfix
         }, label)];
@@ -98824,19 +98763,19 @@
     };
     var renderNot = function renderNot2() {
       var postfix = "not";
-      return [/* @__PURE__ */ import_react154.default.createElement("input", {
+      return [/* @__PURE__ */ import_react153.default.createElement("input", {
         key: id + postfix,
         type: "checkbox",
         id: id + postfix,
         checked: not,
         disabled: readonly,
         onChange: onNotChange
-      }), /* @__PURE__ */ import_react154.default.createElement("label", {
+      }), /* @__PURE__ */ import_react153.default.createElement("label", {
         key: id + postfix + "label",
         htmlFor: id + postfix
       }, notLabel || "NOT")];
     };
-    var onChange = function onChange2(e) {
+    var onChange2 = function onChange3(e) {
       return setConjunction3(e.target.value);
     };
     var onNotChange = function onNotChange2(e) {
@@ -98846,7 +98785,7 @@
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/widgets/vanilla/core/VanillaButton.js
-  var import_react155 = __toESM(require_react());
+  var import_react154 = __toESM(require_react());
   var VanillaButton_default = function(_ref) {
     var type = _ref.type, label = _ref.label, onClick = _ref.onClick, readonly = _ref.readonly, config2 = _ref.config;
     var typeToLabel = {
@@ -98857,7 +98796,7 @@
       "delRule": "x"
     };
     var btnLabel = label || typeToLabel[type];
-    return /* @__PURE__ */ import_react155.default.createElement("button", {
+    return /* @__PURE__ */ import_react154.default.createElement("button", {
       onClick,
       type: "button",
       disabled: readonly
@@ -98865,50 +98804,50 @@
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/widgets/vanilla/core/VanillaButtonGroup.js
-  var import_react156 = __toESM(require_react());
+  var import_react155 = __toESM(require_react());
   var VanillaButtonGroup_default = function(_ref) {
     var children = _ref.children, config2 = _ref.config;
-    return /* @__PURE__ */ import_react156.default.createElement(import_react156.default.Fragment, null, children);
+    return /* @__PURE__ */ import_react155.default.createElement(import_react155.default.Fragment, null, children);
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/widgets/vanilla/core/VanillaValueSources.js
-  var import_react157 = __toESM(require_react());
+  var import_react156 = __toESM(require_react());
   var VanillaValueSources_default = function(_ref) {
     var config2 = _ref.config, valueSources = _ref.valueSources, valueSrc = _ref.valueSrc, title = _ref.title, setValueSrc3 = _ref.setValueSrc, readonly = _ref.readonly;
     var renderOptions = function renderOptions2(valueSources2) {
       return valueSources2.map(function(_ref2) {
         var _ref3 = _slicedToArray(_ref2, 2), srcKey = _ref3[0], info = _ref3[1];
-        return /* @__PURE__ */ import_react157.default.createElement("option", {
+        return /* @__PURE__ */ import_react156.default.createElement("option", {
           key: srcKey,
           value: srcKey
         }, info.label);
       });
     };
-    var onChange = function onChange2(e) {
+    var onChange2 = function onChange3(e) {
       return setValueSrc3(e.target.value);
     };
-    return /* @__PURE__ */ import_react157.default.createElement("select", {
-      onChange,
+    return /* @__PURE__ */ import_react156.default.createElement("select", {
+      onChange: onChange2,
       value: valueSrc,
       disabled: readonly
     }, renderOptions(valueSources));
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/widgets/vanilla/core/VanillaSwitch.js
-  var import_react158 = __toESM(require_react());
+  var import_react157 = __toESM(require_react());
   var VanillaSwitch_default = function(_ref) {
     var value = _ref.value, setValue3 = _ref.setValue, label = _ref.label, id = _ref.id, config2 = _ref.config, type = _ref.type;
-    var onChange = function onChange2(e) {
+    var onChange2 = function onChange3(e) {
       return setValue3(e.target.checked);
     };
     var postfix = type;
-    return [/* @__PURE__ */ import_react158.default.createElement("input", {
+    return [/* @__PURE__ */ import_react157.default.createElement("input", {
       key: id + postfix,
       type: "checkbox",
       id: id + postfix,
       checked: !!value,
-      onChange
-    }), /* @__PURE__ */ import_react158.default.createElement("label", {
+      onChange: onChange2
+    }), /* @__PURE__ */ import_react157.default.createElement("label", {
       key: id + postfix + "label",
       htmlFor: id + postfix
     }, label)];
@@ -98929,8 +98868,8 @@
   };
 
   // node_modules/@react-awesome-query-builder/ui/esm/components/operators/Proximity.js
-  var import_react160 = __toESM(require_react());
-  var import_prop_types66 = __toESM(require_prop_types());
+  var import_react159 = __toESM(require_react());
+  var import_prop_types65 = __toESM(require_prop_types());
   var import_range2 = __toESM(require_range());
   function _createSuper28(Derived) {
     var hasNativeReflectConstruct = _isNativeReflectConstruct28();
@@ -98990,40 +98929,40 @@
           };
         });
         var Select2 = widgets3.select.factory;
-        return /* @__PURE__ */ import_react160.default.createElement("div", {
+        return /* @__PURE__ */ import_react159.default.createElement("div", {
           className: "operator--PROXIMITY"
-        }, /* @__PURE__ */ import_react160.default.createElement("div", {
+        }, /* @__PURE__ */ import_react159.default.createElement("div", {
           className: "operator--options"
-        }, showLabels && /* @__PURE__ */ import_react160.default.createElement("label", {
+        }, showLabels && /* @__PURE__ */ import_react159.default.createElement("label", {
           className: "rule--label"
-        }, optionLabel), !showLabels && optionTextBefore && /* @__PURE__ */ import_react160.default.createElement("div", {
+        }, optionLabel), !showLabels && optionTextBefore && /* @__PURE__ */ import_react159.default.createElement("div", {
           className: "operator--options--sep"
-        }, /* @__PURE__ */ import_react160.default.createElement("span", null, optionTextBefore)), /* @__PURE__ */ import_react160.default.createElement(Select2, _extends87({
+        }, /* @__PURE__ */ import_react159.default.createElement("span", null, optionTextBefore)), /* @__PURE__ */ import_react159.default.createElement(Select2, _extends87({
           config: config2,
           value: selectedProximity,
           listValues: proxValues,
           setValue: this.handleChange,
           readonly,
           placeholder: optionPlaceholder
-        }, customProps))), /* @__PURE__ */ import_react160.default.createElement("div", {
+        }, customProps))), /* @__PURE__ */ import_react159.default.createElement("div", {
           className: "operator--widgets"
         }, this.props.children));
       }
     }]);
     return Proximity2;
-  }(import_react160.PureComponent);
+  }(import_react159.PureComponent);
   Proximity.propTypes = {
-    config: import_prop_types66.default.object.isRequired,
-    setOption: import_prop_types66.default.func.isRequired,
-    options: import_prop_types66.default.any.isRequired,
+    config: import_prop_types65.default.object.isRequired,
+    setOption: import_prop_types65.default.func.isRequired,
+    options: import_prop_types65.default.any.isRequired,
     //instanceOf(Immutable.Map)
-    minProximity: import_prop_types66.default.number,
-    maxProximity: import_prop_types66.default.number,
-    optionPlaceholder: import_prop_types66.default.string,
-    optionTextBefore: import_prop_types66.default.string,
-    optionLabel: import_prop_types66.default.string,
-    customProps: import_prop_types66.default.object,
-    readonly: import_prop_types66.default.bool
+    minProximity: import_prop_types65.default.number,
+    maxProximity: import_prop_types65.default.number,
+    optionPlaceholder: import_prop_types65.default.string,
+    optionTextBefore: import_prop_types65.default.string,
+    optionLabel: import_prop_types65.default.string,
+    customProps: import_prop_types65.default.object,
+    readonly: import_prop_types65.default.bool
     //children
   };
   Proximity.defaultProps = {
@@ -99083,7 +99022,7 @@
     proximity: _objectSpread14(_objectSpread14({}, config_default.operators.proximity), {}, {
       options: _objectSpread14(_objectSpread14({}, config_default.operators.proximity.options), {}, {
         factory: function factory(props) {
-          return /* @__PURE__ */ import_react161.default.createElement(ProximityOperator, props);
+          return /* @__PURE__ */ import_react160.default.createElement(ProximityOperator, props);
         }
       })
     })
@@ -99091,57 +99030,57 @@
   var widgets2 = {
     text: _objectSpread14(_objectSpread14({}, config_default.widgets.text), {}, {
       factory: function factory2(props) {
-        return /* @__PURE__ */ import_react161.default.createElement(VanillaTextWidget, props);
+        return /* @__PURE__ */ import_react160.default.createElement(VanillaTextWidget, props);
       }
     }),
     textarea: _objectSpread14(_objectSpread14({}, config_default.widgets.textarea), {}, {
       factory: function factory3(props) {
-        return /* @__PURE__ */ import_react161.default.createElement(VanillaTextAreaWidget, props);
+        return /* @__PURE__ */ import_react160.default.createElement(VanillaTextAreaWidget, props);
       }
     }),
     number: _objectSpread14(_objectSpread14({}, config_default.widgets.number), {}, {
       factory: function factory4(props) {
-        return /* @__PURE__ */ import_react161.default.createElement(VanillaNumberWidget, props);
+        return /* @__PURE__ */ import_react160.default.createElement(VanillaNumberWidget, props);
       }
     }),
     slider: _objectSpread14(_objectSpread14({}, config_default.widgets.slider), {}, {
       factory: function factory5(props) {
-        return /* @__PURE__ */ import_react161.default.createElement(VanillaSliderWidget, props);
+        return /* @__PURE__ */ import_react160.default.createElement(VanillaSliderWidget, props);
       }
     }),
     select: _objectSpread14(_objectSpread14({}, config_default.widgets.select), {}, {
       factory: function factory6(props) {
-        return /* @__PURE__ */ import_react161.default.createElement(VanillaSelectWidget, props);
+        return /* @__PURE__ */ import_react160.default.createElement(VanillaSelectWidget, props);
       }
     }),
     multiselect: _objectSpread14(_objectSpread14({}, config_default.widgets.multiselect), {}, {
       factory: function factory7(props) {
-        return /* @__PURE__ */ import_react161.default.createElement(VanillaMultiSelectWidget, props);
+        return /* @__PURE__ */ import_react160.default.createElement(VanillaMultiSelectWidget, props);
       }
     }),
     date: _objectSpread14(_objectSpread14({}, config_default.widgets.date), {}, {
       factory: function factory8(props) {
-        return /* @__PURE__ */ import_react161.default.createElement(VanillaDateWidget, props);
+        return /* @__PURE__ */ import_react160.default.createElement(VanillaDateWidget, props);
       }
     }),
     time: _objectSpread14(_objectSpread14({}, config_default.widgets.time), {}, {
       factory: function factory9(props) {
-        return /* @__PURE__ */ import_react161.default.createElement(VanillaTimeWidget, props);
+        return /* @__PURE__ */ import_react160.default.createElement(VanillaTimeWidget, props);
       }
     }),
     datetime: _objectSpread14(_objectSpread14({}, config_default.widgets.datetime), {}, {
       factory: function factory10(props) {
-        return /* @__PURE__ */ import_react161.default.createElement(VanillaDateTimeWidget, props);
+        return /* @__PURE__ */ import_react160.default.createElement(VanillaDateTimeWidget, props);
       }
     }),
     "boolean": _objectSpread14(_objectSpread14({}, config_default.widgets["boolean"]), {}, {
       factory: function factory11(props) {
-        return /* @__PURE__ */ import_react161.default.createElement(VanillaBooleanWidget, props);
+        return /* @__PURE__ */ import_react160.default.createElement(VanillaBooleanWidget, props);
       }
     }),
     field: _objectSpread14(_objectSpread14({}, config_default.widgets.field), {}, {
       factory: function factory12(props) {
-        return /* @__PURE__ */ import_react161.default.createElement(ValueFieldWidget, props);
+        return /* @__PURE__ */ import_react160.default.createElement(ValueFieldWidget, props);
       },
       customProps: {
         showSearch: true
@@ -99149,7 +99088,7 @@
     }),
     func: _objectSpread14(_objectSpread14({}, config_default.widgets.func), {}, {
       factory: function factory13(props) {
-        return /* @__PURE__ */ import_react161.default.createElement(FuncWidget2, props);
+        return /* @__PURE__ */ import_react160.default.createElement(FuncWidget2, props);
       },
       customProps: {
         //showSearch: true
@@ -99158,10 +99097,10 @@
     case_value: _objectSpread14(_objectSpread14({}, config_default.widgets.case_value), {}, {
       factory: function factory14(_ref) {
         var value = _ref.value, setValue3 = _ref.setValue;
-        return /* @__PURE__ */ import_react161.default.createElement("input", {
+        return /* @__PURE__ */ import_react160.default.createElement("input", {
           type: "text",
           value: value || "",
-          onChange: function onChange(e) {
+          onChange: function onChange2(e) {
             return setValue3(e.target.value);
           }
         });
@@ -99183,35 +99122,35 @@
   });
   var settings3 = _objectSpread14(_objectSpread14({}, config_default.settings), {}, {
     renderField: function renderField(props) {
-      return /* @__PURE__ */ import_react161.default.createElement(VanillaFieldSelect, props);
+      return /* @__PURE__ */ import_react160.default.createElement(VanillaFieldSelect, props);
     },
     renderOperator: function renderOperator(props) {
-      return /* @__PURE__ */ import_react161.default.createElement(VanillaFieldSelect, props);
+      return /* @__PURE__ */ import_react160.default.createElement(VanillaFieldSelect, props);
     },
     renderFunc: function renderFunc(props) {
-      return /* @__PURE__ */ import_react161.default.createElement(VanillaFieldSelect, props);
+      return /* @__PURE__ */ import_react160.default.createElement(VanillaFieldSelect, props);
     },
     renderConjs: function renderConjs(props) {
-      return /* @__PURE__ */ import_react161.default.createElement(VanillaConjs, props);
+      return /* @__PURE__ */ import_react160.default.createElement(VanillaConjs, props);
     },
     renderSwitch: function renderSwitch(props) {
-      return /* @__PURE__ */ import_react161.default.createElement(VanillaSwitch, props);
+      return /* @__PURE__ */ import_react160.default.createElement(VanillaSwitch, props);
     },
     renderButton: function renderButton(props) {
-      return /* @__PURE__ */ import_react161.default.createElement(VanillaButton, props);
+      return /* @__PURE__ */ import_react160.default.createElement(VanillaButton, props);
     },
     renderButtonGroup: function renderButtonGroup(props) {
-      return /* @__PURE__ */ import_react161.default.createElement(VanillaButtonGroup, props);
+      return /* @__PURE__ */ import_react160.default.createElement(VanillaButtonGroup, props);
     },
     renderProvider: function renderProvider(props) {
-      return /* @__PURE__ */ import_react161.default.createElement(VanillaProvider3, props);
+      return /* @__PURE__ */ import_react160.default.createElement(VanillaProvider3, props);
     },
     renderValueSources: function renderValueSources(props) {
-      return /* @__PURE__ */ import_react161.default.createElement(VanillaValueSources, props);
+      return /* @__PURE__ */ import_react160.default.createElement(VanillaValueSources, props);
     },
     renderConfirm: vanillaConfirm,
     renderSwitchPrefix: function renderSwitchPrefix() {
-      return /* @__PURE__ */ import_react161.default.createElement(import_react161.default.Fragment, null, "Conditions");
+      return /* @__PURE__ */ import_react160.default.createElement(import_react160.default.Fragment, null, "Conditions");
     },
     customFieldSelectProps: {
       showSearch: true
@@ -99238,7 +99177,7 @@
 
   // node_modules/@react-awesome-query-builder/ui/esm/hooks/useListValuesAutocomplete.js
   var import_regenerator = __toESM(require_regenerator());
-  var import_react162 = __toESM(require_react());
+  var import_react161 = __toESM(require_react());
   var import_debounce2 = __toESM(require_debounce());
   var _Utils$Autocomplete = Utils.Autocomplete;
   var mergeListValues2 = _Utils$Autocomplete.mergeListValues;
@@ -99297,39 +99236,107 @@
     }
   };
   var queryValue = { "id": Utils.uuid(), "type": "group" };
-  var QueryBuilder = class extends import_react163.Component {
-    state = {
-      tree: Utils.checkTree(Utils.loadTree(queryValue), config),
-      config
+  var QueryBuilder = (props) => {
+    const newQueryValue = props.build_query ? JSON.parse(props.build_query) : queryValue;
+    const [state, setState] = (0, import_react162.useState)({ tree: Utils.checkTree(Utils.loadTree(newQueryValue), config), config });
+    renderBuilder = (props2) => /* @__PURE__ */ import_react162.default.createElement("div", { className: "col-md-12" }, /* @__PURE__ */ import_react162.default.createElement("label", null, "Rule Builder"), /* @__PURE__ */ import_react162.default.createElement(Builder_default, { ...props2 }));
+    renderResult = ({ tree: immutableTree, config: config2 }) => /* @__PURE__ */ import_react162.default.createElement("div", { className: "query-builder-result" }, /* @__PURE__ */ import_react162.default.createElement("div", null, "Query string: ", /* @__PURE__ */ import_react162.default.createElement("pre", null, JSON.stringify(Utils.queryString(immutableTree, config2)))));
+    onChange = (immutableTree, config2) => {
+      setState({ tree: immutableTree, config: config2 });
+      const jsonTree = Utils.getTree(immutableTree);
+      props.setbuild_query(JSON.stringify(jsonTree));
+      const mongo_qry = JSON.stringify(Utils.mongodbFormat(immutableTree, config2));
+      if (mongo_qry) {
+        props.setmongo_query(mongo_qry);
+      }
     };
-    render = () => /* @__PURE__ */ import_react163.default.createElement("div", null, /* @__PURE__ */ import_react163.default.createElement(
+    return /* @__PURE__ */ import_react162.default.createElement("div", null, /* @__PURE__ */ import_react162.default.createElement(
       QueryContainer,
       {
         ...config,
-        value: this.state.tree,
-        onChange: this.onChange,
-        renderBuilder: this.renderBuilder
+        value: state.tree,
+        onChange,
+        renderBuilder
       }
-    ), this.renderResult(this.state));
-    renderBuilder = (props) => /* @__PURE__ */ import_react163.default.createElement("div", { className: "col-md-12" }, /* @__PURE__ */ import_react163.default.createElement("label", null, "Rule Builder"), /* @__PURE__ */ import_react163.default.createElement(Builder_default, { ...props }));
-    renderResult = ({ tree: immutableTree, config: config2 }) => /* @__PURE__ */ import_react163.default.createElement("div", { className: "query-builder-result" }, /* @__PURE__ */ import_react163.default.createElement("div", null, "Query string: ", /* @__PURE__ */ import_react163.default.createElement("pre", null, JSON.stringify(Utils.queryString(immutableTree, config2)))), /* @__PURE__ */ import_react163.default.createElement("div", null, "MongoDb query: ", /* @__PURE__ */ import_react163.default.createElement("pre", null, JSON.stringify(Utils.mongodbFormat(immutableTree, config2)))));
-    onChange = (immutableTree, config2) => {
-      this.setState({ tree: immutableTree, config: config2 });
-      const jsonTree = Utils.getTree(immutableTree);
-      console.log(jsonTree);
-    };
+    ), renderResult(state));
   };
   var QueryBuilder_default = QueryBuilder;
 
+  // app/javascript/components/module/EditRule.jsx
+  var LayerForm2 = (props) => {
+    const setData = props.setData;
+    const [loading, setLoading] = (0, import_react163.useState)(false);
+    const [form_errors, setform_errors] = (0, import_react163.useState)("");
+    const [rule_data, setruleData] = (0, import_react163.useState)(props.rule_detail);
+    const [mongo_query, setmongo_query] = (0, import_react163.useState)();
+    const [build_query, setbuild_query] = (0, import_react163.useState)();
+    (0, import_react163.useEffect)(() => {
+    }, []);
+    const onSubmit = ({ value, touched }) => {
+      if (value.name && value.query_string && value.mongo_query) {
+        setform_errors("");
+        let csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+        const post_set = {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "X-CSRF-Token": csrf },
+          body: JSON.stringify(value)
+        };
+        updateData = () => {
+          setLoading(true);
+          fetch("api/update_rule", post_set).then((response) => response.json()).then((data) => {
+            setData(data);
+            setmongo_query(data.mongo_query);
+            setbuild_query(data.build_query);
+            props.setOpen(false);
+            setLoading(false);
+          }).catch((error2) => {
+            setLoading(false);
+          });
+        };
+        updateData();
+      } else if (!value.name) {
+        setform_errors("Please provide rule name");
+      } else if (!value.query_string) {
+        setform_errors("Please provide query string");
+      } else {
+        setform_errors("Please provide some inputs");
+      }
+    };
+    const updateText = (e) => {
+      const { value, name } = e.target;
+      setruleData((prevState) => ({ ...prevState, [name]: value }));
+    };
+    return /* @__PURE__ */ import_react163.default.createElement(Box, { gap: "medium" }, /* @__PURE__ */ import_react163.default.createElement(Button2, { alignSelf: "end", icon: /* @__PURE__ */ import_react163.default.createElement(Close, null), onClick: () => props.setOpen(false) }), /* @__PURE__ */ import_react163.default.createElement(Header, { alignSelf: "center", pad: { horizontal: "xxsmall" } }, /* @__PURE__ */ import_react163.default.createElement(Box, null, /* @__PURE__ */ import_react163.default.createElement(Heading, { level: 4, margin: "none", id: "layer-title" }, "New Rule"))), /* @__PURE__ */ import_react163.default.createElement("div", { direction: "row" }, /* @__PURE__ */ import_react163.default.createElement(Form, { validate: "blur", method: "post", onSubmit: ({ value, touched }) => onSubmit({ value, touched }) }, /* @__PURE__ */ import_react163.default.createElement(TextInput, { id: "rule_id", type: "hidden", name: "rule_id", value: rule_data.id }), /* @__PURE__ */ import_react163.default.createElement("div", { direction: "row", style: { marginTop: "10px" } }, /* @__PURE__ */ import_react163.default.createElement("div", { className: "col-md-12" }, /* @__PURE__ */ import_react163.default.createElement(FormField, { label: "Rule Name", htmlFor: "rule_name" }, /* @__PURE__ */ import_react163.default.createElement(TextInput, { id: "name", name: "name", value: rule_data.name, onChange: (e) => updateText(e) }))), /* @__PURE__ */ import_react163.default.createElement("div", { className: "col-md-12" }, /* @__PURE__ */ import_react163.default.createElement(FormField, { label: "Query String", htmlFor: "query_string" }, /* @__PURE__ */ import_react163.default.createElement(TextInput, { id: "query_string", name: "query_string", value: rule_data.query_string, onChange: (e) => updateText(e) }))), /* @__PURE__ */ import_react163.default.createElement(TextInput, { id: "mongo_query", type: "hidden", name: "mongo_query", value: mongo_query }), /* @__PURE__ */ import_react163.default.createElement(TextInput, { id: "build_query", type: "hidden", name: "build_query", value: build_query }), /* @__PURE__ */ import_react163.default.createElement(QueryBuilder_default, { setmongo_query, setbuild_query, build_query: rule_data.build_query }), /* @__PURE__ */ import_react163.default.createElement("div", { className: "col-md-12" }, /* @__PURE__ */ import_react163.default.createElement(Box, { direction: "row", gap: "small", margin: "medium", className: "" }, /* @__PURE__ */ import_react163.default.createElement(Button2, { label: "Update", secondary: true, type: "submit" }))), form_errors && /* @__PURE__ */ import_react163.default.createElement("div", { className: "col-md-12" }, /* @__PURE__ */ import_react163.default.createElement(Box, { direction: "row", align: "center", gap: "medium", margin: "medium", className: "mt-3 pt-3" }, /* @__PURE__ */ import_react163.default.createElement("span", { style: { margin: "auto", color: "#F00" } }, form_errors)))))));
+  };
+  LayerForm2.propTypes = {
+    setOpen: import_prop_types66.default.func.isRequired
+  };
+  var EditRule = (props) => {
+    const [open, setOpen] = (0, import_react163.useState)(false);
+    const size = (0, import_react163.useContext)(ResponsiveContext);
+    const onOpen = () => setOpen(true);
+    const onClose = () => setOpen(void 0);
+    const user = props.user;
+    const rule_detail = props.rule_detail;
+    const setData = props.setData;
+    return /* @__PURE__ */ import_react163.default.createElement(import_react163.default.Fragment, null, /* @__PURE__ */ import_react163.default.createElement(Button2, { alignSelf: "center", icon: /* @__PURE__ */ import_react163.default.createElement(Edit, null), onClick: onOpen, secondary: true }), open && /* @__PURE__ */ import_react163.default.createElement(Layer, { position: "right", full: !["xsmall", "small"].includes(size) ? "vertical" : true, onEsc: onClose }, /* @__PURE__ */ import_react163.default.createElement(Box, { fill: "vertical", overflow: "auto", width: !["xsmall", "small"].includes(size) ? "large" : void 0, pad: "medium" }, /* @__PURE__ */ import_react163.default.createElement(LayerForm2, { rule_detail, setData, user, setOpen: (value) => setOpen(value) }))));
+  };
+  var EditRule_default = EditRule;
+
   // app/javascript/components/module/NewRule.jsx
+  var import_react164 = __toESM(require_react());
+  var import_prop_types67 = __toESM(require_prop_types());
   var LayerForm3 = (props) => {
     const setData = props.setData;
     const [loading, setLoading] = (0, import_react164.useState)(false);
     const [form_errors, setform_errors] = (0, import_react164.useState)("");
+    const [mongo_query, setmongo_query] = (0, import_react164.useState)("");
+    const static_qry = JSON.stringify({ "id": "8a8aabb9-0123-4456-b89a-b186c5ad2c95", "type": "group" });
+    const [build_query, setbuild_query] = (0, import_react164.useState)(static_qry);
     (0, import_react164.useEffect)(() => {
     }, []);
     const onSubmit = ({ value, touched }) => {
-      if (value.rule_name && value.query_string && value.exact_match) {
+      if (value.rule_name && value.query_string && value.mongo_query) {
         setform_errors("");
         let csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
         const post_set = {
@@ -99352,13 +99359,13 @@
         setform_errors("Please provide rule name");
       } else if (!value.query_string) {
         setform_errors("Please provide query string");
-      } else if (!value.exact_match) {
-        setform_errors("Please provide exact match");
+      } else if (!value.mongo_query) {
+        setform_errors("Please Create some rule");
       } else {
         setform_errors("Please provide some inputs");
       }
     };
-    return /* @__PURE__ */ import_react164.default.createElement(Box, { gap: "medium" }, /* @__PURE__ */ import_react164.default.createElement(Button2, { alignSelf: "end", icon: /* @__PURE__ */ import_react164.default.createElement(Close, null), onClick: () => props.setOpen(false) }), /* @__PURE__ */ import_react164.default.createElement(Header, { alignSelf: "center", pad: { horizontal: "xxsmall" } }, /* @__PURE__ */ import_react164.default.createElement(Box, null, /* @__PURE__ */ import_react164.default.createElement(Heading, { level: 4, margin: "none", id: "layer-title" }, "New Rule"))), /* @__PURE__ */ import_react164.default.createElement("div", { direction: "row" }, /* @__PURE__ */ import_react164.default.createElement(Form, { validate: "blur", method: "post", onSubmit: ({ value, touched }) => onSubmit({ value, touched }) }, /* @__PURE__ */ import_react164.default.createElement("div", { direction: "row", style: { marginTop: "10px" } }, /* @__PURE__ */ import_react164.default.createElement("div", { className: "col-md-12" }, /* @__PURE__ */ import_react164.default.createElement(FormField, { label: "Rule Name", htmlFor: "rule_name" }, /* @__PURE__ */ import_react164.default.createElement(TextInput, { id: "rule_name", name: "rule_name" }))), /* @__PURE__ */ import_react164.default.createElement("div", { className: "col-md-12" }, /* @__PURE__ */ import_react164.default.createElement(FormField, { label: "Query String", htmlFor: "query_string" }, /* @__PURE__ */ import_react164.default.createElement(TextInput, { id: "query_string", name: "query_string" }))), /* @__PURE__ */ import_react164.default.createElement("div", { className: "col-md-12" }, /* @__PURE__ */ import_react164.default.createElement(FormField, { label: "Exact Match", htmlFor: "exact_match" }, /* @__PURE__ */ import_react164.default.createElement(TextInput, { id: "exact_match", name: "exact_match" }))), /* @__PURE__ */ import_react164.default.createElement(QueryBuilder_default, null), /* @__PURE__ */ import_react164.default.createElement("div", { className: "col-md-12" }, /* @__PURE__ */ import_react164.default.createElement(Box, { direction: "row", gap: "small", margin: "medium", className: "" }, /* @__PURE__ */ import_react164.default.createElement(Button2, { label: "Create", secondary: true, type: "submit" }))), form_errors && /* @__PURE__ */ import_react164.default.createElement("div", { className: "col-md-12" }, /* @__PURE__ */ import_react164.default.createElement(Box, { direction: "row", align: "center", gap: "medium", margin: "medium", className: "mt-3 pt-3" }, /* @__PURE__ */ import_react164.default.createElement("span", { style: { margin: "auto", color: "#F00" } }, form_errors)))))));
+    return /* @__PURE__ */ import_react164.default.createElement(Box, { gap: "medium" }, /* @__PURE__ */ import_react164.default.createElement(Button2, { alignSelf: "end", icon: /* @__PURE__ */ import_react164.default.createElement(Close, null), onClick: () => props.setOpen(false) }), /* @__PURE__ */ import_react164.default.createElement(Header, { alignSelf: "center", pad: { horizontal: "xxsmall" } }, /* @__PURE__ */ import_react164.default.createElement(Box, null, /* @__PURE__ */ import_react164.default.createElement(Heading, { level: 4, margin: "none", id: "layer-title" }, "New Rule"))), /* @__PURE__ */ import_react164.default.createElement("div", { direction: "row" }, /* @__PURE__ */ import_react164.default.createElement(Form, { validate: "blur", method: "post", onSubmit: ({ value, touched }) => onSubmit({ value, touched }) }, /* @__PURE__ */ import_react164.default.createElement("div", { direction: "row", style: { marginTop: "10px" } }, /* @__PURE__ */ import_react164.default.createElement("div", { className: "col-md-12" }, /* @__PURE__ */ import_react164.default.createElement(FormField, { label: "Rule Name", htmlFor: "rule_name" }, /* @__PURE__ */ import_react164.default.createElement(TextInput, { id: "rule_name", name: "rule_name" }))), /* @__PURE__ */ import_react164.default.createElement("div", { className: "col-md-12" }, /* @__PURE__ */ import_react164.default.createElement(FormField, { label: "Query String", htmlFor: "query_string" }, /* @__PURE__ */ import_react164.default.createElement(TextInput, { id: "query_string", name: "query_string" }))), /* @__PURE__ */ import_react164.default.createElement(TextInput, { id: "mongo_query", type: "hidden", name: "mongo_query", value: mongo_query }), /* @__PURE__ */ import_react164.default.createElement(TextInput, { id: "build_query", type: "hidden", name: "build_query", value: build_query }), /* @__PURE__ */ import_react164.default.createElement(QueryBuilder_default, { setmongo_query, setbuild_query }), /* @__PURE__ */ import_react164.default.createElement("div", { className: "col-md-12" }, /* @__PURE__ */ import_react164.default.createElement(Box, { direction: "row", gap: "small", margin: "medium", className: "" }, /* @__PURE__ */ import_react164.default.createElement(Button2, { label: "Create", secondary: true, type: "submit" }))), form_errors && /* @__PURE__ */ import_react164.default.createElement("div", { className: "col-md-12" }, /* @__PURE__ */ import_react164.default.createElement(Box, { direction: "row", align: "center", gap: "medium", margin: "medium", className: "mt-3 pt-3" }, /* @__PURE__ */ import_react164.default.createElement("span", { style: { margin: "auto", color: "#F00" } }, form_errors)))))));
   };
   LayerForm3.propTypes = {
     setOpen: import_prop_types67.default.func.isRequired
@@ -99381,7 +99388,7 @@
     const [loading, setLoading] = (0, import_react165.useState)(false);
     const COLUMNS = [
       { property: "name", header: "Name" },
-      { property: "query_string", header: "Query String", render: (datum) => /* @__PURE__ */ import_react165.default.createElement("span", { className: datum.updated_at == true ? "row_updated_now" : "" }, " ", datum.query_string) },
+      { property: "query_string", header: "Query String", render: (datum) => /* @__PURE__ */ import_react165.default.createElement("span", { className: datum.status_class }, " ", datum.query_string) },
       { property: "is_active", header: "Status", render: (datum) => datum.is_active == true ? "Active" : "Inactive" },
       { property: "action_btn", header: "Action", render: (datum) => /* @__PURE__ */ import_react165.default.createElement(EditRule_default, { rule_detail: datum, setData }) }
     ];

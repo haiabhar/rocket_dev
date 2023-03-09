@@ -11,7 +11,7 @@ const [select, setSelect] = useState([]);
 const [loading, setLoading] = useState(false);
 const COLUMNS = [
 { property: 'name', header: 'Name' },
-{ property: 'query_string', header: 'Query String', render: datum => <span className={( datum.updated_at == true ? "row_updated_now" : "")}> {datum.query_string}</span> },
+{ property: 'query_string', header: 'Query String', render: datum => <span className={( datum.status_class)}> {datum.query_string}</span> },
 { property: 'is_active', header: 'Status', render: datum => ( datum.is_active == true ? "Active" : "Inactive") },
 { property: 'action_btn', header: 'Action', render: datum => <EditRule rule_detail={datum} setData={setData} /> },
 ];

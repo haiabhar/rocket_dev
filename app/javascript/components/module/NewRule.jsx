@@ -8,13 +8,16 @@ const LayerForm = (props ) => {
 const setData = props.setData;
 const [loading, setLoading] = useState(false);
 const [form_errors, setform_errors] = useState("");
+const [mongo_query, setmongo_query] = useState("");
+const static_qry = JSON.stringify({"id":"8a8aabb9-0123-4456-b89a-b186c5ad2c95","type":"group"});
+const [build_query, setbuild_query] = useState(static_qry);
 useEffect(() => {
     //fetchData();
   }, []);
 
 const onSubmit = ({ value, touched }) => 
   { 
-    if(value.rule_name && value.query_string && value.exact_match)
+    if(value.rule_name && value.query_string && value.mongo_query)
     {
       setform_errors('');
       let csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
@@ -46,9 +49,9 @@ const onSubmit = ({ value, touched }) =>
     {
       setform_errors('Please provide query string');
     }
-    else if(!value.exact_match)
+    else if(!value.mongo_query)
     {
-      setform_errors('Please provide exact match');
+      setform_errors('Please Create some rule');
     }
     else
     { 
@@ -81,13 +84,10 @@ const onSubmit = ({ value, touched }) =>
               <TextInput id="query_string" name="query_string" />
             </FormField>
           </div>
-          <div className="col-md-12">
-            <FormField label="Exact Match" htmlFor="exact_match" >
-              <TextInput id="exact_match" name="exact_match" />
-            </FormField>
-          </div>
-
-          <QueryBuilder />
+          
+          <TextInput id="mongo_query" type="hidden" name="mongo_query" value={mongo_query}  /> 
+          <TextInput id="build_query" type="hidden" name="build_query" value={build_query}  /> 
+          <QueryBuilder setmongo_query={setmongo_query} setbuild_query={setbuild_query} />
           
           <div className="col-md-12">
           
