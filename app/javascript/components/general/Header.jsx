@@ -86,7 +86,7 @@ return(
         pad={{ vertical: 'small' }}
         responsive={false}
       >
-        <Hpe color="brand" />
+        <Hpe color="brand"  />
         <Box direction="row" gap="small" wrap>
           <Text color="text-strong" weight="bold">
           </Text>

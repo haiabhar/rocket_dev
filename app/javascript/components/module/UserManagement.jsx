@@ -1,18 +1,67 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState,useEffect } from 'react';
 import PropTypes from 'prop-types';
-import {  Button,  Box,  DataTable,   Header,  Heading,  Layer,  ResponsiveContext,Text, CheckBox,  Form,  FormField,  Select,  TextArea,  TextInput, Tabs, RadioButtonGroup } from 'grommet';
+import {  Button,  Box,  DataTable,   Header,  Heading,  Layer,  ResponsiveContext,Text, CheckBox,  Form,  FormField,  Select,  TextArea,  TextInput, Tabs, RadioButtonGroup,CheckBoxGroup } from 'grommet';
 import { Close, Edit, Trash,Search } from 'grommet-icons';
 const options = ['Name','Email Address','Employee Number'];
 const LayerForm = (props ) => {
 
 const [user_detail, setUserDetail] = useState([]);
+const [role_list, setrole_list] = useState([]);
+const [role_selected, setrole_selected] = useState([]);
+//const role_list = [];
 const [loading, setLoading] = useState(false);
+const [showForm, setshowForm] = useState(false);
 const [form_errors, setform_errors] = useState("");
+const [user_id, setuser_id] = useState("");
 const [value, setValue] = useState('Name');
+useEffect(() => {
+    fetchData();
+  }, []);
+const fetchData = () => {
+  let csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+    const post_set = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json','X-CSRF-Token': csrf }
+    };
+    setLoading(true);
+      fetch("api/get_role_list",post_set)
+        .then((response) => response.json())
+        .then((data) => {
+          setrole_list(data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoading(false);
+        });
+
+}
+const onSubmit_update = ({ value, touched }) => 
+{
+  setform_errors('');
+      let csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+      const post_set = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json','X-CSRF-Token': csrf },          
+          body: JSON.stringify(value)
+      };
+      setLoading(true);
+      fetch("api/update_user",post_set)
+        .then((response) => response.json())
+        .then((data) => {
+          fetch_userData();
+          setshowForm(false);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoading(false);
+        });
+};
 const onSubmit = ({ value, touched }) => 
   { 
     setUserDetail([]);
-    if(value.search_text && value.search_text.length > 3)
+    if(value.search_text && value.search_text.length >= 3)
     {
       setform_errors('');
       let csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
@@ -21,12 +70,13 @@ const onSubmit = ({ value, touched }) =>
           headers: { 'Content-Type': 'application/json','X-CSRF-Token': csrf },          
           body: JSON.stringify(value)
       };
-      const fetchData = () => {
+    fetch_userData = () => {
       setLoading(true);
       fetch("api/search_user",post_set)
         .then((response) => response.json())
         .then((data) => {
           setUserDetail(data);
+          setshowForm(false);
           setLoading(false);
         })
         .catch((error) => {
@@ -34,11 +84,11 @@ const onSubmit = ({ value, touched }) =>
           setLoading(false);
         });
       };
-      fetchData();
+      fetch_userData();
     }
-    else if(value.search_text && value.search_text.length <= 3)
+    else if(value.search_text && value.search_text.length < 3)
     {
-      setform_errors('Please provide some inputs');
+      setform_errors('Please provide some more inputs');
     }
     else
     { 
@@ -46,7 +96,13 @@ const onSubmit = ({ value, touched }) =>
     }
   };
   const size = useContext(ResponsiveContext);
-
+  const edit_user = (user_id,roleids) => 
+  {
+    setuser_id(user_id);
+    setrole_selected(roleids);
+    setshowForm(true);
+  };
+  
   return (
     <Box gap="medium">
       <Button alignSelf="end" icon={<Close />} onClick={() => props.setOpen(false)} />
@@ -72,7 +128,6 @@ const onSubmit = ({ value, touched }) =>
           
             <Box direction="row" gap="small" margin="medium" className=""  >
                 <Button label="Search" icon={<Search style={{width: 18}}/>}  secondary type="submit" />
-                {/*<Button label="Exit" onClick={() => props.setOpen(false)} secondary />*/}
             </Box>
           </div>
         {form_errors &&
@@ -86,7 +141,30 @@ const onSubmit = ({ value, touched }) =>
         </div>
       </Form>
       </div>
+      {showForm == true &&
+
+        <div direction="row">
       
+        <Form validate="blur"  method="post" onSubmit={({ value, touched }) => onSubmit_update({ value, touched })}  >
+        <TextInput id="user_id" type="hidden" name="user_id" value={user_id}  />
+        <div direction="row" style={{marginTop: "10px"}}>
+          
+
+          <Box direction="row" gap="small" margin="medium" className=""  >
+          <FormField name="user_role" fill    htmlFor="user_roles" label="User Role" >
+              <CheckBoxGroup options={role_list} value={role_selected} name="user_roles" id="user_roles"  onChange={({ value, option }) => {setrole_selected(value)}} valueKey="role_id" labelKey="name" />
+          </FormField>
+          </Box>
+          <Box direction="row" gap="small" margin="medium" className=""  >
+            <Button label="Update" secondary type="submit" />
+            <Button label="Exit" onClick={() => setshowForm(false)} secondary />
+          </Box>
+        
+
+        </div>
+      </Form>
+      </div>
+      }
       {user_detail.length > 0 && 
 
      <table className="table table-bordered table-sm" >
@@ -100,44 +178,40 @@ const onSubmit = ({ value, touched }) =>
             </tr>
           </thead>
           <tbody>
-            {user_detail.map(sd =>(   
-              <>
-              {sd.id > 0 &&             
-                        <tr key={"tr"+sd.id}>
+            {user_detail.map(sd =>{ 
+              let roleids = sd.roles.map(function (rl) { return rl['id'] }) 
+              return (
+              sd.id > 0 &&             
+                        <tr key={"tr"+sd.id} >
                           <td id={"c"+sd.id} key={"c"+sd.id}> {sd.full_name}</td>
                           <td id={"b"+sd.id} key={"b"+sd.id}>{sd.email}</td>
                           <td id={"a"+sd.id} key={"a"+sd.id}> {sd.emp_id}</td>
                           <td id={"d"+sd.id} key={"d"+sd.id}>
-                          <ul  className="list-group">
-                          {sd.roles.map(rl =>(
-                              <li className="list-group-item" id={"rl"+rl.id} key={"rl"+rl.id}>{rl.name}</li>
-                          ))}
-                          </ul>
+                          <ul key={"ul"+sd.id} className="list-group">
+                            {sd.roles.map(rl =>(
+                                <li className="list-group-item" id={"rl"+rl.id} key={"rl"+rl.id}>{rl.name}</li>
+
+                            ))}
+                            </ul>
                           </td>
-                          <td id={"e"+sd.id} key={"e"+sd.id}> 
-                          <Button icon={<Edit style={{width: 18}}/>}  secondary />
+                          <td key={"e"+sd.id}> 
+                          <Button key={"btn"+sd.id} icon={<Edit style={{width: 18}}/>}  onClick={() => edit_user(sd.id,roleids) }  secondary />
                           </td>
                         </tr>
-                }
-                {sd.id == 0 &&
+                
+                )
+
+            })}
+            {user_detail.map(sd =>( 
+              sd.id == 0 &&
 
                   <tr key={"tr"+sd.id}>
                     <td className="text-center" colspan="5" key={"td"+sd.id}> No records </td>
                   </tr>
-
-                }
-                </>
-
             ))}
            </tbody> 
         </table>  
-
       }
-
-
-
-
-
       </Box>
       
   );

@@ -16,4 +16,23 @@ class Api::UsersController < ApplicationController
     
     render json: @user.present? ? @user : [{id: 0}]
   end
+  def get_role_list
+    @roles = Role.where("id != 1 AND is_active = true").select("id as role_id, name")
+    render json: @roles
+  end
+  def update_user
+    user_id = params[:user_id]
+    user_roles = params[:user_roles]
+      if user_roles.any?
+        UserRole.where(user_id: user_id).destroy_all
+        user_roles.each do |role|
+            ur = UserRole.new()
+            ur.user_id = user_id
+            ur.role_id = role
+            ur.save
+
+        end
+      end
+      render json: {status: "Updated successfully"}
+  end
 end

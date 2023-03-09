@@ -4,6 +4,7 @@ import {  Paragraph, Tab, Tabs,Box} from 'grommet';
 import {RulesList} from "./module/RulesList";
 
 
+
 export default () => {
 const [index, setIndex] = useState();
 const onActive = nextIndex => setIndex(nextIndex);
@@ -21,7 +22,8 @@ return (
       </Tab>*/}
       <Tab title="Rules">
       <Box pad="medium">
-      <RulesList/>
+          
+          <RulesList/>
       </Box>
       </Tab>
       <Tab title="Reports">
