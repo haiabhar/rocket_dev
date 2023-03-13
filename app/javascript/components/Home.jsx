@@ -5,7 +5,8 @@ import {RulesList} from "./module/RulesList";
 
 
 
-export default () => {
+export default (props) => {
+user = props.user;
 const [index, setIndex] = useState();
 const onActive = nextIndex => setIndex(nextIndex);
 const [loading, setLoading] = useState(false);
@@ -23,7 +24,7 @@ return (
       <Tab title="Rules">
       <Box pad="medium">
           
-          <RulesList/>
+          <RulesList user={user} />
       </Box>
       </Tab>
       <Tab title="Reports">

@@ -35,7 +35,7 @@ useEffect(() => {
 
         <PageContent className="card mb-4" style={{height: "860px"}} gap="large">
           {/*<PageHeader title={`Dashboard @ '${size}' Breakpoint`}     />*/}
-          <Home />
+          <Home user={user} />
         </PageContent>
       </Page>
       <ContentArea className="footer fixed-bottom" ><Footer user={user} /></ContentArea>

@@ -83395,7 +83395,7 @@
   // app/javascript/components/module/UserManagement.jsx
   var import_react101 = __toESM(require_react());
   var import_prop_types42 = __toESM(require_prop_types());
-  var options = ["Name", "Email Address", "Employee Number"];
+  var options = ["Name", "Email Address", "Employee Number", "All Users"];
   var LayerForm = (props) => {
     const [user_detail, setUserDetail] = (0, import_react101.useState)([]);
     const [role_list, setrole_list] = (0, import_react101.useState)([]);
@@ -83443,7 +83443,7 @@
     };
     const onSubmit = ({ value: value2, touched }) => {
       setUserDetail([]);
-      if (value2.search_text && value2.search_text.length >= 3) {
+      if (value2.search_text && value2.search_text.length >= 3 || value2.search_type == "All Users") {
         setform_errors("");
         let csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
         const post_set = {
@@ -83492,17 +83492,17 @@
     const size = (0, import_react101.useContext)(ResponsiveContext);
     const onOpen = () => setOpen(true);
     const onClose = () => setOpen(void 0);
-    const user = props.user;
-    return /* @__PURE__ */ import_react101.default.createElement(import_react101.default.Fragment, null, /* @__PURE__ */ import_react101.default.createElement(Button2, { label: "User Management", onClick: onOpen, secondary: true }), open && /* @__PURE__ */ import_react101.default.createElement(Layer, { position: "right", full: !["xsmall", "small"].includes(size) ? "vertical" : true, onEsc: onClose }, /* @__PURE__ */ import_react101.default.createElement(Box, { fill: "vertical", overflow: "auto", width: !["xsmall", "small"].includes(size) ? "large" : void 0, pad: "medium" }, /* @__PURE__ */ import_react101.default.createElement(LayerForm, { user, setOpen: (value) => setOpen(value) }))));
+    const user2 = props.user;
+    return /* @__PURE__ */ import_react101.default.createElement(import_react101.default.Fragment, null, /* @__PURE__ */ import_react101.default.createElement(Button2, { label: "User Management", onClick: onOpen, secondary: true }), open && /* @__PURE__ */ import_react101.default.createElement(Layer, { position: "right", full: !["xsmall", "small"].includes(size) ? "vertical" : true, onEsc: onClose }, /* @__PURE__ */ import_react101.default.createElement(Box, { fill: "vertical", overflow: "auto", width: !["xsmall", "small"].includes(size) ? "large" : void 0, pad: "medium" }, /* @__PURE__ */ import_react101.default.createElement(LayerForm, { user: user2, setOpen: (value) => setOpen(value) }))));
   };
   var UserManagement_default = UserManagement;
 
   // app/javascript/components/general/Header.jsx
   var PassParam = (props) => {
-    const user = props.user;
+    const user2 = props.user;
     var roleids = [];
-    if (user) {
-      roles = user.roles;
+    if (user2) {
+      roles = user2.roles;
       if (roles) {
         roleids = roles.map(function(rl) {
           return rl["id"];
@@ -83516,7 +83516,7 @@
     const onClose = () => {
       setOpen(false);
     };
-    const DropContent = ({ onClose: onClose2 }) => /* @__PURE__ */ import_react102.default.createElement(Box, { pad: "medium", gap: "medium", width: "medium" }, /* @__PURE__ */ import_react102.default.createElement(Box, { direction: "row", justify: "between", align: "center" }, /* @__PURE__ */ import_react102.default.createElement(Heading, { level: 5, margin: "none" }, user.full_name), /* @__PURE__ */ import_react102.default.createElement(Button2, { icon: /* @__PURE__ */ import_react102.default.createElement(FormClose2, null), onClick: onClose2 })), /* @__PURE__ */ import_react102.default.createElement(Box, { direction: "row", justify: "between", align: "center" }, /* @__PURE__ */ import_react102.default.createElement(Text, null, user.email)), (roleids.includes(1) || roleids.includes(3)) && /* @__PURE__ */ import_react102.default.createElement(UserManagement_default, { user }));
+    const DropContent = ({ onClose: onClose2 }) => /* @__PURE__ */ import_react102.default.createElement(Box, { pad: "medium", gap: "medium", width: "medium" }, /* @__PURE__ */ import_react102.default.createElement(Box, { direction: "row", justify: "between", align: "center" }, /* @__PURE__ */ import_react102.default.createElement(Heading, { level: 5, margin: "none" }, user2.full_name), /* @__PURE__ */ import_react102.default.createElement(Button2, { icon: /* @__PURE__ */ import_react102.default.createElement(FormClose2, null), onClick: onClose2 })), /* @__PURE__ */ import_react102.default.createElement(Box, { direction: "row", justify: "between", align: "center" }, /* @__PURE__ */ import_react102.default.createElement(Text, null, user2.email)), (roleids.includes(1) || roleids.includes(3)) && /* @__PURE__ */ import_react102.default.createElement(UserManagement_default, { user: user2 }));
     DropContent.propTypes = {
       onClose: import_prop_types43.default.func
     };
@@ -83533,7 +83533,7 @@
     );
   };
   var HeaderExample = (props) => {
-    const user = props.user;
+    const user2 = props.user;
     return /* @__PURE__ */ import_react102.default.createElement("div", { className: "hpehf-header" }, /* @__PURE__ */ import_react102.default.createElement(Header, { fill: "horizontal" }, /* @__PURE__ */ import_react102.default.createElement("a", { href: "/" }, /* @__PURE__ */ import_react102.default.createElement(Button2, null, /* @__PURE__ */ import_react102.default.createElement(
       Box,
       {
@@ -83545,7 +83545,7 @@
       },
       /* @__PURE__ */ import_react102.default.createElement(Hpe, { color: "brand" }),
       /* @__PURE__ */ import_react102.default.createElement(Box, { direction: "row", gap: "small", wrap: true }, /* @__PURE__ */ import_react102.default.createElement(Text, { color: "text-strong", weight: "bold" }), /* @__PURE__ */ import_react102.default.createElement("img", { src: "rocket-logo.png", style: { width: "120px" }, alt: props.app_name }))
-    ))), /* @__PURE__ */ import_react102.default.createElement(PassParam, { user })));
+    ))), /* @__PURE__ */ import_react102.default.createElement(PassParam, { user: user2 })));
   };
   var Header_default = HeaderExample;
 
@@ -83553,7 +83553,7 @@
   var import_react103 = __toESM(require_react());
   var footer_margin = { margintop: 100 };
   var FooterExample = (props) => {
-    const user = props.user;
+    const user2 = props.user;
     const size = (0, import_react103.useContext)(ResponsiveContext);
     return /* @__PURE__ */ import_react103.default.createElement(
       Footer,
@@ -99192,47 +99192,47 @@
   var config = {
     ...InitialConfig,
     fields: {
-      qty: {
-        label: "Qty",
-        type: "number",
-        fieldSettings: {
-          min: 0
-        },
-        valueSources: ["value"],
-        preferWidgets: ["number"]
-      },
-      price: {
-        label: "Price",
-        type: "number",
-        valueSources: ["value"],
-        fieldSettings: {
-          min: 10,
-          max: 100
-        },
-        preferWidgets: ["slider", "rangeslider"]
-      },
-      name: {
-        label: "Name",
+      // qty: {
+      //   label: 'Qty',
+      //   type: 'number',
+      //   fieldSettings: {
+      //     min: 0,
+      //   },
+      //   valueSources: ['value'],
+      //   preferWidgets: ['number'],
+      // },
+      // price: {
+      //   label: 'Price',
+      //   type: 'number',
+      //   valueSources: ['value'],
+      //   fieldSettings: {
+      //     min: 10,
+      //     max: 100,
+      //   },
+      //   preferWidgets: ['slider', 'rangeslider'],
+      // },
+      log: {
+        label: "Log",
         type: "text"
-      },
-      color: {
-        label: "Color",
-        type: "select",
-        valueSources: ["value"],
-        fieldSettings: {
-          listValues: [
-            { value: "yellow", title: "Yellow" },
-            { value: "green", title: "Green" },
-            { value: "orange", title: "Orange" }
-          ]
-        }
-      },
-      is_promotion: {
-        label: "Promo?",
-        type: "boolean",
-        operators: ["equal"],
-        valueSources: ["value"]
       }
+      // color: {
+      //   label: 'Color',
+      //   type: 'select',
+      //   valueSources: ['value'],
+      //   fieldSettings: {
+      //     listValues: [
+      //       { value: 'yellow', title: 'Yellow' },
+      //       { value: 'green', title: 'Green' },
+      //       { value: 'orange', title: 'Orange' }
+      //     ],
+      //   }
+      // },
+      // is_promotion: {
+      //   label: 'Promo?',
+      //   type: 'boolean',
+      //   operators: ['equal'],
+      //   valueSources: ['value'],
+      // },
     }
   };
   var queryValue = { "id": Utils.uuid(), "type": "group" };
@@ -99312,14 +99312,23 @@
     setOpen: import_prop_types66.default.func.isRequired
   };
   var EditRule = (props) => {
+    user = props.user;
+    var roleids = [];
+    if (user) {
+      roles = user.roles;
+      if (roles) {
+        roleids = roles.map(function(rl) {
+          return rl["id"];
+        });
+      }
+    }
     const [open, setOpen] = (0, import_react163.useState)(false);
     const size = (0, import_react163.useContext)(ResponsiveContext);
     const onOpen = () => setOpen(true);
     const onClose = () => setOpen(void 0);
-    const user = props.user;
     const rule_detail = props.rule_detail;
     const setData = props.setData;
-    return /* @__PURE__ */ import_react163.default.createElement(import_react163.default.Fragment, null, /* @__PURE__ */ import_react163.default.createElement(Button2, { alignSelf: "center", icon: /* @__PURE__ */ import_react163.default.createElement(Edit, null), onClick: onOpen, secondary: true }), open && /* @__PURE__ */ import_react163.default.createElement(Layer, { position: "right", full: !["xsmall", "small"].includes(size) ? "vertical" : true, onEsc: onClose }, /* @__PURE__ */ import_react163.default.createElement(Box, { fill: "vertical", overflow: "auto", width: !["xsmall", "small"].includes(size) ? "large" : void 0, pad: "medium" }, /* @__PURE__ */ import_react163.default.createElement(LayerForm2, { rule_detail, setData, user, setOpen: (value) => setOpen(value) }))));
+    return /* @__PURE__ */ import_react163.default.createElement(import_react163.default.Fragment, null, roleids.includes(1) || roleids.includes(3) || rule_detail.created_by == user.id ? /* @__PURE__ */ import_react163.default.createElement(Button2, { alignSelf: "center", icon: /* @__PURE__ */ import_react163.default.createElement(Edit, null), onClick: onOpen, secondary: true }) : /* @__PURE__ */ import_react163.default.createElement(Button2, { alignSelf: "center", icon: /* @__PURE__ */ import_react163.default.createElement(Edit, null), secondary: true, disabled: true }), open && /* @__PURE__ */ import_react163.default.createElement(Layer, { position: "right", full: !["xsmall", "small"].includes(size) ? "vertical" : true, onEsc: onClose }, /* @__PURE__ */ import_react163.default.createElement(Box, { fill: "vertical", overflow: "auto", width: !["xsmall", "small"].includes(size) ? "large" : void 0, pad: "medium" }, /* @__PURE__ */ import_react163.default.createElement(LayerForm2, { rule_detail, setData, user, setOpen: (value) => setOpen(value) }))));
   };
   var EditRule_default = EditRule;
 
@@ -99375,22 +99384,36 @@
     const size = (0, import_react164.useContext)(ResponsiveContext);
     const onOpen = () => setOpen(true);
     const onClose = () => setOpen(void 0);
-    const user = props.user;
+    const user2 = props.user;
     const setData = props.setData;
-    return /* @__PURE__ */ import_react164.default.createElement(import_react164.default.Fragment, null, /* @__PURE__ */ import_react164.default.createElement(Button2, { alignSelf: "end", label: "Create New Rule", onClick: onOpen, secondary: true }), open && /* @__PURE__ */ import_react164.default.createElement(Layer, { position: "right", full: !["xsmall", "small"].includes(size) ? "vertical" : true, onEsc: onClose }, /* @__PURE__ */ import_react164.default.createElement(Box, { fill: "vertical", overflow: "auto", width: !["xsmall", "small"].includes(size) ? "large" : void 0, pad: "medium" }, /* @__PURE__ */ import_react164.default.createElement(LayerForm3, { user, setData, setOpen: (value) => setOpen(value) }))));
+    return /* @__PURE__ */ import_react164.default.createElement(import_react164.default.Fragment, null, /* @__PURE__ */ import_react164.default.createElement(Button2, { alignSelf: "end", label: "Create New Rule", onClick: onOpen, secondary: true }), open && /* @__PURE__ */ import_react164.default.createElement(Layer, { position: "right", full: !["xsmall", "small"].includes(size) ? "vertical" : true, onEsc: onClose }, /* @__PURE__ */ import_react164.default.createElement(Box, { fill: "vertical", overflow: "auto", width: !["xsmall", "small"].includes(size) ? "large" : void 0, pad: "medium" }, /* @__PURE__ */ import_react164.default.createElement(LayerForm3, { user: user2, setData, setOpen: (value) => setOpen(value) }))));
   };
   var NewRule_default = NewRule;
 
   // app/javascript/components/module/RulesList.jsx
-  var RulesList = () => {
+  var RulesList = (props) => {
+    user = props.user;
+    var roleids = [];
+    if (user) {
+      roles = user.roles;
+      if (roles) {
+        roleids = roles.map(function(rl) {
+          return rl["id"];
+        });
+      }
+    }
     const [allData, setData] = (0, import_react165.useState)([]);
     const [select, setSelect] = (0, import_react165.useState)([]);
     const [loading, setLoading] = (0, import_react165.useState)(false);
     const COLUMNS = [
+      { property: "id", header: "ID", render: (datum) => /* @__PURE__ */ import_react165.default.createElement("span", null, "RL000", datum.id, " ") },
       { property: "name", header: "Name" },
-      { property: "query_string", header: "Query String", render: (datum) => /* @__PURE__ */ import_react165.default.createElement("span", { className: datum.status_class }, " ", datum.query_string) },
-      { property: "is_active", header: "Status", render: (datum) => datum.is_active == true ? "Active" : "Inactive" },
-      { property: "action_btn", header: "Action", render: (datum) => /* @__PURE__ */ import_react165.default.createElement(EditRule_default, { rule_detail: datum, setData }) }
+      { property: "query_string", header: "Query String" },
+      { property: "mongo_query", header: "Rule Query" },
+      { property: "is_active", header: "Status", render: (datum) => roleids.includes(1) || roleids.includes(3) ? /* @__PURE__ */ import_react165.default.createElement(CheckBox, { checked: datum.is_active, toggle: true, label: datum.is_active == true ? "Active" : "Inactive", onChange: (event) => setChecked(event.target.checked, datum.id) }) : datum.is_active == true ? "Active" : "Inactive" },
+      { property: "mdfy_btn", header: "Modify", render: (datum) => /* @__PURE__ */ import_react165.default.createElement(EditRule_default, { user, rule_detail: datum, setData }) },
+      { property: "action_btn", header: "Action", render: (datum) => /* @__PURE__ */ import_react165.default.createElement(Button2, { label: "Action", secondary: true }) },
+      { property: "notification_btn", header: "Notification", render: (datum) => /* @__PURE__ */ import_react165.default.createElement(Button2, { label: "Notification", secondary: true }) }
     ];
     const options2 = COLUMNS.map(({ header, property }) => ({
       property,
@@ -99414,21 +99437,38 @@
         setLoading(false);
       });
     };
-    return /* @__PURE__ */ import_react165.default.createElement(import_react165.default.Fragment, null, /* @__PURE__ */ import_react165.default.createElement(NewRule_default, { setData }), /* @__PURE__ */ import_react165.default.createElement(Data2, { data: allData, flex: true }, /* @__PURE__ */ import_react165.default.createElement(Box, { overflow: "auto", flex: true }, /* @__PURE__ */ import_react165.default.createElement(DataTable, { columns: COLUMNS }))));
+    const setChecked = (status, rid) => {
+      let csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+      const post_set = {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "X-CSRF-Token": csrf },
+        body: JSON.stringify({ rule_id: rid, status })
+      };
+      setLoading(true);
+      fetch("api/update_rulestatus", post_set).then((response) => response.json()).then((data) => {
+        setData(data);
+        setLoading(false);
+      }).catch((error2) => {
+        console.log(error2);
+        setLoading(false);
+      });
+    };
+    return /* @__PURE__ */ import_react165.default.createElement(import_react165.default.Fragment, null, (roleids.includes(1) || roleids.includes(3)) && /* @__PURE__ */ import_react165.default.createElement(NewRule_default, { setData }), /* @__PURE__ */ import_react165.default.createElement(Data2, { data: allData, flex: true }, /* @__PURE__ */ import_react165.default.createElement(Box, { overflow: "auto", flex: true }, /* @__PURE__ */ import_react165.default.createElement(DataTable, { columns: COLUMNS }))));
   };
 
   // app/javascript/components/Home.jsx
-  var Home_default = () => {
+  var Home_default = (props) => {
+    user = props.user;
     const [index, setIndex] = (0, import_react166.useState)();
     const onActive = (nextIndex) => setIndex(nextIndex);
     const [loading, setLoading] = (0, import_react166.useState)(false);
     const [details, setDetails] = (0, import_react166.useState)([]);
-    return /* @__PURE__ */ import_react166.default.createElement("div", { className: "content-list-body p-3" }, /* @__PURE__ */ import_react166.default.createElement("div", { className: "card-list" }, /* @__PURE__ */ import_react166.default.createElement("div", { className: "card-list-head" }, /* @__PURE__ */ import_react166.default.createElement(Tabs, { activeIndex: index, onActive, justify: "start" }, /* @__PURE__ */ import_react166.default.createElement(Tab2, { title: "Rules" }, /* @__PURE__ */ import_react166.default.createElement(Box, { pad: "medium" }, /* @__PURE__ */ import_react166.default.createElement(RulesList, null))), /* @__PURE__ */ import_react166.default.createElement(Tab2, { title: "Reports" }, /* @__PURE__ */ import_react166.default.createElement(Box, { pad: "medium" }, /* @__PURE__ */ import_react166.default.createElement("span", null, " Reports ")))))));
+    return /* @__PURE__ */ import_react166.default.createElement("div", { className: "content-list-body p-3" }, /* @__PURE__ */ import_react166.default.createElement("div", { className: "card-list" }, /* @__PURE__ */ import_react166.default.createElement("div", { className: "card-list-head" }, /* @__PURE__ */ import_react166.default.createElement(Tabs, { activeIndex: index, onActive, justify: "start" }, /* @__PURE__ */ import_react166.default.createElement(Tab2, { title: "Rules" }, /* @__PURE__ */ import_react166.default.createElement(Box, { pad: "medium" }, /* @__PURE__ */ import_react166.default.createElement(RulesList, { user }))), /* @__PURE__ */ import_react166.default.createElement(Tab2, { title: "Reports" }, /* @__PURE__ */ import_react166.default.createElement(Box, { pad: "medium" }, /* @__PURE__ */ import_react166.default.createElement("span", null, " Reports ")))))));
   };
 
   // app/javascript/components/App.jsx
   var App = () => {
-    const [user, setUser] = (0, import_react167.useState)({});
+    const [user2, setUser] = (0, import_react167.useState)({});
     const [loading, setLoading] = (0, import_react167.useState)(false);
     const url = window.location.href;
     (0, import_react167.useEffect)(() => {
@@ -99445,7 +99485,7 @@
       });
     };
     const size = (0, import_react167.useContext)(ResponsiveContext);
-    return /* @__PURE__ */ import_react167.default.createElement(AppContainer, { background: "background-back" }, /* @__PURE__ */ import_react167.default.createElement(ContentArea, null, " ", /* @__PURE__ */ import_react167.default.createElement(Header_default, { app_name: "Rocket", user })), /* @__PURE__ */ import_react167.default.createElement(Page, null, /* @__PURE__ */ import_react167.default.createElement(PageContent, { className: "card mb-4", style: { height: "860px" }, gap: "large" }, /* @__PURE__ */ import_react167.default.createElement(Home_default, null))), /* @__PURE__ */ import_react167.default.createElement(ContentArea, { className: "footer fixed-bottom" }, /* @__PURE__ */ import_react167.default.createElement(Footer_default, { user })));
+    return /* @__PURE__ */ import_react167.default.createElement(AppContainer, { background: "background-back" }, /* @__PURE__ */ import_react167.default.createElement(ContentArea, null, " ", /* @__PURE__ */ import_react167.default.createElement(Header_default, { app_name: "Rocket", user: user2 })), /* @__PURE__ */ import_react167.default.createElement(Page, null, /* @__PURE__ */ import_react167.default.createElement(PageContent, { className: "card mb-4", style: { height: "860px" }, gap: "large" }, /* @__PURE__ */ import_react167.default.createElement(Home_default, { user: user2 }))), /* @__PURE__ */ import_react167.default.createElement(ContentArea, { className: "footer fixed-bottom" }, /* @__PURE__ */ import_react167.default.createElement(Footer_default, { user: user2 })));
   };
 
   // app/javascript/components/index.jsx

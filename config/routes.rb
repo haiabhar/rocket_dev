@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     post 'get_rules_list', to: 'rule#get_rules_list'
     post 'create_rule', to: 'rule#create_rule'
     post 'update_rule', to: 'rule#update_rule'
+    post 'update_rulestatus', to: 'rule#update_rulestatus'
   end
   namespace :api do
     get 'user_current', to: 'users#user_current'

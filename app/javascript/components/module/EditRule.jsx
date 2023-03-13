@@ -127,17 +127,27 @@ LayerForm.propTypes = {
 };
 
 const EditRule = (props) => {
+  user = props.user;
+  var roleids  = [];
+  if(user)
+  {
+    roles = user.roles
+    if(roles)
+    {
+    roleids = roles.map(function (rl) { return rl['id']});
+    }
+  }
   const [open, setOpen] = useState(false);
   const size = useContext(ResponsiveContext);
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
-  const user = props.user;
   const rule_detail = props.rule_detail;
   const setData = props.setData;
   return (
     <>
-        <Button alignSelf="center" icon={<Edit />} onClick={onOpen} secondary />
-      
+    { (roleids.includes(1) || roleids.includes(3) || rule_detail.created_by == user.id) ? 
+        <Button alignSelf="center" icon={<Edit />} onClick={onOpen} secondary /> : <Button alignSelf="center" icon={<Edit />} secondary disabled />
+     } 
       {open && (
         <Layer position="right"   full={!['xsmall', 'small'].includes(size) ? 'vertical' : true} onEsc={onClose} >
           <Box fill="vertical" overflow="auto" width={!['xsmall', 'small'].includes(size) ? 'large' : undefined} pad="medium" >

@@ -2,7 +2,7 @@ import React, { useContext, useState,useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {  Button,  Box,  DataTable,   Header,  Heading,  Layer,  ResponsiveContext,Text, CheckBox,  Form,  FormField,  Select,  TextArea,  TextInput, Tabs, RadioButtonGroup,CheckBoxGroup } from 'grommet';
 import { Close, Edit, Trash,Search } from 'grommet-icons';
-const options = ['Name','Email Address','Employee Number'];
+const options = ['Name','Email Address','Employee Number','All Users'];
 const LayerForm = (props ) => {
 
 const [user_detail, setUserDetail] = useState([]);
@@ -61,7 +61,7 @@ const onSubmit_update = ({ value, touched }) =>
 const onSubmit = ({ value, touched }) => 
   { 
     setUserDetail([]);
-    if(value.search_text && value.search_text.length >= 3)
+    if((value.search_text && value.search_text.length >= 3) || value.search_type == "All Users" )
     {
       setform_errors('');
       let csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");

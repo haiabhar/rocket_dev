@@ -1,7 +1,7 @@
 class Api::RuleController < ApplicationController
   def get_rules_list
     two_minutes = 2.minutes.ago
-    @rules = Rule.select("rules.*, CASE WHEN  updated_at > '#{two_minutes}' THEN 'row_updated_now' ELSE ''  END AS status_class")
+    @rules = Rule.all
     render json: @rules
   end
   def create_rule
@@ -34,10 +34,21 @@ class Api::RuleController < ApplicationController
       r.mongo_query = mongo_query if mongo_query
       r.build_query = build_query if build_query
       r.updated_by = current_user.id
+      r.is_active = false
       r.save
     end
 
 
+    get_rules_list
+  end
+  def update_rulestatus
+    rule_id = params[:rule_id]
+    status = params[:status]
+    if rule_id.present?
+      r = Rule.find(rule_id)
+      r.is_active = status
+      r.save
+    end
     get_rules_list
   end
 end

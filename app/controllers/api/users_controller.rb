@@ -12,6 +12,8 @@ class Api::UsersController < ApplicationController
       @user = User.where(email: search_text).as_json(include: { roles: {}})
     elsif search_type == 'Employee Number'
       @user = User.where(emp_id: search_text).as_json(include: { roles: {}})
+    elsif search_type == 'All Users'
+      @user = User.all.as_json(include: { roles: {}})
     end
     
     render json: @user.present? ? @user : [{id: 0}]
