@@ -72,3 +72,4 @@ end
 gem 'devise'
 gem 'ruby-saml'
 gem 'rest-client'
+gem 'mongoid', '~> 8.0', '>= 8.0.3'
