@@ -84,7 +84,3 @@
 .dropdown-toggle::after {
     display: none;
   }
-tr:has(td > div > span.row_updated_now)
-{
-  background: #cbf9e9;
-}

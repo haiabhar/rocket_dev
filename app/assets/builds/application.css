@@ -1,4 +1,4 @@
-/* node_modules/@react-awesome-query-builder/ui/css/styles.css */
+/* node_modules/@react-awesome-query-builder/ui/css/compact_styles.css */
 .qb-drag-handler,
 .qb-draggable,
 .query-builder {
@@ -31,7 +31,7 @@
 .rule {
   background-color: white;
   border: 1px solid transparent;
-  padding: 10px;
+  padding: 5px;
 }
 .rule-with-error .rule {
   border: 1px solid #e0a1a1;
@@ -104,9 +104,9 @@
 }
 .group--header:not(.no--children):not(.hide--conjs)::before {
   top: 20px;
-  height: calc(100% + 10px - 20px);
-  left: 11px;
-  width: 13px;
+  height: calc(100% + 5px - 20px);
+  left: 4px;
+  width: 6px;
 }
 .group--children > .group-or-rule-container > .group-or-rule::before {
   border-width: 0 0 2px 2px;
@@ -130,12 +130,12 @@
 }
 .group--children > .group-or-rule-container > .group-or-rule::after {
   top: calc(50% + 1px);
-  height: calc(50% - 1px + 10px + 2px);
+  height: calc(50% - 1px + 5px + 2px);
 }
 .group--children > .group-or-rule-container > .group-or-rule::before,
 .group--children > .group-or-rule-container > .group-or-rule::after {
-  left: -14px;
-  width: 13px;
+  left: -7px;
+  width: 6px;
 }
 .group--children > .group-or-rule-container:last-child > .group-or-rule::before {
   border-radius: 0 0 0 4px;
@@ -152,7 +152,7 @@
 }
 .group--children.hide--conjs > .group-or-rule-container:first-child > .group-or-rule::after {
   top: calc(50% - 1px);
-  height: calc(50% + 1px + 10px + 2px);
+  height: calc(50% + 1px + 5px + 2px);
 }
 .group--children.hide--line > .group-or-rule-container > .group-or-rule::before,
 .group--children.hide--line > .group-or-rule-container > .group-or-rule::after {
@@ -179,8 +179,8 @@
 }
 .rule_group--children > .group-or-rule-container > .group-or-rule::before,
 .rule_group--children > .group-or-rule-container > .group-or-rule::after {
-  left: -11px;
-  width: 10px;
+  left: -7px;
+  width: 6px;
 }
 .switch_group > .group--children > .group-or-rule-container > .group-or-rule::before {
   top: -2px;
@@ -188,18 +188,18 @@
 }
 .switch_group > .group--children > .group-or-rule-container > .group-or-rule::after {
   top: calc(50% + 1px);
-  height: calc(50% - 1px + 10px + 4px);
+  height: calc(50% - 1px + 5px + 4px);
 }
 .switch_group > .group--children > .group-or-rule-container > .group-or-rule::before,
 .switch_group > .group--children > .group-or-rule-container > .group-or-rule::after {
-  left: -15px;
-  width: 13px;
+  left: -8px;
+  width: 6px;
 }
 .switch_group > .group--header:not(.no--children):not(.hide--conjs)::before {
   top: 20px;
-  height: calc(100% + 10px - 20px);
-  left: 11px;
-  width: 13px;
+  height: calc(100% + 5px - 20px);
+  left: 4px;
+  width: 6px;
 }
 .qb-draggable::before,
 .qb-draggable::after {
@@ -209,15 +209,15 @@
 .group--footer {
   display: flex;
   align-items: stretch;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .group-or-rule-container {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-right: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-right: 5px;
 }
 .group-or-rule-container:first-child {
   margin-top: 0px !important;
@@ -226,7 +226,7 @@
   margin-bottom: 0px !important;
 }
 .group--drag-handler {
-  margin-right: 8px;
+  margin-right: 5px;
   margin-top: 3px;
   position: relative;
   align-self: center;
@@ -239,9 +239,9 @@
   margin-left: 10px;
 }
 .group--children {
-  padding-left: 24px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  padding-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .group--children .group--field--count--rule {
   display: flex;
@@ -277,8 +277,8 @@
 .case_group--body {
   display: flex;
   flex-direction: row;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 .case_group--body .case_group--children {
   flex: auto;
@@ -288,20 +288,20 @@
 .case_group--body .case_group--value {
   margin-top: 0;
   margin-bottom: 0;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 .rule_group {
   display: flex;
   flex-wrap: wrap;
-  padding-left: 10px;
+  padding-left: 5px;
 }
 .rule_group .group--field {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   align-self: center;
 }
 .rule_group .group--actions {
-  margin-left: 10px;
+  margin-left: 5px;
   align-self: center;
   flex: 0;
 }
@@ -309,7 +309,7 @@
   flex: 1;
   margin-top: 5px;
   margin-bottom: 5px;
-  padding-left: 18px;
+  padding-left: 10px;
 }
 .rule_group .rule_group--children .group-or-rule-container {
   margin-bottom: 5px;
@@ -317,7 +317,7 @@
   padding-right: 5px;
 }
 .rule_group .rule_group--children.one--child {
-  padding-left: 9px;
+  padding-left: 5px;
 }
 .rule_group_ext .group--actions {
   flex: none;
@@ -338,7 +338,7 @@
 .rule--drag-handler {
   display: flex;
   align-items: center;
-  margin-right: 8px;
+  margin-right: 5px;
 }
 .rule--field,
 .group--field,
@@ -377,14 +377,14 @@
 .widget--widget,
 .widget--valuesrc,
 .widget--sep {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 .widget--valuesrc {
   vertical-align: top;
-  margin-right: -8px;
+  margin-right: -3px;
 }
 .operator--options--sep {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 .rule--operator-wrapper {
   display: flex;
@@ -438,7 +438,7 @@ div.tooltip-inner {
   margin-left: 5px;
 }
 .rule--func--arg-value > .rule--widget {
-  margin-left: -10px;
+  margin-left: -5px;
 }
 .rule--func--arg-sep {
   margin-left: 3px;
@@ -495,5 +495,9 @@ div.tooltip-inner {
 }
 .rule--body.can--shrink--value .rule--value > .rule--widget .widget--widget {
   flex: 1;
+}
+.group--conjunctions {
+  margin-left: -1px !important;
+  margin-top: -1px !important;
 }
 /*# sourceMappingURL=assets/application.css.map */

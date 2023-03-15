@@ -90,7 +90,7 @@ return(
         <Box direction="row" gap="small" wrap>
           <Text color="text-strong" weight="bold">
           </Text>
-          <img src="rocket-logo.png" style={{ width : "120px"}} alt={props.app_name} />
+          <img src="rocket-logo.png" style={{ width : "120px", marginTop : "-5px"}} alt={props.app_name} />
         </Box>
       </Box>
     </Button>

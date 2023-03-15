@@ -34,7 +34,7 @@ class Api::RuleController < ApplicationController
       r.mongo_query = mongo_query if mongo_query
       r.build_query = build_query if build_query
       r.updated_by = current_user.id
-      r.is_active = false
+      # r.is_active = false
       r.save
     end
 

@@ -83544,7 +83544,7 @@
         responsive: false
       },
       /* @__PURE__ */ import_react102.default.createElement(Hpe, { color: "brand" }),
-      /* @__PURE__ */ import_react102.default.createElement(Box, { direction: "row", gap: "small", wrap: true }, /* @__PURE__ */ import_react102.default.createElement(Text, { color: "text-strong", weight: "bold" }), /* @__PURE__ */ import_react102.default.createElement("img", { src: "rocket-logo.png", style: { width: "120px" }, alt: props.app_name }))
+      /* @__PURE__ */ import_react102.default.createElement(Box, { direction: "row", gap: "small", wrap: true }, /* @__PURE__ */ import_react102.default.createElement(Text, { color: "text-strong", weight: "bold" }), /* @__PURE__ */ import_react102.default.createElement("img", { src: "rocket-logo.png", style: { width: "120px", marginTop: "-5px" }, alt: props.app_name }))
     ))), /* @__PURE__ */ import_react102.default.createElement(PassParam, { user: user2 })));
   };
   var Header_default = HeaderExample;
