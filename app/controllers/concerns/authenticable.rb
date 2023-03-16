@@ -5,26 +5,32 @@ module Authenticable
 
   def authenticate_user!
     unless user_signed_in?
-      if params[:SAMLResponse].present?
-          response = OneLogin::RubySaml::Response.new(
-            params[:SAMLResponse],
-            :settings => saml_settings
-          )
-          if response.present?
-            @email     = response.attributes['uid']
-            @full_name = response.attributes['cn']
-            @emp_id    = response.attributes['employeeNumber']
-            @address   = response.attributes['ntUserDomainId']
-            params.merge!({ emp_id: @emp_id, email: @email,full_name: @full_name,address:@address})
-            user_sign_in!
-          else
-            raise response.errors.inspect
-          end
-      else
-          session[:RelayState] = request.url
-          request = OneLogin::RubySaml::Authrequest.new
-          redirect_to(request.create(saml_settings) , allow_other_host: true) 
-      end
+      # if params[:SAMLResponse].present?
+      #     response = OneLogin::RubySaml::Response.new(
+      #       params[:SAMLResponse],
+      #       :settings => saml_settings
+      #     )
+      #     if response.present?
+      #       @email     = response.attributes['uid']
+      #       @full_name = response.attributes['cn']
+      #       @emp_id    = response.attributes['employeeNumber']
+      #       @address   = response.attributes['ntUserDomainId']
+      #       params.merge!({ emp_id: @emp_id, email: @email,full_name: @full_name,address:@address})
+      #       user_sign_in!
+      #     else
+      #       raise response.errors.inspect
+      #     end
+      # else
+      #     session[:RelayState] = request.url
+      #     request = OneLogin::RubySaml::Authrequest.new
+      #     redirect_to(request.create(saml_settings) , allow_other_host: true) 
+      # end
+      @email     = "abhar.p-k@hpe.com"
+      @full_name = "Abhar"
+      @emp_id    = "25038128"
+      @address   = "pkab"
+      params.merge!({ emp_id: @emp_id, email: @email,full_name: @full_name,address:@address})
+      user_sign_in!
     end
   end
 

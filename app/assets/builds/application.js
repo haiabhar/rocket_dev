@@ -99969,9 +99969,9 @@
       { property: "query_string", header: "Query String" },
       { property: "mongo_query", header: "Rule Query" },
       { property: "is_active", header: "Status", render: (datum) => roleids.includes(1) || roleids.includes(3) ? /* @__PURE__ */ import_react167.default.createElement(CheckBox, { checked: datum.is_active, toggle: true, label: datum.is_active == true ? "Active" : "Inactive", onChange: (event) => setChecked(event.target.checked, datum.id) }) : datum.is_active == true ? "Active" : "Inactive" },
-      { property: "mdfy_btn", header: "Modify", render: (datum) => /* @__PURE__ */ import_react167.default.createElement(EditRule_default, { user, rule_detail: datum, setData }) },
-      { property: "action_btn", header: "Action", render: (datum) => /* @__PURE__ */ import_react167.default.createElement(Button2, { label: "Action", secondary: true }) },
-      { property: "notification_btn", header: "Notification", render: (datum) => /* @__PURE__ */ import_react167.default.createElement(Button2, { label: "Notification", secondary: true }) }
+      { property: "mdfy_btn", header: "Modify", render: (datum) => /* @__PURE__ */ import_react167.default.createElement(EditRule_default, { user, rule_detail: datum, setData }) }
+      // { property: 'action_btn', header: 'Action', render: datum => <Button label="Action" secondary /> },
+      // { property: 'notification_btn', header: 'Notification', render: datum => <Button label="Notification" secondary /> },
     ];
     const options2 = COLUMNS.map(({ header, property }) => ({
       property,
@@ -100021,7 +100021,7 @@
     const onActive = (nextIndex) => setIndex(nextIndex);
     const [loading, setLoading] = (0, import_react168.useState)(false);
     const [details, setDetails] = (0, import_react168.useState)([]);
-    return /* @__PURE__ */ import_react168.default.createElement("div", { className: "content-list-body p-3" }, /* @__PURE__ */ import_react168.default.createElement("div", { className: "card-list" }, /* @__PURE__ */ import_react168.default.createElement("div", { className: "card-list-head" }, /* @__PURE__ */ import_react168.default.createElement(Tabs, { activeIndex: index, onActive, justify: "start" }, /* @__PURE__ */ import_react168.default.createElement(Tab2, { title: "Rules" }, /* @__PURE__ */ import_react168.default.createElement(Box, { pad: "medium" }, /* @__PURE__ */ import_react168.default.createElement(RulesList, { user }))), /* @__PURE__ */ import_react168.default.createElement(Tab2, { title: "Reports" }, /* @__PURE__ */ import_react168.default.createElement(Box, { pad: "medium" }, /* @__PURE__ */ import_react168.default.createElement("span", null, " Reports ")))))));
+    return /* @__PURE__ */ import_react168.default.createElement("div", { className: "content-list-body p-3" }, /* @__PURE__ */ import_react168.default.createElement("div", { className: "card-list" }, /* @__PURE__ */ import_react168.default.createElement("div", { className: "card-list-head" }, /* @__PURE__ */ import_react168.default.createElement(Tabs, { activeIndex: index, onActive, justify: "start" }, /* @__PURE__ */ import_react168.default.createElement(Tab2, { title: "Rules" }, /* @__PURE__ */ import_react168.default.createElement(Box, { pad: "medium" }, /* @__PURE__ */ import_react168.default.createElement(RulesList, { user })))))));
   };
 
   // app/javascript/components/App.jsx

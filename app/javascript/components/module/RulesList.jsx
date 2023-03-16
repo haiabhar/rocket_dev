@@ -27,8 +27,8 @@ const COLUMNS = [
 { property: 'mongo_query', header: 'Rule Query' },
 { property: 'is_active', header: 'Status', render: datum => (roleids.includes(1) || roleids.includes(3) ) ? <CheckBox  checked={datum.is_active} toggle label={datum.is_active == true ? "Active" : "Inactive"}  onChange={(event) => setChecked(event.target.checked, datum.id)} /> :  datum.is_active == true ? "Active" : "Inactive" },
 { property: 'mdfy_btn', header: 'Modify', render: datum => <EditRule user={user} rule_detail={datum} setData={setData} /> },
-{ property: 'action_btn', header: 'Action', render: datum => <Button label="Action" secondary /> },
-{ property: 'notification_btn', header: 'Notification', render: datum => <Button label="Notification" secondary /> },
+// { property: 'action_btn', header: 'Action', render: datum => <Button label="Action" secondary /> },
+// { property: 'notification_btn', header: 'Notification', render: datum => <Button label="Notification" secondary /> },
 ];
 
 

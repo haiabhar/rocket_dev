@@ -1,6 +1,6 @@
 import React, {Component,useState} from 'react';
 import { Utils as QbUtils, Query, Builder, BasicConfig } from '@react-awesome-query-builder/ui';
-import '@react-awesome-query-builder/ui/css/styles.css';
+//import '@react-awesome-query-builder/ui/css/styles.css';
 //import '@react-awesome-query-builder/ui/css/compact_styles.css';
 
 

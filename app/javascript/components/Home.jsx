@@ -27,11 +27,11 @@ return (
           <RulesList user={user} />
       </Box>
       </Tab>
-      <Tab title="Reports">
+     {/* <Tab title="Reports">
       <Box pad="medium">
       <span> Reports </span>
       </Box>
-      </Tab>
+      </Tab>*/}
     </Tabs>
     
 
