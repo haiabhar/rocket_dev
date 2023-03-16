@@ -25,7 +25,10 @@
   position: absolute;
   bottom: 0;
 }
-
+.fixed-bottom
+{
+  z-index: 10 !important;
+}
 @keyframes rotate{
   0% {
     transform: rotate(90deg);
