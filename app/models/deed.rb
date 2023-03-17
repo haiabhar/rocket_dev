@@ -1,0 +1,2 @@
+class Deed < ApplicationRecord
+end
