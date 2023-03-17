@@ -9,8 +9,8 @@ const [loading, setLoading] = useState(false);
 const [form_errors, setform_errors] = useState("");
 const [rule_data, setruleData] = useState(props.rule_detail);
 
-const [mongo_query, setmongo_query] = useState();
-const [build_query, setbuild_query] = useState();
+const [mongo_query, setmongo_query] = useState(props.rule_detail.mongo_query);
+const [build_query, setbuild_query] = useState(props.rule_detail.build_query);
 useEffect(() => {
     //fetchData();
   }, []);
