@@ -1,7 +1,7 @@
 import React, {useEffect,useState} from "react";
 import $ from 'jquery';
 import {  Paragraph, Tab, Tabs,Box} from 'grommet';
-import {RulesList} from "./module/RulesList";
+import {RulesList} from "./module/rule/RulesList";
 
 
 
