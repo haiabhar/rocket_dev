@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
     post 'get_notifications', to: 'notification#get_notifications'
     post 'create_notification', to: 'notification#create_notification'
+    post 'get_notification', to: 'notification#get_notification'
 
     get 'get_all_categories', to: 'categories#get_all_categories'
 

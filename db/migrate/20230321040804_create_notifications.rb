@@ -3,8 +3,8 @@ class CreateNotifications < ActiveRecord::Migration[7.0]
     create_table :notifications do |t|
       t.references :rule
       t.string :notification_name
-      t.integer :template_type, comment: "1 internal || 2 external"
-      t.integer :sequence, comment: "1 before action || 2 after success || 3 after failure || 4 after any "
+      t.string :template_type
+      t.string :sequence
       t.string :static_to
       t.string :static_cc
       t.string :static_bcc
