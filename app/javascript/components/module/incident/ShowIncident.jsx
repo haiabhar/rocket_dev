@@ -52,6 +52,9 @@ useEffect(() => {
           <NameValuePair key="rule" name={'Rule : '}>
             {incident_data.rule}
           </NameValuePair>
+          <NameValuePair key="rule" name={'Notification : '}>
+            {incident_data.notification_sent == true ? 'Sent' : 'Not Sent'}
+          </NameValuePair>
           </NameValueList>
           </div>
         </div>
