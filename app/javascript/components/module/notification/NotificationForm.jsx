@@ -4,9 +4,6 @@ import {  Button,  Box,  DataTable,   Header,  Heading,  Layer,  ResponsiveConte
 import { Close, Edit, Trash,Search } from 'grommet-icons';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-// import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
-
-
 
 const LayerForm = (props ) => {
 const rule_id = props.rule_id
@@ -43,7 +40,7 @@ const updateText = e =>
 }
 const onSubmit = ({ value, touched }) => 
   { 
-    if(value.notification_name && value.sequence )
+    if(value.notification_name && value.sequence && value.email_subject && value.email_body)
     {
       setform_errors('');
       let csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
@@ -67,22 +64,26 @@ const onSubmit = ({ value, touched }) =>
       };
       updateData();
     }
-    // else if(!value.rule_name)
-    // {
-    //   setform_errors('Please provide rule name');
-    // }
-    // else if(!value.query_string)
-    // {
-    //   setform_errors('Please provide query string');
-    // }
-    // else if(!value.mongo_query)
-    // {
-    //   setform_errors('Please Create some rule');
-    // }
-    // else
-    // { 
-    //   setform_errors('Please provide some inputs');      
-    // }
+    else if(!value.notification_name)
+    {
+      setform_errors('Please provide name');
+    }
+    else if(!value.sequence)
+    {
+      setform_errors('Please provide sequence');
+    }
+    else if(!value.email_subject)
+    {
+      setform_errors('Please provide email subject');
+    }
+    else if(!value.email_body)
+    {
+      setform_errors('Please provide email body');
+    }
+    else
+    { 
+      setform_errors('Please provide some inputs');      
+    }
   };
 
   const fetchData = () =>
@@ -127,9 +128,9 @@ const onSubmit = ({ value, touched }) =>
   }
   
 
-  let sequence_arr = ["Before Action", "After Success","After failure", "After Any"]
+  let sequence_arr = ["Before Action", "After Action", "After Action Success","After Action failure"]
   let template_type = ["Internal","External"];
-  let email_to_arr = ["from log"];
+  let email_to_arr = ["From Humio Log"];
   return (
     <Box gap="medium">
       <Button alignSelf="end" icon={<Close />} onClick={() => props.setOpen(false)} />
@@ -224,7 +225,7 @@ const onSubmit = ({ value, touched }) =>
             <div className="col-md-10 "> &nbsp; </div>         
             <div className="col-md-2 ">          
                 <Box direction="row" gap="small" margin="medium" className=""  >
-                    <Button  label="Next"  secondary type="button" onClick={(e) => setNext(2)} />
+                    {/*<Button  label="Next"  secondary type="button" onClick={(e) => setNext(2)} />*/}
                 </Box>
             </div>
 
