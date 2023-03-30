@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "from@example.com"
-  layout "mailer"
+  default from: "rocket_support@hpe.com"
+  # layout "mailer"
+  # helper EmailHelper
 end

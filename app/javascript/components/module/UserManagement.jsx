@@ -24,7 +24,7 @@ const fetchData = () => {
         headers: { 'Content-Type': 'application/json','X-CSRF-Token': csrf }
     };
     setLoading(true);
-      fetch("api/get_notifications",post_set)
+      fetch("api/get_role_list",post_set)
         .then((response) => response.json())
         .then((data) => {
           setrole_list(data);

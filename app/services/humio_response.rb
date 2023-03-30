@@ -37,7 +37,7 @@ class HumioResponse
 		
 		res_value.each do |res|
 
-			#begin
+			begin
 
 				logs = HumioResponse.log_in_json(res["log"])
 				if res["log"].present?
@@ -56,8 +56,8 @@ class HumioResponse
 					err_log.message = logs["message"]
 					err_log.save
 				end
-			#rescue => error
-			#end
+			rescue => error
+			end
 		end
 
 	end
