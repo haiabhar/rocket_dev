@@ -20,10 +20,29 @@ Rails.application.routes.draw do
     post 'get_notification', to: 'notification#get_notification'
 
     get 'get_all_categories', to: 'categories#get_all_categories'
+    post 'get_category', to: 'categories#get_category'
+    post 'create_category', to: 'categories#create_category'
 
     post 'get_incident_list', to: 'incident#get_incident_list'
     post 'get_myincident_list', to: 'incident#get_myincident_list'
     post 'assign_incident', to: 'incident#assign_incident'
+
+    post 'get_all_sub_categories', to: 'sub_categories#get_all_sub_categories'
+    post 'get_sub_category', to: 'sub_categories#get_sub_category'
+    post 'create_sub_category', to: 'sub_categories#create_sub_category'
+
+    get 'get_incident_list', to: 'incident#get_incident_list'
+
+    post 'get_rule_types_list', to: 'rule_types#get_rule_types_list'
+    post 'create_rule_type', to: 'rule_types#create_rule_type'
+    post 'get_rule_type', to: 'rule_types#get_rule_type'
+    post 'update_rule_type_status', to: 'rule_types#update_rule_type_status'
+
+    post 'get_rule_orders_list', to: 'rule_orders#get_rule_orders_list'
+    post 'create_rule_order', to: 'rule_orders#create_rule_order'
+    post 'get_rule_order', to: 'rule_orders#get_rule_order'
+    post 'update_rule_order_status', to: 'rule_orders#update_rule_order_status'
+>>>>>>> 9d6a76cc8b80b0387f54f64be3739b3284983471
 
   end
 
