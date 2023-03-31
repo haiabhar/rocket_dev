@@ -22,9 +22,7 @@ useEffect(() => {
       </Header>
        
       <div direction="row">
-      
-        <Form validate="blur"  method="post" onSubmit={({ value, touched }) => onSubmit({ value, touched })}  >
-        {/*<TextInput id="rule_id" type="hidden" name="rule_id" value={incident_data.id}  /> */}
+              
         <div direction="row" style={{marginTop: "10px"}}>
           <div className="col-md-12">
           <NameValueList valueProps={{ width: ['auto', 'medium'] }} >
@@ -58,7 +56,7 @@ useEffect(() => {
           </NameValueList>
           </div>
         </div>
-      </Form>
+
       </div>
       
       

@@ -31,7 +31,10 @@ class BackgroundTask
 				new_deed.thread = al.thread
 				new_deed.message = al.message
 				new_deed.rule_id = rule.id
-				new_deed.save
+				if new_deed.save
+					new_deed.deed_reference_id = "INC-"+format('%04d',new_deed.id).to_s 
+        			new_deed.save
+				end
 			end
 	end
 
