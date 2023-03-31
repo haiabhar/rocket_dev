@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import {Box,Data,DataTable,DataFilters,DataSearch,DataSummary,DataTableColumns,Header,Heading,Menu,Page,PageContent,Toolbar,Text,Button,CheckBox, Pagination, Spinner, Tab, Tabs} from 'grommet';
 import ShowIncident from "./ShowIncident";
-export const IncidentList = (props) => {
+export const MyIncidentList = (props) => {
 user = props.user;
 var roleids  = [];
   if(user)
@@ -50,7 +50,7 @@ const fetchData = () => {
         body: JSON.stringify(pass_val)
     };
     setLoading(true);
-      fetch("api/get_incident_list",post_set)
+      fetch("api/get_myincident_list",post_set)
         .then((response) => response.json())
         .then((data) => {
           setData(data["incidents"]);

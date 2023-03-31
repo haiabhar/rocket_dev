@@ -3,12 +3,32 @@ import PropTypes from 'prop-types';
 import {  Button,  Box,  DataTable,   Header,  Heading,  Layer,  ResponsiveContext,Text, CheckBox,  Form,  FormField,  Select,  TextArea,  TextInput, Tabs, RadioButtonGroup,CheckBoxGroup,NameValueList,NameValuePair } from 'grommet';
 import { Close, Edit, Trash,Search } from 'grommet-icons';
 const LayerForm = (props ) => {
-const setData = props.setData;
 const [loading, setLoading] = useState(false);
 const [incident_data, setincidentData] = useState(props.incident_detail);
 useEffect(() => {
     //fetchData();
   }, []);
+const assignIncident = (id) =>
+{
+  let csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+    const post_set = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json','X-CSRF-Token': csrf },
+        body: JSON.stringify({id: id})
+    };
+    setLoading(true);
+      fetch("api/assign_incident",post_set)
+        .then((response) => response.json())
+        .then((data) => {
+          props.setData(data["incidents"]);
+          props.setOpen(false);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoading(false);
+        });
+}
 
   return (
     <Box gap="medium">
@@ -50,16 +70,21 @@ useEffect(() => {
           <NameValuePair key="rule" name={'Rule : '}>
             {incident_data.rule}
           </NameValuePair>
-          <NameValuePair key="rule" name={'Notification : '}>
+          <NameValuePair key="notification_sent" name={'Notification : '}>
             {incident_data.notification_sent == true ? 'Sent' : 'Not Sent'}
           </NameValuePair>
           </NameValueList>
           </div>
+          
         </div>
-
+        
       </div>
       
-      
+      <div direction="row" style={{marginTop: "10px"}}>
+        {!incident_data.assigned_to && 
+            <Button label="Accept" alignSelf="end" onClick={(event) => assignIncident(incident_data.id)} secondary/>
+          }
+        </div>
       </Box>
       
   );
@@ -85,7 +110,6 @@ const ShowIncident = (props) => {
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(undefined);
   const incident_detail = props.incident_detail;
-  const setData = props.setData;
   return (
     <>
            
@@ -93,7 +117,7 @@ const ShowIncident = (props) => {
       {open && (
         <Layer position="right" full={!['xsmall', 'small'].includes(size) ? 'vertical' : true} onEsc={onClose} >
           <Box fill="vertical" overflow="auto" width={!['xsmall', 'small'].includes(size) ? 'large' : undefined} pad="medium" >
-            <LayerForm incident_detail={incident_detail} setData={setData} user={user} setOpen={value => setOpen(value)} />
+            <LayerForm incident_detail={incident_detail} setData={props.setData} user={user} setOpen={value => setOpen(value)} />
           </Box>
         </Layer>
       )}

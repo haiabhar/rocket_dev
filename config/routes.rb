@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     get 'get_all_categories', to: 'categories#get_all_categories'
 
     post 'get_incident_list', to: 'incident#get_incident_list'
+    post 'get_myincident_list', to: 'incident#get_myincident_list'
+    post 'assign_incident', to: 'incident#assign_incident'
 
   end
 

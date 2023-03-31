@@ -2,7 +2,7 @@ import React, {useEffect,useState} from "react";
 import $ from 'jquery';
 import {  Paragraph, Tab, Tabs,Box} from 'grommet';
 import {RulesList} from "./module/rule/RulesList";
-import {IncidentList} from "./module/incident/IncidentList";
+import {Incident} from "./module/incident/Incident";
 
 
 
@@ -48,7 +48,7 @@ return (
       <Tab title="Incidents">
       <Box pad="medium">
           
-          <IncidentList user={user} />
+          <Incident user={user} />
       </Box>
       </Tab>
     }
