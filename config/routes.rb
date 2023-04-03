@@ -42,7 +42,7 @@ Rails.application.routes.draw do
     post 'create_rule_order', to: 'rule_orders#create_rule_order'
     post 'get_rule_order', to: 'rule_orders#get_rule_order'
     post 'update_rule_order_status', to: 'rule_orders#update_rule_order_status'
->>>>>>> 9d6a76cc8b80b0387f54f64be3739b3284983471
+
 
   end
 

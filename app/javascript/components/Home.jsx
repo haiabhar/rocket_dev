@@ -42,7 +42,7 @@ return (
       <Box pad="medium">1</Box>
       </Tab>*/}
     
-    { (roleids.includes(1) || roleids.includes(3) ) && !roleids.includes(2) && 
+    { (roleids.includes(1) || roleids.includes(3) ) && !roleids.includes(2) && !roleids.includes(4) && 
       <Tab title="Rules">
       <Box pad="medium">
           
@@ -50,7 +50,7 @@ return (
       </Box>
       </Tab>
     }
-    { (roleids.includes(1) || roleids.includes(3) ) && !roleids.includes(2) &&
+    { roleids.includes(4) &&
       <Tab title="Incidents">
       <Box pad="medium">
           
@@ -63,23 +63,27 @@ return (
       <span> Reports </span>
       </Box>
       </Tab>*/}
+    { (roleids.includes(1) || roleids.includes(3) ) && !roleids.includes(2) && !roleids.includes(4) && 
       <Tab title="Categories">
       <Box pad="medium">
           <CategoriesList user={user} />
       </Box>
       </Tab>
-
+    }
+    { (roleids.includes(1) || roleids.includes(3) ) && !roleids.includes(2) && !roleids.includes(4) && 
       <Tab title="Rule Types">
       <Box pad="medium">
           <RuletypesList user={user} />
       </Box>
       </Tab>
-
+    }
+    { (roleids.includes(1) || roleids.includes(3) ) && !roleids.includes(2) && !roleids.includes(4) && 
       <Tab title="Priorities">
       <Box pad="medium">
           <RuleordersList user={user} />
       </Box>
       </Tab>
+    }
     </Tabs>
     
 
