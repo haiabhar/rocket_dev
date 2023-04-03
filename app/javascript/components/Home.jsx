@@ -32,11 +32,11 @@ return (
   <div className="card-list">
     <div style={{textAlign: 'right'}} ><a href="https://hpe.sharepoint.com/teams/glcprocket/SitePages/Requests.aspx" ><Button alignSelf="end" label="Request new rule" secondary /></a></div>
     <div className="card-list-head">
-    { roleids.includes(2)  &&
+    {/*{ roleids.includes(2)  &&
         <Box pad="medium" style={{textAlign: 'center'}}>
         No Proper Access to view
         </Box>
-    }
+    }*/}
     <Tabs activeIndex={index} onActive={onActive} justify="start">
       {/*<Tab title="Sources">
       <Box pad="medium">1</Box>
@@ -63,27 +63,24 @@ return (
       <span> Reports </span>
       </Box>
       </Tab>*/}
-    { (roleids.includes(1) || roleids.includes(3) ) && !roleids.includes(2) && !roleids.includes(4) && 
+    
       <Tab title="Categories">
       <Box pad="medium">
           <CategoriesList user={user} />
       </Box>
       </Tab>
-    }
-    { (roleids.includes(1) || roleids.includes(3) ) && !roleids.includes(2) && !roleids.includes(4) && 
+
       <Tab title="Rule Types">
       <Box pad="medium">
           <RuletypesList user={user} />
       </Box>
       </Tab>
-    }
-    { (roleids.includes(1) || roleids.includes(3) ) && !roleids.includes(2) && !roleids.includes(4) && 
+
       <Tab title="Priorities">
       <Box pad="medium">
           <RuleordersList user={user} />
       </Box>
       </Tab>
-    }
     </Tabs>
     
 
