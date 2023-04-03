@@ -42,7 +42,7 @@ return (
       <Box pad="medium">1</Box>
       </Tab>*/}
     
-    { (roleids.includes(1) || roleids.includes(3) ) && !roleids.includes(2) && !roleids.includes(4) && 
+    { (roleids.includes(1) || roleids.includes(3))  && 
       <Tab title="Rules">
       <Box pad="medium">
           

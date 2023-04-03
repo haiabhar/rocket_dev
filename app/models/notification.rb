@@ -1,23 +1,32 @@
+include RegularFormat
 class Notification < ApplicationRecord
 	belongs_to :rule
 	
 	# sequence "Before Action", "After Action", "After Action Success","After Action failure"
 
 	def self.trigger_before_action rule_id
-
 		n_list	= self.where(rule_id: rule_id, sequence: "Before Action")
 
-		deed_list = Deed.where(rule_id: rule_id, notification_sent: false)
+		deed_list = Deed.where(rule_id: rule_id, notification_sent: false).first(2)
 		deed_list.each do |d|
 			n_list.each do |n|
-
-
 				notification = {}
 				notification[:mail_to] = []  << n.static_to
 				notification[:mail_cc] = []  << n.static_cc
 				notification[:mail_bcc] = [] << n.static_bcc
 				notification[:subject] = n.email_subject
 				notification[:email_body] = n.email_body
+
+				if n.dynamic_to.present? && n.dynamic_to == "From Humio Log"
+					notification[:mail_to] =  notification[:mail_to] + get_emails_from_string(d.error_log)
+				end
+				if n.dynamic_cc.present? && n.dynamic_cc == "From Humio Log"
+					notification[:mail_cc] =  notification[:mail_cc] + get_emails_from_string(d.error_log)
+				end
+				if n.dynamic_bcc.present? && n.dynamic_bcc == "From Humio Log"
+					notification[:mail_bcc] =  notification[:mail_bcc] + get_emails_from_string(d.error_log)
+				end
+
 				if n.template_type == "External"
 					ExternalMailer.with(notification: notification).notification_email.deliver_now
 				elsif n.template_type == "Internal"
@@ -48,7 +57,15 @@ class Notification < ApplicationRecord
 				notification[:mail_bcc] = [] << n.static_bcc
 				notification[:subject] = n.email_subject
 				notification[:email_body] = n.email_body
-
+				if n.dynamic_to.present? && n.dynamic_to == "From Humio Log"
+					notification[:mail_to] =  notification[:mail_to] + get_emails_from_string(d.error_log)
+				end
+				if n.dynamic_cc.present? && n.dynamic_cc == "From Humio Log"
+					notification[:mail_cc] =  notification[:mail_cc] + get_emails_from_string(d.error_log)
+				end
+				if n.dynamic_bcc.present? && n.dynamic_bcc == "From Humio Log"
+					notification[:mail_bcc] =  notification[:mail_bcc] + get_emails_from_string(d.error_log)
+				end
 				if n.template_type == "External"
 					ExternalMailer.with(notification: notification).notification_email.deliver_now
 				elsif n.template_type == "Internal"
@@ -59,4 +76,6 @@ class Notification < ApplicationRecord
 			d.save
 		end
 	end
+
+	
 end
