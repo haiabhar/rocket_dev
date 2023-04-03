@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import {  Box,  Button,  Header,  Keyboard,  ResponsiveContext,  Text,  TextInput, Menu, DropButton, Heading,} from 'grommet';
 import {  Chat,  Hpe,  Notification,  Search as SearchIcon,  User, FormClose, } from 'grommet-icons';
-import UserManagement from "../module/UserManagement";
+//import UserManagement from "../module/UserManagement";
 
 
 const PassParam = (props) => {
@@ -26,8 +26,10 @@ const PassParam = (props) => {
     setOpen(false);
   };
 
-
-
+const change_tab = (selectedtab) => {
+  props.setselectedtab(selectedtab);
+}
+//console.log(props.user);
 const DropContent = ({ onClose }) => (
   <Box pad="medium" gap="medium" width="medium">
       
@@ -40,8 +42,13 @@ const DropContent = ({ onClose }) => (
     <Box direction="row" justify="between" align="center">
       <Text>{user.email}</Text>
     </Box>
-    { (roleids.includes(1) || roleids.includes(3) ) && 
-      <UserManagement user={user} />
+    { (roleids.includes(1) || roleids.includes(3) ) &&  props.selectedtab == 'Home' &&
+      //<UserManagement user={user} />
+    <Button label="Self Service" onClick={(e) => change_tab('SelfService')} secondary/>  
+    }
+    { (roleids.includes(1) || roleids.includes(3) ) &&  props.selectedtab == 'SelfService' &&
+      //<UserManagement user={user} />
+    <Button label="Home" onClick={(e) => change_tab('Home')} secondary/>  
     }
 
     {/*<Box  direction="row" justify="between" align="center">
@@ -95,7 +102,7 @@ return(
       </Box>
     </Button>
     </a>
-    {<PassParam user={user} />}
+    {<PassParam user={user} setselectedtab={props.setselectedtab} selectedtab={props.selectedtab}/>}
     
   </Header>
   </div>

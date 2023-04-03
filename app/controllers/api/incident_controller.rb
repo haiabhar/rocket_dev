@@ -1,6 +1,6 @@
 class Api::IncidentController < ApplicationController
   def get_incident_list
-    @page = params['_json'].present? ? params['_json'][0].present? ? params['_json'][0] : 1 : 1
+    @page = params['_json'][0]
     @incidents = Deed.joins("INNER JOIN rules ON rules.id = deeds.rule_id").where(assigned_to: nil).select('deeds.*,rules.name as rule').page(@page)
       @total_count       = @incidents.total_count
       @total_pages       = @incidents.total_pages
@@ -18,11 +18,11 @@ class Api::IncidentController < ApplicationController
       incident.assigned_at = Time.now
       incident.save      
     end
-    get_incident_list
+    render json: {}
   end
 
   def get_myincident_list
-    @page = params['_json'].present? ? params['_json'][0].present? ? params['_json'][0] : 1 : 1
+    @page = params['_json'][0] 
     @incidents = Deed.joins("INNER JOIN rules ON rules.id = deeds.rule_id").where(assigned_to: current_user.id).select('deeds.*,rules.name as rule').page(@page)
       @total_count       = @incidents.total_count
       @total_pages       = @incidents.total_pages

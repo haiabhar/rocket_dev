@@ -20,7 +20,7 @@ const assignIncident = (id) =>
       fetch("api/assign_incident",post_set)
         .then((response) => response.json())
         .then((data) => {
-          props.setData(data["incidents"]);
+          props.fetchData();
           props.setOpen(false);
           setLoading(false);
         })
@@ -117,7 +117,7 @@ const ShowIncident = (props) => {
       {open && (
         <Layer position="right" full={!['xsmall', 'small'].includes(size) ? 'vertical' : true} onEsc={onClose} >
           <Box fill="vertical" overflow="auto" width={!['xsmall', 'small'].includes(size) ? 'large' : undefined} pad="medium" >
-            <LayerForm incident_detail={incident_detail} setData={props.setData} user={user} setOpen={value => setOpen(value)} />
+            <LayerForm incident_detail={incident_detail} fetchData={props.fetchData} user={user} setOpen={value => setOpen(value)} />
           </Box>
         </Layer>
       )}

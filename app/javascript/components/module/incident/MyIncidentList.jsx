@@ -20,7 +20,7 @@ const [allData, setData] = useState([]);
 const [loading, setLoading] = useState(false);
 const COLUMNS = [
 //{ property: 'id', header: 'ID'},
-{ property: 'deed_reference_id', header: 'Incident', render: datum => <ShowIncident user={user} incident_detail={datum} setData={setData} />,size: "40px"},
+{ property: 'deed_reference_id', header: 'Incident', render: datum => <ShowIncident user={user} incident_detail={datum} fetchData={fetchData}/>,size: "40px"},
 { property: 'error_log', header: 'Error Log',render: datum => <Text truncate>{datum.error_log}</Text> ,size: "100px"},
 { property: 'log_timestamp', header: 'Log Timestamp',render: datum => <Text truncate>{new Date(datum.log_timestamp).toUTCString("en-US", {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).split('GMT')[0]}</Text> ,size: "80px"},
 { property: 'service_name', header: 'Service Name',size: "60px" },

@@ -43,7 +43,13 @@ Rails.application.routes.draw do
     post 'get_rule_order', to: 'rule_orders#get_rule_order'
     post 'update_rule_order_status', to: 'rule_orders#update_rule_order_status'
 
+    get 'get_all_textconfig', to: 'textconfig#get_all_textconfig'
+    post 'get_textconfig', to: 'textconfig#get_textconfig'
+    post 'create_textconfig', to: 'textconfig#create_textconfig'
 
+    post 'get_all_flexible_textconfig', to: 'flexible_textconfig#get_all_flexible_textconfig'
+    post 'get_flexible_textconfig', to: 'flexible_textconfig#get_flexible_textconfig'
+    post 'create_flexible_textconfig', to: 'flexible_textconfig#create_flexible_textconfig'
   end
 
   root 'home#index'
