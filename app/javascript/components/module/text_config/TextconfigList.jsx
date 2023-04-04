@@ -16,7 +16,7 @@ var roleids  = [];
     }
   }
 
-const show_sub_cat = (textconfig_id,textconfig_name) => {
+const show_flexible_textconfig = (textconfig_id,textconfig_name) => {
 	setTextconfig_show(true);
 	setTextconfig_show_id(textconfig_id);
   setTextconfig_show_name(textconfig_name);
@@ -30,8 +30,8 @@ const COLUMNS = [
 { property: 'id', header: 'ID', render: datum => <span>{datum.id} </span> },
 { property: 'name', header: 'Name' },
 { property: 'code', header: 'Code', render: datum => "|"+datum.code+"|"},
-{ property: 'is_active', header: 'Status', render: datum =>  datum.is_active == true ? "Active" : "Inactive" },
-{ property: 'show_btn', header: 'Show', render: datum => <Button alignSelf="start"  secondary icon={<View />} onClick={(e) => show_sub_cat(datum.id,datum.name)} /> },
+{ property: 'is_active', header: 'Status', render: datum => (roleids.includes(1) || roleids.includes(3) ) ? <CheckBox  checked={datum.is_active} toggle label={datum.is_active == true ? "Active" : "Inactive"}  onChange={(event) => setChecked(event.target.checked, datum.id)} /> :  datum.is_active == true ? "Active" : "Inactive" },
+{ property: 'show_btn', header: 'Show', render: datum => <Button alignSelf="start"  secondary icon={<View />} onClick={(e) => show_flexible_textconfig(datum.id,datum.name)} /> },
 { property: 'mdfy_btn', header: 'Modify', render: datum => <TextconfigForm addedit = 'edit' textconfig_id={datum.id} setData={setData} /> },
 ];
 
@@ -52,6 +52,26 @@ const fetchData = () => {
     };
     setLoading(true);
       fetch("api/get_all_textconfig",get_set)
+        .then((response) => response.json())
+        .then((data) => {
+          setData(data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoading(false);
+        });
+}
+const setChecked = (status,rid) =>
+{
+  let csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+    const post_set = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json','X-CSRF-Token': csrf },
+        body: JSON.stringify({textconfig_id: rid, status: status})
+    };
+    setLoading(true);
+      fetch("api/update_textconfig_status",post_set)
         .then((response) => response.json())
         .then((data) => {
           setData(data);
