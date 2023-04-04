@@ -18,27 +18,115 @@ const [current_page, setCurrent_page] = useState(1);
 const [limit_value, setLimit_value] = useState(25);
 const [allData, setData] = useState([]);
 const [loading, setLoading] = useState(false);
-const COLUMNS = [
-//{ property: 'id', header: 'ID'},
-{ property: 'deed_reference_id', header: 'Incident', render: datum => <ShowIncident user={user} incident_detail={datum} fetchData={fetchData}/>,size: "40px"},
-{ property: 'error_log', header: 'Error Log',render: datum => <Text truncate>{datum.error_log}</Text> ,size: "100px"},
-{ property: 'log_timestamp', header: 'Log Timestamp',render: datum => <Text truncate>{new Date(datum.log_timestamp).toUTCString("en-US", {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).split('GMT')[0]}</Text> ,size: "80px"},
-{ property: 'service_name', header: 'Service Name',size: "60px" },
-{ property: 'level', header: 'Level',size: "40px"},
-{ property: 'thread', header: 'Thread',size: "40px"},
-{ property: 'message', header: 'Message',render: datum => <Text truncate>{datum.message}</Text>,size: "80px"},
-{ property: 'rule', header: 'Rule',size: "40px"},
-{ property: 'notification_sent', header: 'Notification', render: datum => <span>{datum.notification_sent == true ? 'Sent' : 'Not Sent'} </span>,size: "60px"},
-//{ property: 'action_btn', header: 'Show', render: datum => <ShowIncident user={user} incident_detail={datum} setData={setData} />},
+const columns = [
+  {
+    property: 'error_log',
+    header: 'Error Log',
+    render: datum => <Text truncate>{datum.error_log}</Text>,
+    primary: true,
+    size: "140px"
+  },
+  {
+    property: 'log_timestamp',
+    header: 'Log Timestamp',
+    render: datum => <Text truncate>{new Date(datum.log_timestamp).toUTCString("en-US", {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).split('GMT')[0]}</Text>,
+    primary: true,
+    size: "80px"
+  },
+  {
+    property: 'service_name',
+    header: 'Service Name',
+    render: datum => <Text truncate>{datum.service_name}</Text>,
+    primary: true,
+    size: "60px"
+  },
+  {
+    property: 'level',
+    header: 'Level',
+    render: datum => <Text truncate>{datum.level}</Text>,
+    sortable: false,
+    size: "30px"
+  },
+  {
+    property: 'thread',
+    header: 'Thread',
+    //units: 'TiB',
+    render: datum => <Text truncate>{datum.thread}</Text>,
+    //align: 'end',
+    size: "40px"
+  },
+  {
+    property: 'message',
+    header: 'Message',
+    //units: 'TiB',
+    render: datum => <Text truncate>{datum.message}</Text>,
+    //align: 'end',
+    size: "100px"
+  },
+  {
+    property: 'rule',
+    header: 'Rule',
+    //units: 'TiB',
+    render: datum => <Text truncate>{datum.rule}</Text>,
+    //align: 'end',
+    size: "60px"
+  },
+  {
+    property: 'notification_sent',
+    header: 'Notification',
+    //units: 'TiB',
+    render: datum => <Text truncate>{datum.notification_sent == true ? 'Sent' : 'Not Sent'}</Text>,
+    //align: 'end',
+    size: "60px"
+  },
+
+    
+];
+const headers = [
+
+{
+  label: "Incident",
+  key: "deed_reference_id"
+},
+{
+  label: "Error Log",
+  key: "error_log"
+},
+{
+  label: "Timestamp",
+  key: "log_timestamp"
+},
+{
+  label: "Service Name",
+  key: "service_name"
+},
+{
+  label: "Level",
+  key: "level"
+},
+{
+  label: "Thread",
+  key: "thread"
+},
+{
+  label: "Message",
+  key: "message"
+},
+{
+  label: "Rule",
+  key: "rule"
+},
+{
+  label: "Notification",
+  key: "notification_sent"
+}
+
+
 ];
 
 const pass_val = [];
 pass_val[0] = 1;
-// Define data structure for DataTableColumns sorting
-const options = COLUMNS.map(({ header, property }) => ({
-  property,
-  label: header,
-}));
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -75,7 +163,21 @@ const pagination_submit  = ({ page, startIndex, endIndex }) =>
     <>
     <Data data={allData} flex >  
       <Box overflow="auto" flex>
-        <DataTable  columns={COLUMNS}  />
+        <DataTable
+          aria-describedby="storage-pools-heading"
+          data={allData}
+          columns={[
+            {
+              property: 'deed_reference_id',
+              header: 'Incident',
+              primary: true,
+              render: datum => <ShowIncident user={user} incident_detail={datum} fetchData={fetchData} />,
+              size: "40px"
+            },
+            ...columns,
+          ]}
+          
+        />
         <Pagination onChange={({ page, startIndex, endIndex }) => pagination_submit({ page, startIndex, endIndex })} numberItems={total_count} step={limit_value} page={current_page} margin="medium" align="end" />
       </Box>
     </Data>

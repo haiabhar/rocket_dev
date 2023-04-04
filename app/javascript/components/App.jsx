@@ -35,7 +35,7 @@ useEffect(() => {
       <ContentArea> <Header app_name="Rocket" user={user} setselectedtab={setselectedtab} selectedtab={selectedtab} /></ContentArea>
       <Page>
 
-        <PageContent className="card mb-4" style={{height: "860px"}} gap="large">
+        <PageContent className="card mb-4" style={{minHeight: "860px"}} gap="large">
           {/*<PageHeader title={`Dashboard @ '${size}' Breakpoint`}     />*/}
         {selectedtab == 'Home' &&
           <Home user={user} />
