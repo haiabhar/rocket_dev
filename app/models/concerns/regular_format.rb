@@ -7,4 +7,7 @@ module RegularFormat
 	def string_between_markers marker1, marker2
     	self[/#{Regexp.escape(marker1)}(.*?)#{Regexp.escape(marker2)}/m, 1]
   	end
+  	def get_all_flex_text strin
+  		strin.scan(/\|(.*?)\|/)
+  	end
 end
