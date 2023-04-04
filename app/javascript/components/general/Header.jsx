@@ -28,6 +28,7 @@ const PassParam = (props) => {
 
 const change_tab = (selectedtab) => {
   props.setselectedtab(selectedtab);
+  setOpen(false);
 }
 //console.log(props.user);
 const DropContent = ({ onClose }) => (

@@ -5,6 +5,6 @@ class FlexibleText < ApplicationRecord
 	scope :active, -> { where(is_active: true) }
 
 	def set_code
-		self.code = self.name.strip.gsub(" ","_").downcase
+		self.code = self.name.strip.gsub(" ","_").upcase
 	end
 end

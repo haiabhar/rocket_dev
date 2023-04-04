@@ -29,6 +29,7 @@ const [textconfig_show_name, setTextconfig_show_name] = useState(0);
 const COLUMNS = [
 { property: 'id', header: 'ID', render: datum => <span>{datum.id} </span> },
 { property: 'name', header: 'Name' },
+{ property: 'code', header: 'Code', render: datum => "|"+datum.code+"|"},
 { property: 'is_active', header: 'Status', render: datum =>  datum.is_active == true ? "Active" : "Inactive" },
 { property: 'show_btn', header: 'Show', render: datum => <Button alignSelf="start"  secondary icon={<View />} onClick={(e) => show_sub_cat(datum.id,datum.name)} /> },
 { property: 'mdfy_btn', header: 'Modify', render: datum => <TextconfigForm addedit = 'edit' textconfig_id={datum.id} setData={setData} /> },

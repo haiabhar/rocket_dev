@@ -25,7 +25,7 @@ const [details, setDetails] = useState([]);
 return (
 <div className="content-list-body p-3">
   <div className="card-list">
-    <div style={{textAlign: 'right'}} ><a href="https://hpe.sharepoint.com/teams/glcprocket/SitePages/Requests.aspx" ><Button alignSelf="end" label="Request new rule" secondary /></a></div>
+    <div style={{textAlign: 'right'}} ><a href="https://hpe.sharepoint.com/teams/glcprocket/SitePages/Requests.aspx" target="_blank"><Button alignSelf="end" label="Request new rule" secondary /></a></div>
     <div className="card-list-head">
     { roleids.includes(2)  &&
         <Box pad="medium" style={{textAlign: 'center'}}>
