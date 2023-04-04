@@ -96,7 +96,7 @@ const setChecked = (status,rid) =>
 	}
 	{ textconfig_show == true && 
 		<>
-		<TextconfigShow textconfig_id ={textconfig_show_id} textconfig_name={textconfig_show_name}  />
+		<TextconfigShow user={user} textconfig_id ={textconfig_show_id} textconfig_name={textconfig_show_name}  />
 		</>
 	}
 
