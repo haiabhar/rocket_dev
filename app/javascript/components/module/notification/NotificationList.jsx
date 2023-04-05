@@ -70,7 +70,7 @@ const edit_notification = (notification_id) =>
               sd.id > 0 &&             
                         <tr key={"tr"+sd.id} >
                           <td id={"c"+sd.id} key={"c"+sd.id}> {sd.notification_name}</td>
-                          <td id={"b"+sd.id} key={"b"+sd.id}>{sd.template_type == 1 ? 'Internal' : 'External'}</td>
+                          <td id={"b"+sd.id} key={"b"+sd.id}>{sd.template_type}</td>
                           <td id={"a"+sd.id} key={"a"+sd.id}> {sd.sequence}</td>
                           <td id={"d"+sd.id} key={"d"+sd.id}>{sd.email_subject} </td>
                           <td key={"e"+sd.id}> 
