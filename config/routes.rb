@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'file_uploads/upload'
   devise_for :users
   devise_scope :user do
     get 'destroy_user' => 'devise/sessions#destroy'
