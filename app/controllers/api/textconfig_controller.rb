@@ -16,6 +16,17 @@ class Api::TextconfigController < ApplicationController
     get_all_textconfig
   end
 
+  def update_textconfig_status
+    textconfig_id = params[:textconfig_id]
+    status = params[:status]
+    if textconfig_id.present?
+      r = FlexibleText.find(textconfig_id)
+      r.is_active = status
+      r.save
+    end
+    get_all_textconfig
+  end
+
   def get_textconfig
     @textconfig = FlexibleText.find_by_id(params["textconfig_id"])
     render json: @textconfig

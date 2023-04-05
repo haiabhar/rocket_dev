@@ -30,6 +30,18 @@ class Api::FlexibleTextconfigController < ApplicationController
     get_all_flexible_textconfig
   end
 
+  def update_flexible_textconfig_status
+    flexible_textconfig_id = params[:flexible_textconfig_id]
+    status = params[:status]
+    if flexible_textconfig_id.present?
+      r = FlexibleTextConfig.find(flexible_textconfig_id)
+      r.is_active = status
+      r.save
+    end
+    @flexible_text = r.flexible_text
+    get_all_flexible_textconfig
+  end
+
   private
 
   def set_flexible_textconfig_id

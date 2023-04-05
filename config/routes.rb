@@ -47,10 +47,12 @@ Rails.application.routes.draw do
     get 'get_all_textconfig', to: 'textconfig#get_all_textconfig'
     post 'get_textconfig', to: 'textconfig#get_textconfig'
     post 'create_textconfig', to: 'textconfig#create_textconfig'
+    post 'update_textconfig_status', to: 'textconfig#update_textconfig_status'
 
     post 'get_all_flexible_textconfig', to: 'flexible_textconfig#get_all_flexible_textconfig'
     post 'get_flexible_textconfig', to: 'flexible_textconfig#get_flexible_textconfig'
     post 'create_flexible_textconfig', to: 'flexible_textconfig#create_flexible_textconfig'
+    post 'update_flexible_textconfig_status', to: 'flexible_textconfig#update_flexible_textconfig_status'
   end
 
   root 'home#index'
