@@ -16,6 +16,10 @@ class Api::RuleController < ApplicationController
       r.mongo_query = mongo_query
       r.build_query = build_query
       r.created_by = current_user.id
+      r.category_id = Category.find_by(name: params[:category_id])&.id if params[:category_id].present?
+      r.sub_category_id = SubCategory.find_by(name: params[:sub_category_id])&.id if params[:sub_category_id].present?
+      r.rule_type_id = RuleType.find_by(name: params[:rule_type_id])&.id if params[:rule_type_id].present?
+      r.rule_order_id = RuleOrder.find_by(name: params[:rule_order_id])&.id if params[:rule_order_id].present?
       r.save
     end
     get_rules_list
@@ -35,6 +39,10 @@ class Api::RuleController < ApplicationController
       r.build_query = build_query if build_query
       r.updated_by = current_user.id
       # r.is_active = false
+      r.category_id = Category.find_by(name: params[:category_id])&.id if params[:category_id].present?
+      r.sub_category_id = SubCategory.find_by(name: params[:sub_category_id])&.id if params[:sub_category_id].present?
+      r.rule_type_id = RuleType.find_by(name: params[:rule_type_id])&.id if params[:rule_type_id].present?
+      r.rule_order_id = RuleOrder.find_by(name: params[:rule_order_id])&.id if params[:rule_order_id].present?
       r.save
     end
 
