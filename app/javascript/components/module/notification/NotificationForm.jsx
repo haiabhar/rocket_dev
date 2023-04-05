@@ -243,7 +243,7 @@ const onSubmit = ({ value, touched }) =>
             <div className="col-md-10 "> &nbsp; </div>         
             <div className="col-md-2 ">          
                 <Box direction="row" gap="small" margin="medium" className=""  >
-                    <Button  label="Next"  secondary type="button" onClick={(e) => setNext(2)} />
+                    {/*<Button  label="Next"  secondary type="button" onClick={(e) => setNext(2)} />*/}
                 </Box>
             </div>
 
