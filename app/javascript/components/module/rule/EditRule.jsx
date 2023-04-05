@@ -11,6 +11,10 @@ const [rule_data, setruleData] = useState(props.rule_detail);
 
 const [mongo_query, setmongo_query] = useState(props.rule_detail.mongo_query);
 const [build_query, setbuild_query] = useState(props.rule_detail.build_query);
+const cat = ['Account Management', 'Subscription Management', 'Device Management']
+const sub_cat = ['sub1','sub2','sub3']
+const rule_types = ['RT1','RT2','RT3']
+const rule_orders = ['RO1','RO2','RO3']
 useEffect(() => {
     //fetchData();
   }, []);
@@ -87,6 +91,48 @@ const updateText = e =>
               <TextInput id="name" name="name" value={rule_data.name} onChange={(e) => updateText(e)} />
             </FormField>
           </div>
+
+          <div className="col-md-12">
+            <FormField  label="Category" htmlFor="category_id" >
+              {/*<TextInput id="category_id" name="category_id" />*/}
+              <Select
+                placeholder="Select..."
+                options={cat}
+                onChange={({ option }) => setValue(option)}
+              />
+            </FormField>
+          </div>
+
+          <div className="col-md-12">
+            <FormField label="Sub Category" htmlFor="sub_category_id" >
+              <Select
+                placeholder="Select..."
+                options={sub_cat}
+                onChange={({ option }) => setValue(option)}
+              />
+            </FormField>
+          </div>
+
+          <div className="col-md-12">
+            <FormField label="Rule Type" htmlFor="sub_category_id" >
+              <Select
+                placeholder="Select..."
+                options={rule_types}
+                onChange={({ option }) => setValue(option)}
+              />
+            </FormField>
+          </div>
+
+          <div className="col-md-12">
+            <FormField label="Priority" htmlFor="sub_category_id" >
+              <Select
+                placeholder="Select..."
+                options={rule_orders}
+                onChange={({ option }) => setValue(option)}
+              />
+            </FormField>
+          </div>
+          
           <div className="col-md-12">
             <FormField  label="Query String" htmlFor="query_string" >
               <TextInput id="query_string" name="query_string" value={rule_data.query_string} onChange={(e) => updateText(e)} />
