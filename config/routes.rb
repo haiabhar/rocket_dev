@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     get 'get_all_categories', to: 'categories#get_all_categories'
     post 'get_category', to: 'categories#get_category'
     post 'create_category', to: 'categories#create_category'
+    post 'get_dynamic_form', to: 'categories#get_dynamic_form'
+    post 'get_sub_categorys', to: 'categories#get_sub_categorys'
 
     post 'get_incident_list', to: 'incident#get_incident_list'
     post 'get_myincident_list', to: 'incident#get_myincident_list'
@@ -54,7 +56,7 @@ Rails.application.routes.draw do
     post 'create_flexible_textconfig', to: 'flexible_textconfig#create_flexible_textconfig'
     post 'update_flexible_textconfig_status', to: 'flexible_textconfig#update_flexible_textconfig_status'
   end
-
+    get 'login_form_test', to: 'login_form_test#test_login_form_test'
   root 'home#index'
   post 'verify_login', to: 'home#verify_login'
 end

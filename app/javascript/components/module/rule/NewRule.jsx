@@ -19,34 +19,55 @@ const [sub_categories, setsub_categories] = useState([]);
 
 const static_qry = JSON.stringify({"id":"8a8aabb9-0123-4456-b89a-b186c5ad2c95","type":"group"});
 const [build_query, setbuild_query] = useState(static_qry);
-const cat = ['Account Management', 'Subscription Management', 'Device Management']
-const sub_cat = ['sub1','sub2','sub3']
-const rule_types = ['RT1','RT2','RT3']
-const rule_orders = ['RO1','RO2','RO3']
-
+const [data_cat, setData_cat] = useState([]);
+const [data_sub_cat, setData_sub_cat] = useState([]);
+const [data_rule_type, setData_rule_type] = useState([]);
+const [data_priority, setData_priority] = useState([]);
+const [selected_cat, setSelected_cat] = useState('');
+const [selected_sub_cat, setSelected_sub_cat] = useState('');
+const [selected_rule_type, setSelected_rule_type] = useState('');
+const [selected_priority, setSelected_priority] = useState('');
 useEffect(() => {
-    //fetchData();
-  const url = ""
+    fetchData();
   }, []);
-
-useEffect(() => {
-    load_data();
-  }, []);
-    const config_settings = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({})
-    };
-  const load_data = () => {
-      setLoading(true);
+let csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content")
+      const config_settings = {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json','X-CSRF-Token': csrf  },
+          body: JSON.stringify({"id":''})
+      };
+  const fetchData = () => {
+     setLoading(true);
       fetch("/api/get_dynamic_form",config_settings)
       .then((response) => response.json())
       .then((data) => {
-        setdynamic_formlist(data);
+        setData_cat(data[0]);
+        setData_rule_type(data[1]);
+        setData_priority(data[2]);
         setLoading(false);
       });
   };
-  
+  const getsubcat = e =>{
+  setSelected_cat(e);
+  setform_errors('');
+  let csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+     const mi_post_settings = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json','X-CSRF-Token': csrf  },
+        body: JSON.stringify({"category_name":e})
+    };
+  setLoading(true);
+    fetch("/api/get_sub_categorys",mi_post_settings)
+      .then((response) => response.json())
+      .then((data) => {
+        setData_sub_cat(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
+}
 const onSubmit = ({ value, touched }) => 
   { 
     if(value.rule_name && value.query_string && value.mongo_query)
@@ -116,9 +137,11 @@ const onSubmit = ({ value, touched }) =>
             <FormField  label="Category" htmlFor="category_id" >
               {/*<TextInput id="category_id" name="category_id" />*/}
               <Select
+                id="category_id"
+                name="category_id"
                 placeholder="Select..."
-                options={cat}
-                onChange={({ option }) => setValue(option)}
+                options={data_cat}
+                onChange={({ option }) => getsubcat(option)}
               />
             </FormField>
           </div>
@@ -126,29 +149,35 @@ const onSubmit = ({ value, touched }) =>
           <div className="col-md-12">
             <FormField label="Sub Category" htmlFor="sub_category_id" >
               <Select
+                id="sub_category_id"
+                name="sub_category_id"
                 placeholder="Select..."
-                options={sub_cat}
-                onChange={({ option }) => setValue(option)}
+                options={data_sub_cat}
+                onChange={({ option }) => setSelected_sub_cat(option)}
               />
             </FormField>
           </div>
 
           <div className="col-md-12">
-            <FormField label="Rule Type" htmlFor="sub_category_id" >
+            <FormField label="Rule Type" htmlFor="rule_type_id" >
               <Select
+                id="rule_type_id"
+                name="rule_type_id"
                 placeholder="Select..."
-                options={rule_types}
-                onChange={({ option }) => setValue(option)}
+                options={data_rule_type}
+                onChange={({ option }) => setSelected_rule_type(option)}
               />
             </FormField>
           </div>
 
           <div className="col-md-12">
-            <FormField label="Priority" htmlFor="sub_category_id" >
+            <FormField label="Priority" htmlFor="rule_order_id" >
               <Select
+                id="rule_order_id"
+                name="rule_order_id"
                 placeholder="Select..."
-                options={rule_orders}
-                onChange={({ option }) => setValue(option)}
+                options={data_priority}
+                onChange={({ option }) => setSelected_priority(option)}
               />
             </FormField>
           </div>
