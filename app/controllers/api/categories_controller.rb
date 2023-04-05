@@ -50,11 +50,11 @@ class Api::CategoriesController < ApplicationController
           end
           if params[:id].present?
             rule = Rule.find(params[:id])
-            catname = Category.find(rule&.category_id)&.name
-            subcatname = SubCategory.find(rule&.sub_category_id)&.name
-            ruletype = RuleType.find(rule&.rule_type_id)&.name
-            ruleorder = RuleOrder.find(rule&.rule_order_id)&.name
-            subc = SubCategory.where(category_id: rule&.category_id) if rule.present? 
+            catname = Category.find(rule&.category_id)&.name if rule&.category_id.present?
+            subcatname = SubCategory.find(rule&.sub_category_id)&.name if rule&.sub_category_id.present?
+            ruletype = RuleType.find(rule&.rule_type_id)&.name if rule&.rule_type_id.present?
+            ruleorder = RuleOrder.find(rule&.rule_order_id)&.name if rule&.rule_order_id.present?
+            subc = SubCategory.where(category_id: rule&.category_id) if rule&.category_id.present? 
             if subc.present?
               subc.each do |c|   
               sub_cat << c.name                    
