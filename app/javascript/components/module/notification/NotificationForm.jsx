@@ -1,9 +1,10 @@
 import React, { useContext, useState,useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {  Button,  Box,  DataTable,   Header,  Heading,  Layer,  ResponsiveContext,Text, CheckBox,  Form,  FormField,  Select,  TextArea,  TextInput, Tabs, RadioButtonGroup,CheckBoxGroup } from 'grommet';
-import { Close, Edit, Trash,Search } from 'grommet-icons';
+import { Close, Edit, Trash,Search,Copy } from 'grommet-icons';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 
 const LayerForm = (props ) => {
 const rule_id = props.rule_id
@@ -14,6 +15,7 @@ const [loading, setLoading] = useState(false);
 const [showForm, setshowForm] = useState(false);
 const [form_errors, setform_errors] = useState("");
 const [dynamicTo, setDynamicTo] = useState(false);
+const [textconfig, setTextconfig] = useState();
 const [dynamicCc, setDynamicCc] = useState(false);
 const [dynamicBcc, setDynamicBcc] = useState(false);
 const [formData, setFormData] = useState([]); 
@@ -21,6 +23,7 @@ const [formnext, setNext] = useState(1);
 const [editor_data, setEditor_data] = useState(null);
 useEffect(() => {
     fetchData();
+    fetchTextconfig();
   }, []);
 
 const updateText = e =>
@@ -121,10 +124,25 @@ const onSubmit = ({ value, touched }) =>
         setLoading(false);
       });
     }
-    else
-    {
+  }
 
-    }
+  const fetchTextconfig = () => {
+  let csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+    const get_set = {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json','X-CSRF-Token': csrf }
+    };
+    setLoading(true);
+      fetch("api/get_all_textconfig",get_set)
+        .then((response) => response.json())
+        .then((data) => {
+          setTextconfig(data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoading(false);
+        });
   }
   
 
@@ -254,7 +272,12 @@ const onSubmit = ({ value, touched }) =>
                 setEditor_data(data);
             } }
             config={{
-             removePlugins: ["EasyImage","ImageUpload"]
+             //removePlugins: ["EasyImage","ImageUpload"],
+             //extraPlugins: [ MyUploadAdapter,]
+            ckfinder: {
+              uploadUrl: '/file_uploads/upload'
+            }
+
               }}
              />
             </FormField>
@@ -268,7 +291,32 @@ const onSubmit = ({ value, touched }) =>
                 <div className="col-md-2"> <Button alignSelf="end" label="Save"  secondary type="submit" /></div>
             </Box>
           </div>
+          <div className="col-md-12">
+          {textconfig &&
 
+              <table className="table table-bordered table-sm" >
+              <thead>
+                  <tr>
+                      <td><b>Name</b></td>                
+                      <td><b>Code</b></td>
+                      <td></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  {textconfig.map(tf =>{ 
+                    return (           
+                              <tr key={"tfr"+tf.id} style={{cursor: "copy"}} onClick={() => {navigator.clipboard.writeText("|"+tf.code+"|")}} >
+                                <td>{tf.name}</td>
+                                <td><b>|{tf.code}|</b></td>
+                                <td><Copy title="click to copy" /></td>
+                              </tr>
+                              )
+                  })}
+                  </tbody>
+                </table>
+                }
+                
+            </div>
         </div>
       
         {form_errors &&
