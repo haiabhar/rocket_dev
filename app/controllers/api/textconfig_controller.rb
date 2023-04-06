@@ -1,7 +1,7 @@
 class Api::TextconfigController < ApplicationController
   
   def get_all_textconfig
-    @textconfigs = FlexibleText.active
+    @textconfigs = FlexibleText.unscoped.all
     render json: @textconfigs
   end
 

@@ -1,7 +1,7 @@
 class Api::CategoriesController < ApplicationController
   
   def get_all_categories
-    @categories = Category.active
+    @categories = Category.all
     render json: @categories
   end
 
@@ -76,6 +76,17 @@ class Api::CategoriesController < ApplicationController
           end 
       render json: subcat 
     end
+  end
+
+  def update_category_status
+    cat_id = params[:cat_id]
+    status = params[:status]
+    if cat_id.present?
+      r = Category.find(cat_id)
+      r.is_active = status
+      r.save
+    end
+    get_all_categories
   end
 
 end 
