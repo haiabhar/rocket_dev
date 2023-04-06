@@ -1,7 +1,7 @@
 class RuleOrder < ApplicationRecord
 
 	before_create :set_code
-
+	has_many :rules
 	scope :active, -> { where(is_active: true) }
 
 	def set_code
