@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react';
 import {Box,Data,DataTable,DataFilters,DataSearch,DataSummary,DataTableColumns,Header,Heading,Menu,Page,PageContent,Toolbar,Text,Button,CheckBox} from 'grommet';
 import EditRule from "./EditRule";
 import NewRule from "./NewRule";
+import ShowRule from "./ShowRule";
 import Notification from "./../notification/NotificationList";
 
 
@@ -24,10 +25,14 @@ const [loading, setLoading] = useState(false);
 const COLUMNS = [
 { property: 'id', header: 'ID', render: datum => <span>RL000{datum.id} </span> },
 { property: 'name', header: 'Name' },
+{ property: 'category_name', header: 'Category' },
+{ property: 'rule_type_name', header: 'Rule Type' },
+{ property: 'priority', header: 'Priority' },
 { property: 'query_string', header: 'Query String'},
-{ property: 'mongo_query', header: 'Rule Query' },
+//{ property: 'mongo_query', header: 'Rule Query' },
 { property: 'is_active', header: 'Status', render: datum => (roleids.includes(1) || roleids.includes(3) ) ? <CheckBox  checked={datum.is_active} toggle label={datum.is_active == true ? "Active" : "Inactive"}  onChange={(event) => setChecked(event.target.checked, datum.id)} /> :  datum.is_active == true ? "Active" : "Inactive" },
 { property: 'mdfy_btn', header: 'Modify', render: datum => <EditRule user={user} rule_detail={datum} setData={setData} /> },
+{ property: 'show_btn', header: 'Show', render: datum => <ShowRule user={user} rule_detail={datum} setData={setData} /> },
 // { property: 'action_btn', header: 'Action', render: datum => <Button label="Action" secondary /> },
  { property: 'notification_btn', header: 'Notification', render: datum => <Notification rule_id={datum.id} /> },
 ];

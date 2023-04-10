@@ -1,7 +1,7 @@
 class Api::RuleController < ApplicationController
   def get_rules_list
     two_minutes = 2.minutes.ago
-    @rules = Rule.all
+    @rules = Rule.joins(:category,:rule_type,:rule_order).select("rules.*,rule_types.name as rule_type_name,categories.name as category_name,rule_orders.name as priority")
     render json: @rules
   end
   def create_rule

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     post 'create_category', to: 'categories#create_category'
     post 'get_dynamic_form', to: 'categories#get_dynamic_form'
     post 'get_sub_categorys', to: 'categories#get_sub_categorys'
+    post 'update_category_status', to: 'categories#update_category_status'
 
     post 'get_incident_list', to: 'incident#get_incident_list'
     post 'get_myincident_list', to: 'incident#get_myincident_list'
@@ -33,6 +34,7 @@ Rails.application.routes.draw do
     post 'get_all_sub_categories', to: 'sub_categories#get_all_sub_categories'
     post 'get_sub_category', to: 'sub_categories#get_sub_category'
     post 'create_sub_category', to: 'sub_categories#create_sub_category'
+    post 'update_sub_category_status', to: 'sub_categories#update_sub_category_status'
 
     get 'get_incident_list', to: 'incident#get_incident_list'
 

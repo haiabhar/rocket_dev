@@ -23,7 +23,7 @@ const [loading, setLoading] = useState(false);
 const COLUMNS = [
 { property: 'id', header: 'ID', render: datum => <span>{datum.id} </span> },
 { property: 'name', header: 'Name' },
-{ property: 'is_active', header: 'Status', render: datum =>  datum.is_active == true ? "Active" : "Inactive" },
+{ property: 'is_active', header: 'Status', render: datum => (roleids.includes(1) || roleids.includes(3) ) ? <CheckBox  checked={datum.is_active} toggle label={datum.is_active == true ? "Active" : "Inactive"}  onChange={(event) => setChecked(event.target.checked, datum.id)} /> :  datum.is_active == true ? "Active" : "Inactive" },
 { property: 'mdfy_btn', header: 'Modify', render: datum => <SubcategoryForm addedit = 'edit' sub_category_id={datum.id} setData={setData} /> },
 ];
 
@@ -46,6 +46,26 @@ const fetchData = () => {
     };
     setLoading(true);
       fetch(`api/get_all_sub_categories`,get_set)
+        .then((response) => response.json())
+        .then((data) => {
+          setData(data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoading(false);
+        });
+}
+const setChecked = (status,rid) =>
+{
+  let csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+    const post_set = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json','X-CSRF-Token': csrf },
+        body: JSON.stringify({subcat_id: rid, status: status})
+    };
+    setLoading(true);
+      fetch("api/update_sub_category_status",post_set)
         .then((response) => response.json())
         .then((data) => {
           setData(data);

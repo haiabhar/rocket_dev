@@ -3,7 +3,7 @@ class Api::SubCategoriesController < ApplicationController
   before_action :set_category_id, :only => [:get_all_sub_categories]
   
   def get_all_sub_categories
-    @sub_categories = @category.sub_categories&.active #SubCategory.active
+    @sub_categories = @category.sub_categories.all #SubCategory.active
     
     render json: @sub_categories
   end
@@ -25,6 +25,18 @@ class Api::SubCategoriesController < ApplicationController
 
     @category = sc.category
 
+    get_all_sub_categories
+  end
+
+  def update_sub_category_status
+    subcat_id = params[:subcat_id]
+    status = params[:status]
+    if subcat_id.present?
+      r = SubCategory.find(subcat_id)
+      r.is_active = status
+      r.save
+    end
+    @category = r.category
     get_all_sub_categories
   end
 

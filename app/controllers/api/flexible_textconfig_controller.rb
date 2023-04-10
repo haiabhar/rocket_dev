@@ -3,7 +3,7 @@ class Api::FlexibleTextconfigController < ApplicationController
   before_action :set_flexible_textconfig_id, :only => [:get_all_flexible_textconfig]
   
   def get_all_flexible_textconfig
-    @flexible_text_config = @flexible_text.flexible_text_configs&.active #SubCategory.active
+    @flexible_text_config = @flexible_text.flexible_text_configs.unscoped.all #SubCategory.active
     
     render json: @flexible_text_config
   end

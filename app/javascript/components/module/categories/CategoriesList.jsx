@@ -29,7 +29,7 @@ const [category_show_name, setCategory_show_name] = useState(0);
 const COLUMNS = [
 { property: 'id', header: 'ID', render: datum => <span>{datum.id} </span> },
 { property: 'name', header: 'Name' },
-{ property: 'is_active', header: 'Status', render: datum =>  datum.is_active == true ? "Active" : "Inactive" },
+{ property: 'is_active', header: 'Status', render: datum => (roleids.includes(1) || roleids.includes(3) ) ? <CheckBox  checked={datum.is_active} toggle label={datum.is_active == true ? "Active" : "Inactive"}  onChange={(event) => setChecked(event.target.checked, datum.id)} /> :  datum.is_active == true ? "Active" : "Inactive" },
 { property: 'show_btn', header: 'Show', render: datum => <Button alignSelf="start"  secondary icon={<View />} onClick={(e) => show_sub_cat(datum.id,datum.name)} /> },
 { property: 'mdfy_btn', header: 'Modify', render: datum => <CategoryForm addedit = 'edit' category_id={datum.id} setData={setData} /> },
 ];
@@ -61,6 +61,26 @@ const fetchData = () => {
           setLoading(false);
         });
 }
+const setChecked = (status,rid) =>
+{
+  let csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
+    const post_set = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json','X-CSRF-Token': csrf },
+        body: JSON.stringify({cat_id: rid, status: status})
+    };
+    setLoading(true);
+      fetch("api/update_category_status",post_set)
+        .then((response) => response.json())
+        .then((data) => {
+          setData(data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
+          setLoading(false);
+        });
+}
   return (
     <>
     { category_show == false && 
@@ -75,7 +95,7 @@ const fetchData = () => {
 	}
 	{ category_show == true && 
 		<>
-		<CategoryShow category_id ={category_show_id} category_name={category_show_name}  />
+		<CategoryShow user={user} category_id ={category_show_id} category_name={category_show_name}  />
 		</>
 	}
 
