@@ -45,7 +45,7 @@ return (
       </Box>
       </Tab>
     }
-    { roleids.includes(4) &&
+    { (roleids.includes(1) || roleids.includes(3) || roleids.includes(4)) &&
       <Tab title="Incidents">
       <Box pad="medium">
           
