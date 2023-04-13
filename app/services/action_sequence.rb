@@ -118,7 +118,7 @@ class ActionSequence
 		d.action_performed = true
 		d.action_performed_at = Time.now
 		d.action_status = @action_status
-		d.action_log = d.action_log + @action_log
+		d.action_log = d.action_log.to_s + @action_log
 		d.save
 
 	end
