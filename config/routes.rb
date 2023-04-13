@@ -30,7 +30,10 @@ Rails.application.routes.draw do
     post 'get_incident_list', to: 'incident#get_incident_list'
     post 'get_myincident_list', to: 'incident#get_myincident_list'
     post 'assign_incident', to: 'incident#assign_incident'
-
+    post 'search_user_list', to: 'incident#search_user_list'
+    post 'update_deed', to: 'incident#update_deed'
+    post 'transfer_incident', to: 'incident#transfer_incident'
+    
     post 'get_all_sub_categories', to: 'sub_categories#get_all_sub_categories'
     post 'get_sub_category', to: 'sub_categories#get_sub_category'
     post 'create_sub_category', to: 'sub_categories#create_sub_category'

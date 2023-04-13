@@ -1,5 +1,7 @@
 import React, { useState,useEffect } from 'react';
-import {Box,Data,DataTable,DataFilters,DataSearch,DataSummary,DataTableColumns,Header,Heading,Menu,Page,PageContent,Toolbar,Text,Button,CheckBox, Pagination, Spinner, Tab, Tabs} from 'grommet';
+import styled from 'styled-components';
+import {Box,Data,DataTable,DataFilters,DataSearch,DataSummary,DataTableColumns,Header,Heading,Menu,Page,PageContent,Toolbar,Text,Button,CheckBox, Pagination, Spinner, Tab, Tabs, Keyboard, TextInput} from 'grommet';
+import {  Chat,  Hpe,  Notification,  Search as SearchIcon,  User, FormClose, } from 'grommet-icons';
 import ShowIncident from "./ShowIncident";
 export const MyIncidentList = (props) => {
 user = props.user;
@@ -18,6 +20,24 @@ const [current_page, setCurrent_page] = useState(1);
 const [limit_value, setLimit_value] = useState(25);
 const [allData, setData] = useState([]);
 const [loading, setLoading] = useState(false);
+const [search_val, setSearch_val] = useState(0);
+const StyledTextInput = styled(TextInput).attrs(() => ({
+  'aria-labelledby': 'search-complex-example',
+}))``;
+const handleEntered = (e)=> 
+{ 
+  if(e.key == 'Enter'){
+    e.preventDefault();
+  setSearch_val(e.target.value);
+    }
+};
+const handleclicksearch = (e)=> 
+{ 
+  if(e.target.value.length)
+  {
+  setSearch_val(e.target.value);
+  }
+};
 const columns = [
   {
     property: 'error_log',
@@ -126,10 +146,14 @@ const headers = [
 
 const pass_val = [];
 pass_val[0] = 1;
-
+pass_val[1] = search_val;
   useEffect(() => {
     fetchData();
   }, []);
+    useEffect(() => {
+//console.log(search_val);
+    fetchData();
+}, [search_val, setSearch_val]);
 const fetchData = () => {
   let csrf = document.querySelector("meta[name='csrf-token']").getAttribute("content");
     const post_set = {
@@ -161,6 +185,14 @@ const pagination_submit  = ({ page, startIndex, endIndex }) =>
   } 
   return (
     <>
+        <div className="pull-right">
+        <Box background="background-contrast" round="small" width="medium" style={{float: "right"}}>
+        <Keyboard>
+        <StyledTextInput icon={<SearchIcon  id="search-complex-example"  />} dropHeight="small" placeholder="Search"
+          onKeyPress={handleEntered} onClick={handleclicksearch} plain reverse />
+        </Keyboard>
+        </Box>
+        </div>
     <Data data={allData} flex >  
       <Box overflow="auto" flex>
         <DataTable
