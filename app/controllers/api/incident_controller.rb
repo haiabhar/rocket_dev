@@ -3,11 +3,17 @@ class Api::IncidentController < ApplicationController
     search = ''
     @page = params['_json'][0]
     search = params['_json'][1]
-    qry = "deeds.id > 0 "
+    qry = "deeds.id > 0 and (deeds.status !='Closed' OR deeds.status IS NULL)"
     if search.present? and search != 0
-      qry = qry + " AND (deeds.serial_num LIKE '%#{search}%' OR deeds.customer_id LIKE'%#{search}%' OR deeds.platform_id LIKE '%#{search}%' OR deeds.error_log LIKE '%#{search}%' OR deeds.email = '#{search}' OR users.full_name ='#{search}' OR users.email = '%#{search}%' OR deeds.deed_reference_id = '#{search}')"
+      qry = qry + " AND (deeds.serial_num LIKE '%#{search}%' OR deeds.customer_id LIKE'%#{search}%' OR deeds.platform_id LIKE '%#{search}%' OR deeds.error_log LIKE '%#{search}%' OR deeds.email LIKE '%#{search}%' OR users.full_name LIKE '%#{search}%' OR users.email LIKE '%#{search}%' OR deeds.deed_reference_id = '#{search}')"
     end
-    @incidents = Deed.joins("INNER JOIN rules ON rules.id = deeds.rule_id LEFT JOIN users ON users.id = deeds.assigned_to").where("#{qry}").select('deeds.*,rules.name as rule,users.full_name as owner').order(created_at: :desc).page(@page)
+    inc = Deed.joins("INNER JOIN users ON users.id = deeds.assigned_to").where("users.full_name LIKE '%#{search}%' OR users.email LIKE '%#{search}%'")
+    if inc.present?
+        @incidents = Deed.joins("INNER JOIN rules ON rules.id = deeds.rule_id INNER JOIN users ON users.id = deeds.assigned_to").where("#{qry}").select('deeds.*,rules.name as rule,users.full_name as owner').order(created_at: :desc).page(@page)
+    else
+        @incidents = Deed.joins("INNER JOIN rules ON rules.id = deeds.rule_id LEFT JOIN users ON users.id = deeds.assigned_to").where(assigned_to: nil).where("#{qry}").select('deeds.*,rules.name as rule,users.full_name as owner').order(created_at: :desc).page(@page)
+    end
+    
       @total_count       = @incidents.total_count
       @total_pages       = @incidents.total_pages
       @current_page       = @incidents.current_page
@@ -31,11 +37,11 @@ class Api::IncidentController < ApplicationController
     search = ''
     @page = params['_json'][0] 
     search = params['_json'][1]
-    qry = "deeds.id > 0 "
+    qry = "deeds.id > 0 and (deeds.status !='Closed' OR deeds.status IS NULL)"
     if search.present? and search != 0
       qry = qry + " AND (deeds.serial_num LIKE '%#{search}%' OR deeds.customer_id LIKE'%#{search}%' OR deeds.platform_id LIKE '%#{search}%' OR deeds.error_log LIKE '%#{search}%' OR deeds.email = '#{search}' OR deeds.deed_reference_id = '#{search}')"
     end
-    @incidents = Deed.joins("INNER JOIN rules ON rules.id = deeds.rule_id LEFT JOIN users ON users.id = deeds.assigned_to").where(assigned_to: current_user.id).where("#{qry}").select('deeds.*,rules.name as rule,users.full_name as owner').order(created_at: :desc).page(@page)
+    @incidents = Deed.joins("INNER JOIN rules ON rules.id = deeds.rule_id INNER JOIN users ON users.id = deeds.assigned_to").where(assigned_to: current_user.id).where("#{qry}").select('deeds.*,rules.name as rule,users.full_name as owner').order(created_at: :desc).page(@page)
       @total_count       = @incidents.total_count
       @total_pages       = @incidents.total_pages
       @current_page       = @incidents.current_page
