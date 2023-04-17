@@ -1,6 +1,6 @@
 import React, { useContext, useState,useEffect } from 'react';
 import PropTypes from 'prop-types';
-import {  Button,  Box,  DataTable,   Header,  Heading,  Layer,  ResponsiveContext,Text, CheckBox,  Form,  FormField,  Select,  TextArea,  TextInput, Tabs, RadioButtonGroup,CheckBoxGroup,NameValueList,NameValuePair,NewlineText } from 'grommet';
+import {  Button,  Box,  DataTable,   Header,  Heading,  Layer,  ResponsiveContext,Text, CheckBox,  Form,  FormField,  Select,  TextArea,  TextInput, Tabs, RadioButtonGroup,CheckBoxGroup,NameValueList,NameValuePair } from 'grommet';
 import { Close, Edit, Trash,Search } from 'grommet-icons';
 const status_option = ['Open','Work in Progress','Pending','Closed'];
 const LayerForm = (props ) => {
@@ -232,8 +232,7 @@ const updateassignee = (text) =>
             {incident_data.status}
           </NameValuePair>
           <NameValuePair key="Notes" name={'Notes : '}>
-            {/*{incident_data.notes ? incident_data.notes.split('\n').map(str => <Text key={str}>{str}</Text>) : ''}*/}
-          <NewlineText text={incident_data.notes ? incident_data.notes : ''} />
+            {incident_data.notes ? incident_data.notes.split('\n').map((item, i) => <Text key={i}>{item}</Text>) : ''}
           </NameValuePair>
           </NameValueList>
           </div>
