@@ -232,7 +232,7 @@ const updateassignee = (text) =>
             {incident_data.status}
           </NameValuePair>
           <NameValuePair key="Notes" name={'Notes : '}>
-            {incident_data.notes ? incident_data.notes.split('\n') : ''}
+            {incident_data.notes ? incident_data.notes.split('<br/>').map(str => <Text key={str}>{str}</Text>) : ''}
           </NameValuePair>
           </NameValueList>
           </div>
