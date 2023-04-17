@@ -67,7 +67,7 @@ class Api::IncidentController < ApplicationController
       deed.status = params[:status] if params[:status].present?
       notes = params[:notes].to_s + ' -- '+current_user&.email.to_s + ' on ' + Time.now.strftime('%Y-%m-%d %H:%M') if params[:notes].present?
         if Deed.find(params[:deed_id])&.notes.present?
-           deed.notes = Deed.find(params[:deed_id])&.notes.to_s + " <br/> "+notes
+           deed.notes = Deed.find(params[:deed_id])&.notes.to_s + " \n "+notes
         else
            deed.notes = notes if params[:notes].present?
         end
