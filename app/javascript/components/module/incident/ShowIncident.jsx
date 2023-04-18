@@ -232,7 +232,13 @@ const updateassignee = (text) =>
             {incident_data.status}
           </NameValuePair>
           <NameValuePair key="Notes" name={'Notes : '}>
-            {incident_data.notes ? incident_data.notes.split('\n').map((item, i) => <Text key={i}>{item}</Text>) : ''}
+            {/*{incident_data.notes ? incident_data.notes.split('\n').map((item, i) => <Text key={i}>{item}</Text>) : ''}*/}
+            {incident_data?.notes && 
+                <ul> {incident_data.notes.split('\n').map((item, i) =>
+                  <li key={i}>{item}</li>
+                  ) }
+                </ul>
+            }
           </NameValuePair>
           </NameValueList>
           </div>
