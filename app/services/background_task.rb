@@ -5,9 +5,8 @@ class BackgroundTask
 
 		#Rule.all.each do |rule|
 		Rule.where(is_active: true).each do |rule|
-			#binding.pry
-
-			t1 = Thread.new{BackgroundTask.get_response_stored(rule.id)}
+			#t1 = Thread.new{BackgroundTask.get_response_stored(rule.id)}
+			BackgroundTask.get_response_stored(rule.id)
 			p "Thread started"
 			
 		end			
