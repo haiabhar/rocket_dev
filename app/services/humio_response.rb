@@ -2,12 +2,15 @@ class HumioResponse
 
 	def response_in_json(query_str)
 
-		url = "https://aquila-us-west-2.cloudops.common.cloud.hpe.com/logs/api/v1/repositories/ccsportal/query"
-		token = "yzYv4fAD3vZkSKIr9SRe0q3V~QuOfXvgLaNCoyMrtusw40ZnOLR03jBB0mjsF2qE2tZ6k"
+		url = ENV["SOURCE"]
+		token = ENV["TOKEN"]
+
+		#url = "https://aquila-us-west-2.cloudops.common.cloud.hpe.com/logs/api/v1/repositories/ccsportal/query"
+		#token = "yzYv4fAD3vZkSKIr9SRe0q3V~QuOfXvgLaNCoyMrtusw40ZnOLR03jBB0mjsF2qE2tZ6k"
 
 		#payload = {"queryString":"subscriptionKeyPattern","start": "30seconds"}
-		#payload = {"queryString":"#{query_str}","start": "25minutes"}
-		payload = {"queryString":"#{query_str}","start": "2seconds"}
+		payload = {"queryString":"#{query_str}","start": "5minutes"}
+		#payload = {"queryString":"#{query_str}","start": "2seconds"}
 
 		response = RestClient::Request.execute(method: :post, url: url, headers: { Authorization: "Bearer #{token}", content_type: 'application/json' }, verify_ssl: false, payload: payload.to_json , timeout: 10000000000)
 		
